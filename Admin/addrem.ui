@@ -1,0 +1,135 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>addrem</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>addrem</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>314</width>
+            <height>143</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Add/Remove Contestants</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout20</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QComboBox">
+                    <item>
+                        <property name="text">
+                            <string>Still in Contest</string>
+                        </property>
+                    </item>
+                    <item>
+                        <property name="text">
+                            <string>Time Up</string>
+                        </property>
+                    </item>
+                    <property name="name">
+                        <cstring>grp</cstring>
+                    </property>
+                </widget>
+                <widget class="QComboBox">
+                    <property name="name">
+                        <cstring>ulist</cstring>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout19</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>Add</cstring>
+                    </property>
+                    <property name="text">
+                        <string>+</string>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>Rem</cstring>
+                    </property>
+                    <property name="text">
+                        <string>-</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QPushButton">
+            <property name="name">
+                <cstring>Close</cstring>
+            </property>
+            <property name="text">
+                <string>Return To Admin</string>
+            </property>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>Add</sender>
+        <signal>clicked()</signal>
+        <receiver>addrem</receiver>
+        <slot>Add_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>Rem</sender>
+        <signal>clicked()</signal>
+        <receiver>addrem</receiver>
+        <slot>Rem_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>grp</sender>
+        <signal>activated(int)</signal>
+        <receiver>addrem</receiver>
+        <slot>grp_activated(int)</slot>
+    </connection>
+    <connection>
+        <sender>Close</sender>
+        <signal>clicked()</signal>
+        <receiver>addrem</receiver>
+        <slot>Close_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">addrem.ui.h</include>
+</includes>
+<slots>
+    <slot>GetPath()</slot>
+    <slot>LoadUList()</slot>
+    <slot>MsgBox( QString title, QString msg )</slot>
+    <slot>Add_clicked()</slot>
+    <slot>Rem_clicked()</slot>
+    <slot>LoadTUpList()</slot>
+    <slot>grp_activated( int index_sel )</slot>
+    <slot>Close_clicked()</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+    <function returnType="QString">ReadFile( QString fname )</function>
+    <function returnType="bool">AppendFile( QString fname, QString s )</function>
+    <function returnType="bool">WriteFile( QString fname, QString data )</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

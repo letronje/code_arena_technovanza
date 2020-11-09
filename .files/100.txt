@@ -1,0 +1,35 @@
+Problem Statement:
+
+	Heard of the Kaprekar's constant ? Here's how you can calculate it.
+Take any four digit number (whose digits are not all identical),say, 3141.Then do the following:
+
+(1)	Rearrange the digits to form the largest and smallest 4-digit numbers possible.
+(2) Take these two numbers and subtract the smaller number from the larger.
+(3) Use the number you obtain and repeat the above process.   
+
+,i.e, 4311-1134=3177 , 7731-1377=6354 ...... and so on 
+
+	After some steps, you will get a number X . If you apply the above procedure on X , you will get back X . This number is called the Kaprekar's constant.
+	The input to your program will be a 4 digit number 'n' . You program must output the no of steps taken to reach X.
+
+Constraints:
+
+(1) n will be between 1000 and 9998, both  inclusive
+
+Time Limit: 200 msecs
+
+Examples:
+
+(1) 
+Input : 1004
+
+Output	 : 7
+
+Explanation : 1004 => 4086 => 8172 => 7443 ...  X
+	
+(2) 
+Input : 1000
+
+Output	 : 5
+
+Explanation : 1000 => 0999 => 8991 ... X

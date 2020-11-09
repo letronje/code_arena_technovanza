@@ -1,0 +1,192 @@
+<ques>
+Problem Statement:
+
+	In 2029, Discovery landed on Mars. The leader of the mission, Dr.Neil Armstrong IIJunior stepped out and set his foot on the red martian surface. But instead of repeating his father's famous remark, he gave a cry of surprise and fear. For he had been confronted by three green, ugly looking dwarf-like creatures !!! The friendly Martians took the astronauts to their city. During their stay on Mars, they found out that the Martians were quite eager to communicate with them. Though their language was quite different,the astronauts realised that their number system was quite similar to ours.The only difference was that they used a  different base (base is the number of unique digits in a number system for eg. decimal number system has a base of 10 ) because they had only 3 fingers.
+	Now, the NASA scientists have establised a radio communication with the Martians. But in order to send data to Mars, they have to convert numbers from decimal system to their system.
+	 Your task is to write a program which can convert a number from decimal system to any other base.
+	
+Note:
+
+1) The input will consist of the number 'n' and the base 'b' to which n is to be converted.
+
+Constraints:
+
+1) n will be between 0 and 1023 both inclusive.
+2) n will an integer.
+3) b will be between 2 and 9 both inclusive.
+
+Time Limit: 200 msecs
+
+Examples:
+
+1) 
+
+Input : 32 2
+	
+Output: 100000
+
+Explanation: 32 is represented as 100000 in binary system ( base 2 )
+
+2)
+
+Input : 54 5
+   
+Output: 204
+
+Explanation: 54 in decimal is equivalent to 204 in base 5. 
+
+<< Source : Our imagination :) >>
+</ques>
+<code>
+# include <iostream>
+# include <string>
+
+using namespace std;
+
+int main()
+{
+  	int n,b;
+   	cin>>n>>b;
+    	
+	int ans=0;
+	int i=0;
+    
+    while(n !=0)
+    {
+        ans+= (n%b)*(int)pow(10.0,i++);
+        n/=b;
+    }
+    cout<<ans;
+    return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+1023 2
+</i>
+<o>
+1111111111
+</o>
+<p>
+8
+</p>
+<i>
+1023 3
+</i>
+<o>
+1101220
+</o>
+<p>
+8
+</p>
+<i>
+1023 4
+</i>
+<o>
+33333
+</o>
+<p>
+8
+</p>
+<i>
+1023 5
+</i>
+<o>
+13043
+</o>
+<p>
+8
+</p>
+<i>
+1023 6
+</i>
+<o>
+4423
+</o>
+<p>
+8
+</p>
+<i>
+1023 7
+</i>
+<o>
+2661
+</o>
+<p>
+8
+</p>
+<i>
+1023 8
+</i>
+<o>
+1777
+</o>
+<p>
+8
+</p>
+<i>
+1023 9
+</i>
+<o>
+1356
+</o>
+<p>
+8
+</p>
+<i>
+9 2
+</i>
+<o>
+1001
+</o>
+<p>
+8
+</p>
+<i>
+9 9
+</i>
+<o>
+10
+</o>
+<p>
+8
+</p>
+<i>
+0 3
+</i>
+<o>
+0
+</o>
+<p>
+8
+</p>
+<i>
+200 7
+</i>
+<o>
+404
+</o>
+<p>
+12
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+32 2
+</i>
+<o>
+100000
+</o>
+<i>
+54 5
+</i>
+<o>
+204
+</o>
+</examples>

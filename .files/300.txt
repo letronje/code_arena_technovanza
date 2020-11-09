@@ -1,0 +1,95 @@
+Problem Statement:
+
+	A statistician wants to convince his fellow players on a Game Show that they would benefit from a smarter banking strategy. 
+ 
+	The game works as follows:  A player is asked a series of questions.  After 
+each question the player answers correctly, the player has the option of 
+"banking".  When the player banks, a value is added to their total earnings for 
+the round.  The value is proportional to the number of correct answers the 
+player has answered in a row; if the player has answered x correct questions in 
+a row when banking, award[x] is added to their total for the round (0 is 
+element 0, 1000 is element 1, etc..): 
+award[] = { 0, 1000, 2500, 5000, 10000, 25000, 50000, 75000, 125000 } 
+After banking, the number of consecutive correct questions is reset to 0.   If 
+there is an incorrect answer, or the round ends before the player banks, the 
+count is reset to 0.   
+ 
+	The game consists of 7 rounds, with all values in the 7th round being doubled (double all values in the array). 
+ 
+	The statistician believes that more money can be made by choosing a constant number of correct answers to wait for before banking, and always banking after exactly that many correct answers.  To verify his reasoning, the statistician wants a program that inputs an array of strings of 7 elements representing the 7 rounds of the game.  Each String consists of R's and W's.  R's represent correct answers and W's represent incorrect answers.  The first character in the String represents the correctness of the player's first answer in the round, the second character represents the second answer, etc...   The program outputs an integer array of 8 elements that are the total earnings the players would earn in the game if the player banked immediately after exactly 1, 2, 3, 4, 5, 6, 7, and 8 consecutive correct answers.  The element 0 in the int[] is the score if the player always banked immediately after getting 1 correct answer.  The element 1 is the score if the player always banked immediately after getting 2 consecutive correct answers, etc...  
+
+Constraints: 
+
+Input:
+1) The array of strings will contains exactly 7 elements, each representing a single round.
+2) Each string is between 2 and 50 (inclusive) characters long and contains only the characters 'R' and 'W' (upper case). 
+
+Output: 
+1)The int[] will contain exactly 8 elements.  Element 0 in the array is the total game score the player gets for banking after every correct answer.  Element 1 is the total game score for banking after every two consecutive correct answers, etc... 
+ 
+Time Limit: 200ms
+
+Examples: 
+
+1)
+Input:
+RRRR
+RRRR
+RW
+WW
+RWRW
+RRRRWRR
+RRRRRRRRWR 
+ 
+Output:
+35000 37500 35000 70000 50000 100000 150000 250000
+
+Explanation:
+In Round 1,  
+if the player always banked after 1 correct answer, they would bank 4 times: 
+4*award[1] = 4000. 
+if the player always banked after 2 correct answers, they would bank 2 times: 
+2*award[2]  = 5000. 
+if the player always banked after 3 correct answers, they would bank 1 time: 
+1*award[3] = 5000. 
+if the player always banked after 4 correct answers, they would bank 1 time: 
+1*award[4] = 10000. 
+if the player always banked after 5, 6, 7, or 8 answers, they would never get 
+to bank, and earn 0. 
+So the round 1 subtotals would be: 
+subtotal: {4000, 5000, 5000, 10000, 0, 0, 0, 0} 
+ 
+Round 2 is the same, so we have: 
+Subtotal after round 2: {8000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 3 (RW) gives us one banking after 1 correct solution, and nothing else 
+subtotal: {9000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 4 (WW) gives us nothing, so the subtotal doesn't change at all. 
+ 
+Round 5 (RWRW) gives us two banking after 1 correct solution and nothing else 
+subtotal: {11000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 6 (RRRRWRR) gives us six bankings after 1 correct, three after 2 correct, 
+one after 3 correct, one after 4 correct and the subtotal becomes: 
+{17000, 17500, 15000, 30000, 0, 0, 0, 0} 
+ 
+Round 7 (RRRRRRRRWR) gives us nine bankings after 1 correct, four after 2 
+correct, two after 3 correct, two after 4 correct, one after 5 correct, one 
+after 6 correct, one after 7 correct, and one after 8 correct.  All these 
+totals are doubled, giving us a final total: 
+{35000, 37500, 35000, 70000, 50000, 100000, 150000, 250000} and this int[] 
+should be output. 
+ 
+2)
+Input: 
+RWRRRR
+RWWRWR
+RRRRRRWR
+RRRWRWRW
+RWWWRWWR
+RRRRWR
+RWWWWW
+
+Output:
+30000 20000 25000 30000 25000 50000 0 0

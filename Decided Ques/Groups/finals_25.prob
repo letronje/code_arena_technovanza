@@ -1,0 +1,698 @@
+<ques>
+Problem Statement:
+
+	Millions of people around the world are finding that a day isn't complete without tackling the latest edition of a simple puzzle called Sudoku. Sudoku means "single number" in Japanese.
+	The puzzle typically consists of a nine-by-nine grid . Some of the spaces contain numbers; most of the spaces are blank. Your goal is to fill in the blanks with digits from 1 to 9 so that each row, each column, and each of the nine three-by-three blocks making up the grid contains exactly one of each of the nine digits.You have to write a program which can solve such a puzzle .
+	The input to your program will the incomplete 9 by 9 grid in the from of 9 strings on 9 lines , with each string representing a row . A zero '0' indicates an empty space, which is to be filled with an appropriate digit.Your program must output the solved puzzle in the form of 9 string on 9 lines without any underscores.
+
+TimeLimit: 700 msecs
+
+Examples:
+
+1)
+
+Input:
+
+006300050
+700609320
+000070000
+300485000
+010000090
+000791008
+000040000
+043902001
+060003500
+
+Output:
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+2)
+
+Input:
+
+005904060
+040500001
+902000000
+009000008
+800305007
+100000500
+000000206
+300009070
+090807400
+
+Output:
+
+785914362
+643572981
+912638754
+259741638
+864395127
+137286549
+478153296
+321469875
+596827413
+
+<Source : All the Newspapers >
+</ques>
+<code>
+#include <iostream>
+#include <set>
+#include <fstream>
+#include <vector>
+
+using namespace std ;
+
+class Set//Set of integers
+{
+	public:
+		set<int> s;
+		void operator += ( const int& x )//adds no to set
+		{
+			s.insert(x);
+		}
+		void operator += ( Set& ins )//adds another set to a set
+		{
+			set<int>::iterator i ;
+			for(i=ins.s.begin();i != ins.s.end();i++)
+				s.insert(*i);
+		}
+		void operator -= ( int& x )//removes a no from a set
+		{
+			set<int> :: iterator i;
+			for(i=s.begin();i!=s.end();i++)
+			{
+				if((*i)==x)
+				{
+					s.erase(i);
+					return ;
+				}
+			}
+		}
+};
+
+void GetBoard(Set board[9][9])
+{
+	Set d;
+	for(int i=1;i<=9;i++)
+		d += i;
+	for(int i=0;i<9;i++)
+	{
+		string s;
+		cin>>s;
+		for(int j=0;j<9;j++)
+		{
+			if(s.at(j)!='0')	
+				board[i][j] += s.at(j)-48 ;	
+			else
+				board[i][j] = d;					
+		}
+	}
+}
+
+void ShowBoard(Set board[9][9])//show board at any instant
+{
+	cout << endl ;
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			set<int> :: iterator k;
+			int ctr=0;
+			for(k=board[i][j].s.begin();k!=board[i][j].s.end();k++,ctr++)
+				cout << *k ;
+		}
+		cout << endl ;
+	}
+}
+
+void ReduceRowCol(Set board[9][9],int& row,int& col)
+{
+	vector < pair<int,int> > v;
+	int ans = *board[row][col].s.begin();
+	for(int k=0;k<9;k++)
+	{
+		if(board[row][k].s.size() > 1)
+		{
+			board[row][k] -= ans ;
+			if(board[row][k].s.size()==1)
+				v.push_back(pair<int,int> (row,k));		
+		}
+		if(board[k][col].s.size() > 1)
+		{
+			board[k][col] -= ans;
+			if(board[k][col].s.size()==1)
+				v.push_back(pair<int,int> (k,col));		
+		}
+	}	
+	for(int k=0;k<v.size();k++)
+		ReduceRowCol(board,v.at(k).first,v.at(k).second);
+}
+void ReduceBlock (Set board[9][9],int& row,int& col)
+{
+	int sr=row/3*3, sc=col/3*3, ans=*board[row][col].s.begin();
+	for(int i=sr;i<=(sr+2);i++)
+		for(int j=sc;j<=(sc+2);j++)
+			if(i!=row && j!=col)
+				board[i][j] -= ans;
+}
+
+void Copy(Set b1[9][9],Set b2 [9][9])
+{
+	for(int i=0;i<9;i++)
+		for(int j=0;j<9;j++)
+			b1[i][j]=b2[i][j];
+}
+void GetSetBackUp(Set b1[9][9],Set b2 [9][9])//copies b2 to b1
+{
+	Copy(b1,b2);	
+}
+
+bool TestRowCol  (Set [9][9],int& ,int& );
+bool TestBlock   (Set [9][9],int& ,int& );
+bool TestSolution(Set [9][9]);
+
+int no_sol=0;
+Set soln [9][9];
+
+
+int Solve(Set board[9][9],int row,int col)//bactracking solver for higher difficulty
+{
+	if( col == 9)//if reached 9th col,then Solve next row's 0th col
+	{
+		col=0;
+		row++ ;
+		if(row==9)
+		{
+			if(no_sol==0 )
+			{
+				if(TestSolution(board))
+				{Copy(soln,board);
+				no_sol=1;	
+				return 1;
+				}
+			}	
+			else
+			{
+				if(TestSolution(board))
+				{
+					no_sol ++ ;
+				}
+			}	
+			return 0;
+		}
+	}		
+	
+	Set buffer[9][9];
+	GetSetBackUp(buffer,board);// take a snapshot of current board
+	
+	if(board[row][col].s.size()==1)// if a cell is already solved , then solve next col
+	{
+		ReduceRowCol(board,row,col);
+		ReduceBlock(board,row,col);
+		return Solve(board,row,col+1);
+	}
+	
+	Set allowed=board[row][col];//set of elements allowed in current cell
+	if(allowed.s.empty())
+		return 0 ;//dead end
+		
+	//try each element one by one	
+	for(set<int>::iterator i=allowed.s.begin();i!=allowed.s.end();i++)
+	{
+		board[row][col].s.clear();//clear set of current cell	
+		board[row][col].s.insert(*i);//insert allowed value as the single value in the cell
+		
+		//now reduce no of possible nos in each cell
+		
+		ReduceRowCol(board,row,col);
+		ReduceBlock(board,row,col);
+		
+		if(Solve(board,row,col+1))
+			return 1;
+		else
+			GetSetBackUp(board,buffer);//backtracking(restore previous state of board from buffer);
+	}
+	return 0;
+}
+
+
+void CalcPossibilities(Set board [9][9])
+{
+	//now reduce no of possible nos in each cell
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			if(board[i][j].s.size()==1)
+			{
+				//remove single no in current cell from all other cells(size>1) in same row & col
+				ReduceRowCol(board,i,j);
+				//remove single no in current cell from all other cells in same 3x3 block
+				ReduceBlock(board,i,j);
+			}
+		}
+	}
+}
+int main()
+{
+	Set board[9][9];
+	GetBoard(board);
+	CalcPossibilities(board);
+	Solve(board,0,0);
+	if(no_sol==0)
+		cout << "Could Not Solve" ;
+	else 
+		ShowBoard(soln);
+	return 0;
+}
+
+bool TestRowCol(Set board[9][9],int& row,int& col)
+{
+	if(board[row][col].s.size()!=1)
+	{
+		//cout << "\n\nError at ("<<row <<"," << col << ")\n";
+		//cout << "\nIncorrect\n\n";
+		//exit(1);
+		return false;	
+	}	
+	int already_used = *board[row][col].s.begin();
+	for(int k=0;k<9;k++)
+	{
+		if(k!=col && (*board[row][k].s.begin()) == already_used )
+		{
+			//cout <<"\n\n("<<row <<"," << k << ") = (" << row << "," << col << ")"<<endl; 
+			//cout << "\nIncorrect\n\n";
+			//exit(1); 
+			return false;	
+		}	
+		if(k!=row && (*board[k][col].s.begin()) == already_used )
+		{
+			//cout <<"\n\n("<<k<<"," << col << ") = (" << row << "," << col << ")"<<endl;
+			//cout << "\nIncorrect\n\n";
+			//exit(1);
+			return false;
+		}	
+	}	
+	return true ;
+}
+bool TestBlock (Set board[9][9],int& row,int& col)
+{
+	if(board[row][col].s.size()!=1)
+	{
+		//cout << "\n\nError at ("<<row <<"," << col << ")\n";
+		//cout << "\nIncorrect\n\n";
+		//exit(1) ;
+		return false;
+	}
+	int sr=row/3*3;
+	int sc=col/3*3;
+	
+	int ans=*board[row][col].s.begin();
+	
+	for(int i=sr;i<=(sr+2);i++)
+	{
+		for(int j=sc;j<=(sc+2);j++)
+		{
+			if(i!=row && j!=col && ((*board[i][j].s.begin()) == ans))
+			{
+				//cout <<"\n\n("<<i<<"," << j << ") = (" << row << "," << col << ")"<<endl;
+				//cout << "\nIncorrect\n\n";
+				//exit(1);	
+				return false;
+			}	
+		}
+	}
+	return true ;
+}
+
+bool TestSolution(Set board[9][9])
+{
+	//cout << "Testing ... " ;
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			if(!TestRowCol(board,i,j))
+				return false;
+			if(!TestBlock(board,i,j))
+				return false;
+		}
+	}
+	//cout << "Correct\n\n";
+	return true ;
+}
+
+/*
+
+0 5 0 0 0 3 0 0 0 
+8 0 0 2 0 0 6 0 4
+0 0 0 1 5 0 0 0 0 
+1 0 0 9 8 0 0 0 6
+6 0 4 0 0 0 8 0 5
+9 0 0 0 6 2 0 0 3
+0 0 0 0 9 1 0 0 0 
+2 0 8 0 0 6 0 0 1
+0 0 0 5 0 0 0 7 0
+
+ans = 2
+
+7 5 2 6 4 3 1 8 9
+8 1 3 2 7 9 6 5 4
+4 6 9 1 5 8 2 3 7
+1 3 7 9 8 5 4 2 6
+6 2 4 3 1 7 8 9 5
+9 8 5 4 6 2 7 1 3
+5 7 6 8 9 1 3 4 2
+2 9 8 7 3 6 5 4 1
+3 1 6 5 2 4 9 7 8
+
+7 5 2 6 4 3 1 8 9
+8 3 1 2 7 9 6 5 4
+4 6 9 1 5 8 2 3 7
+1 7 3 9 8 5 4 2 6
+6 2 4 3 1 7 8 9 5
+9 8 5 4 6 2 7 1 3
+5 4 7 8 9 1 3 6 2
+2 9 8 7 3 6 5 4 1
+3 1 6 5 2 4 9 7 8
+
+*/
+</code>
+<cases>
+<tl>
+700
+</tl>
+<i>
+030024000
+001050306
+090100080
+100000800
+240000053
+007000009
+050008010
+402090700
+000240060
+</i>
+<o>
+638724591
+721859346
+594163287
+165932874
+249687153
+387415629
+956378412
+412596738
+873241965
+</o>
+<p>
+10
+</p>
+<i>
+080095002
+030060007
+009000400
+004000060
+078901540
+090000700
+006000200
+200070010
+900640008
+</i>
+<o>
+481795632
+532864197
+769213485
+124357869
+678921543
+395486721
+856139274
+243578916
+917642358
+</o>
+<p>
+10
+</p>
+<i>
+001000050
+700900000
+280007000
+870006010
+430000025
+050800064
+000300098
+000009006
+020000100
+</i>
+<o>
+391248657
+765913482
+284567931
+872456319
+436791825
+159832764
+617324598
+543189276
+928675143
+</o>
+<p>
+10
+</p>
+<i>
+400030901
+006000302
+900045006
+005700030
+000203000
+070004200
+700450003
+509000800
+603080004
+</i>
+<o>
+487632951
+156879342
+932145786
+265718439
+894263175
+371594268
+728451693
+549326817
+613987524
+</o>
+<p>
+10
+</p>
+<i>
+000920007
+006030000
+400001903
+541002006
+800000002
+700800159
+602300001
+000070300
+300089000
+</i>
+<o>
+135928647
+296437518
+478651923
+541792836
+869513472
+723864159
+682345791
+914276385
+357189264
+</o>
+<p>
+10
+</p>
+<i>
+000000003
+003002408
+020900050
+065700000
+000409000
+000005160
+070008020
+804100300
+900000000
+</i>
+<o>
+546817293
+793652418
+128943756
+365781942
+217469835
+489235167
+671398524
+854126379
+932574681
+</o>
+<p>
+10
+</p>
+<i>
+300040008
+720000019
+008902600
+000607000
+840000073
+000409000
+001706500
+980000061
+600020007
+</i>
+<o>
+369541728
+725863419
+418972635
+593687142
+846215973
+172439856
+231796584
+987354261
+654128397
+</o>
+<p>
+10
+</p>
+<i>
+700002040
+002804900
+500060003
+001046030
+003000200
+050280400
+300020004
+008401600
+060500009
+</i>
+<o>
+786392145
+132854976
+549167823
+821946537
+493715268
+657283491
+315629784
+978431652
+264578319
+</o>
+<p>
+10
+</p>
+<i>
+240000071
+000503000
+800040006
+002060900
+006102800
+004030100
+700010005
+000208000
+520000083
+</i>
+<o>
+245689371
+617523498
+839741526
+182465937
+376192854
+954837162
+798316245
+463258719
+521974683
+</o>
+<p>
+10
+</p>
+<i>
+001000506
+800095240
+650000000
+090208000
+000000000
+000103060
+000000072
+063710004
+904000600
+
+
+
+
+
+</i>
+<o>
+421837596
+837695241
+659421387
+196248735
+345976128
+782153469
+518364972
+263719854
+974582613
+</o>
+<p>
+10
+</p>
+</cases>
+<examples>
+<tl>
+700
+</tl>
+<i>
+006300050
+700609320
+000070000
+300485000
+010000090
+000791008
+000040000
+043902001
+060003500
+</i>
+<o>
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+</o>
+<i>
+005904060
+040500001
+902000000
+009000008
+800305007
+100000500
+000000206
+300009070
+090807400
+</i>
+<o>
+785914362
+643572981
+912638754
+259741638
+864395127
+137286549
+478153296
+321469875
+596827413
+</o>
+</examples>

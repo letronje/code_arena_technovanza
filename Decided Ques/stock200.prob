@@ -1,0 +1,174 @@
+<ques>
+Program Statement:
+
+	I decided to try my luck in the stock market.I approached a seemingly experienced stock broker for advice.He gave me a list of the predicted stock prices of a company in which I wanted to invest.I sat down to calculate the maximum profit I can earn by buying stocks on one day and selling them on a later day . you have to help me ease up this work by writing a program.
+
+	The first input will be the size of the list 'n' ,followed by the 'n' predicted stock prices for the next 'n' days.Your program must output the maximum profit I can earn in those 'n' days.
+
+Note:	If no profit can be made, return 0.
+
+Constraints:
+
+1>	'n' will be between 1 and 100 both inclusive
+2>	Each stock price will be betrween 1 and 1000 both inclusive
+
+TimeLimit: 200 ms
+
+Examples:
+
+(1)
+
+Input : 8
+          3 5 10 20 80 70 40 1
+
+Output : 77
+
+Explanation : I can get maximum profit by buying stocks at a price of 3 and 					                                                                                        selling the at a price of 80
+
+(2)
+
+Input : 6
+          80 70 40 3 2 1
+
+Output : 0
+
+Explanation : Since I cannot make any profit.
+
+(3)
+
+Input : 5
+          1 2 4 8 16
+
+Output : 15
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <vector>
+
+using namespace std ;
+
+int main ()
+{
+	int no_stocks;
+	cin>>no_stocks;
+	int max_profit=0;	
+	vector<int> stocks;
+	for( int i=0;i<no_stocks;i++)
+	{
+		int temp;
+		cin>>temp;
+		stocks.push_back(temp);
+	}	
+	for( int i=0;i<no_stocks;i++)
+		for( int j=i+1;j<stocks.size();j++)
+			if(stocks.at(j)-stocks.at(i) > max_profit)
+				max_profit = stocks.at(j)-stocks.at(i);
+	cout << max_profit;
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+1
+1
+</i>
+<o>
+0
+</o>
+<p>
+20
+</p>
+<i>
+5
+10
+9
+8
+7
+6
+</i>
+<o>
+0
+</o>
+<p>
+20
+</p>
+<i>
+6
+59
+40
+70
+80
+90
+200
+</i>
+<o>
+160
+</o>
+<p>
+20
+</p>
+<i>
+9
+1
+3
+8
+10
+20
+14
+12
+1
+17
+</i>
+<o>
+19
+</o>
+<p>
+20
+</p>
+<i>
+6
+2
+3
+8
+1
+99
+8
+</i>
+<o>
+98
+</o>
+<p>
+20
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+8
+3 5 10 20 80 70 40 1
+</i>
+<o>
+77
+</o>
+<i>
+6
+80 70 40 3 2 1
+</i>
+<o>
+0
+</o>
+<i>
+5
+1 2 4 8 16
+</i>
+<o>
+15
+</o>
+</examples>

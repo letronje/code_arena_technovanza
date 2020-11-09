@@ -1,0 +1,783 @@
+
+Testing 300 Point Problem ......
+Submitted For : 183.766
+TimeLimit: 200 msecs
+
+Test Case 1 : Incorrect :(
+
+Input : 
+
+RRRR RRRR RRRR RRRR RRRR RRRR RRWRR
+
+Program Output : 
+
+32000  40000  30000  60000  0  0  0  0
+
+Required Output : 
+
+32000 40000 30000 60000 0 0 0 0
+
+Score : 0
+
+Test Case 2 : Incorrect :(
+
+Input : 
+
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWRWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWRWWWWWWWWWW
+
+Program Output : 
+
+3000  0  0  0  0  0  0  0
+
+Required Output : 
+
+3000 0 0 0 0 0 0 0
+
+Score : 0
+
+Test Case 3 : Incorrect :(
+
+Input : 
+
+WRRWWRWWWWRWRWWWRWWRRWRRRWRWRR
+WRRRWRRWRWRWWRRWRWWRRRWWWWRW
+WWWRRRRWWWWWRRRWWRRRWRRWWW
+RWRRRWWWWRRWWWWRWWRWWRRW
+WRRRWWWWWRRWRWRWRWRRRR
+RWRWRRWWRWRWRWWRRWWW
+RWRRWWWWWWWWRWWWWW
+
+Program Output : 
+
+79000  60000  45000  20000  0  0  0  0
+
+Required Output : 
+
+79000 60000 45000 20000 0 0 0 0
+
+Score : 0
+
+Test Case 4 : Incorrect :(
+
+Input : 
+
+WWRRRRWRWWRRRWRRRWRRWWWRWWRWRR
+RRRWRRRWWRWRRRRWRRWWRRRRRWRR
+RRWRWWRRWRWWWRWWWRWRWRRRRR
+RWRRRWRRRWWWWWRWRWRRWRRR
+WRRWWWWWWWRRWWRWWRWWRW
+WWRWRRWWWRWRWWRWWWRR
+WWWWRWWRWWWWRRRWWW
+
+Program Output : 
+
+90000  70000  65000  40000  50000  0  0  0
+
+Required Output : 
+
+90000 70000 65000 40000 50000 0 0 0
+
+Score : 0
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+RWRWWRRWRRRRWRRWRWWRRWRRWRWRRW
+RWWRRRRRRWWRRRWRRWRRRRWWWRWR
+RWRRRWRWRWRWWRRRRWRRWRRRRR
+RRRRRRWWWWRRRRRRWRWRRWRR
+WRRRWRWRWRRRRWRRRRRWWW
+RWRWWWRRWWRWRWWWWRWW
+RRWWWWWRWRWRWRRWRR
+
+Program Output : 
+
+110000  100000  75000  90000  125000  150000  0  0
+
+Required Output : 
+
+110000 100000 75000 90000 125000 150000 0 0
+
+Score : 0
+
+Test Case 6 : Incorrect :(
+
+Input : 
+
+WW WW WW WW WW WW RRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRR
+
+Program Output : 
+
+80000  80000  80000  160000  400000  0  0  0
+
+Required Output : 
+
+80000 80000 80000 160000 400000 0 0 0
+
+Score : 0
+
+Output for all the Test Cases were WRONG !!!
+
+Total Score For 300 Point Problem : 0
+
+------------------------------------------------------------
+
+Testing 200 Point Problem ......
+Submitted For : 172.92
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 6.9168
+TimeTaken : 7 msecs
+
+Test Case 2 : Correct :-)
+Score : 6.9168
+TimeTaken : 6 msecs
+
+Test Case 3 : Incorrect :(
+
+Input : 
+
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Program Output : 
+
+AAAAA
+
+Required Output : 
+
+AEBCD
+
+Score : 0
+
+Test Case 4 : Correct :-)
+Score : 6.9168
+TimeTaken : 4 msecs
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Program Output : 
+
+IHOSIOTCHEDMYKEYCAPSAROUND
+
+Required Output : 
+
+WHOSWITCHEDMYKEYCAPSAROUND
+
+Score : 0
+
+Test Case 6 : Incorrect :(
+
+Input : 
+
+WHUTSWETHTHATYPIS
+4
+A:E
+A:I
+A:O
+A:U
+
+Program Output : 
+
+WHUTSWETHTHETYPIS
+
+Required Output : 
+
+WHATSWITHTHETYPOS
+
+Score : 0
+
+Test Case 7 : Incorrect :(
+
+Input : 
+
+AGAMEMNON
+2
+A:B
+M:N
+
+Program Output : 
+
+BGBNENNON
+
+Required Output : 
+
+BGBNENMOM
+
+Score : 0
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+AGKKSLEKAMMSNEOWPPDOSIMED
+7
+A:K
+S:K
+A:E
+P:D
+D:M
+L:E
+N:W
+
+Program Output : 
+
+KGKKKEEKKMMKWEOWMMMOKIMEM
+
+Required Output : 
+
+SGLLKEALSDDKWAONMMPOKIDAP
+
+Score : 0
+
+Test Case 9 : Incorrect :(
+
+Input : 
+
+LRUNPSTFDJOGY
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+PP:PP:PP:PP:PP:PP:PM:MM:MM:MM:MM:MM:M
+
+Required Output : 
+
+KEYBOARDSHIFT
+
+Score : 0
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+ERJSBRNRRMDJOGYRFYPYJRTOHJYDOFR
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+PP:PP:PP:PP:PP:PP:PM:MM:MM:MM:MM:MM:M
+
+Required Output : 
+
+WEHAVEBEENSHIFTEDTOTHERIGHTSIDE
+
+Score : 0
+
+Test Case 11 : Incorrect :(
+
+Input : 
+
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+25
+A:B
+B:C
+C:D
+D:E
+E:F
+F:G
+G:H
+H:I
+I:J
+J:K
+K:L
+L:M
+M:N
+N:O
+O:P
+P:Q
+Q:R
+R:S
+S:T
+T:U
+U:V
+V:W
+W:X
+X:Y
+Y:Z
+
+Program Output : 
+
+ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:ZZ:Z
+
+Required Output : 
+
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+
+Score : 0
+
+Test Case 12 : Incorrect :(
+
+Input : 
+
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+25
+Z:Y
+Y:X
+X:W
+W:V
+V:U
+U:T
+T:S
+S:R
+R:Q
+Q:P
+P:O
+O:N
+N:M
+M:L
+L:K
+K:J
+J:I
+I:H
+H:G
+G:F
+F:E
+E:D
+D:C
+C:B
+B:A
+
+Program Output : 
+
+AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:AA:A
+
+Required Output : 
+
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+
+Score : 0
+
+Test Case 13 : Incorrect :(
+
+Input : 
+
+AGSGEMMZMZMXPOVQJEWYTMZ
+1
+A:E
+
+Program Output : 
+
+EGSGEMMZMZMXPOVQJEWYTMZ
+
+Required Output : 
+
+EGSGAMMZMZMXPOVQJAWYTMZ
+
+Score : 0
+
+Test Case 14 : Incorrect :(
+
+Input : 
+
+GKSKKEOGOSOKEKOGOKSKEO
+4
+G:K
+K:S
+S:G
+S:K
+
+Program Output : 
+
+GGGGGEOGOGOGEGOGOGGGEO
+
+Required Output : 
+
+GKSKKEOGOSOKEKOGOKSKEO
+
+Score : 0
+
+Test Case 15 : Correct :-)
+Score : 6.9168
+TimeTaken : 4 msecs
+
+Test Case 16 : Incorrect :(
+
+Input : 
+
+ABC
+2
+A:B
+B:C
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+CAB
+
+Score : 0
+
+Test Case 17 : Incorrect :(
+
+Input : 
+
+ASD
+3
+A:S
+S:D
+D:A
+
+Program Output : 
+
+AAA
+
+Required Output : 
+
+ADS
+
+Score : 0
+
+Test Case 18 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+A:B
+B:C
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+ACB
+
+Score : 0
+
+Test Case 19 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+B:C
+A:B
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+CBA
+
+Score : 0
+
+Test Case 20 : Incorrect :(
+
+Input : 
+
+TESTESTEST
+3
+E:S
+E:S
+T:E
+
+Program Output : 
+
+SSSSSSSSSS
+
+Required Output : 
+
+ETSETSETSE
+
+Score : 0
+
+Test Case 21 : Incorrect :(
+
+Input : 
+
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Program Output : 
+
+IHOSIOTCHEDMYKEYCAPSAROUND
+
+Required Output : 
+
+WHOSWITCHEDMYKEYCAPSAROUND
+
+Score : 0
+
+Test Case 22 : Incorrect :(
+
+Input : 
+
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Program Output : 
+
+AAAAA
+
+Required Output : 
+
+AEBCD
+
+Score : 0
+
+Test Case 23 : Incorrect :(
+
+Input : 
+
+AC
+1
+A:C
+
+Program Output : 
+
+CC
+
+Required Output : 
+
+CA
+
+Score : 0
+
+Test Case 24 : Incorrect :(
+
+Input : 
+
+QQQ
+4
+A:B
+B:Q
+A:R
+B:R
+
+Program Output : 
+
+QQQ
+
+Required Output : 
+
+RRR
+
+Score : 0
+
+Test Case 25 : Correct :-)
+Score : 6.9168
+TimeTaken : 4 msecs
+
+Output for 20 Test Cases were WRONG !!!
+
+Total Score For 200 Point Problem : 7.27273 ( Instead Of 34.584 )
+
+------------------------------------------------------------
+
+Testing 500 Point Problem ......
+Submitted For : 253.158
+TimeLimit: 200 msecs
+
+Test Case 1 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 2 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 3 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 4 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 5 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 6 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 7 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 8 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 9 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 10 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 11 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 12 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 13 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 14 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 15 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 16 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 17 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 18 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 19 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 20 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 21 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 22 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 23 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 24 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 25 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 26 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 27 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 28 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 29 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 30 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 31 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Output for all the Test Cases were WRONG !!!
+
+Total Score For 500 Point Problem : 0
+
+......................................................................
+
+Total Score Of Team SameerPrasha : 7.27273

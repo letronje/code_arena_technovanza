@@ -1,0 +1,558 @@
+<g>
+<pname>
+100
+</pname>
+<ques>
+Problem Statement :
+
+	As a research assistant to the renowned forensic expert Professor X , you have to find out the complement of a strand of DNA.
+
+	DNA is composed of the following four bases: adenine, guanine, thymine, and cytosine. Two strands of DNA are considered complements of each other if all of the following conditions are met:
+
+-   they are of equal length
+-   for each adenine  in the first strand, a  thymine  is located in the exact same position of the second strand
+-   for each thymine  in the first strand, an adenine  is located in the exact same position of the second strand
+-   for each guanine  in the first strand, a  cytosine is located in the exact same position of the second strand
+-   for each cytosine in the first strand, a  guanine  is located in the exact same position of the second strand
+
+The input will be a string of the form "name:strand" (quotes for clarity only) where name represents a person's name and strand represents his/hers strand of DNA.
+
+In the strand string, A stands for adenine, T for thymine, C for cytosine and G for guanine.
+	Your program should output the complement of that strand, as a string.
+
+Note:
+1) Do not output the name of the person
+2) The name and strand string are separated by a colon (:)
+
+Constraints:
+
+1) The name string has length 1 to 20,inclusive.
+2) The name will contain characters 'a' to 'z' and 'A' to 'Z'.
+3) The strand string has length 1 to 50, inclusive.
+4) The strand string contains only the characters 'A', 'T', 'C', and 'G'.
+
+Time Limit: 200 msecs
+
+Examples:
+
+1) Input : Harshad:GAAACT
+   Output: CTTTGA
+
+2) Input : Manoj:ACCAAAAGCTGCAGTATGA
+   Output: TGGTTTTCGACGTCATACT
+
+3) Input : Einstein:TAGGTCTCACTTAGCTTTCGTCCCTATAGTATATAGCTCCCAACCATCCA
+   Output: ATCCAGAGTGAATCGAAAGCAGGGATATCATATATCGAGGGTTGGTAGGT
+
+<Source : www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    	char* s = new char[72];
+    	cin>>s;
+	int pos=0;
+	while(s[pos]!=':')
+	{
+		pos++;
+	}
+   	 char* out = new char[strlen(s)-pos+1];
+   	 int j=0;
+   	 for(int i=pos+1;i<strlen(s);i++)
+   	 {
+       	  switch(s[i])
+       	  {
+             		 case 'A': out[j++]='T';break;
+            	  	 case 'T': out[j++]='A';break;
+            	 	 case 'G': out[j++]='C';break;
+             		 case 'C': out[j++]='G';break;
+        	 }
+   	 }
+  	 out[j]='\0';
+	 delete s;
+   	 cout<<out;
+  	 return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+ABCDEFGHIJKLMNOPQRST:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+</o>
+<p>
+10
+</p>
+<i>
+Boyle:TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+</i>
+<o>
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</o>
+<p>
+10
+</p>
+<i>
+APJKalam:CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+</i>
+<o>
+GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+</o>
+<p>
+10
+</p>
+<i>
+Manmohan:GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+</i>
+<o>
+CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+</o>
+<p>
+10
+</p>
+<i>
+Clinton:ATCGATCGATCGATCGATCGATCGAATCGATCGATCGATCGATCGATCGA
+</i>
+<o>
+TAGCTAGCTAGCTAGCTAGCTAGCTTAGCTAGCTAGCTAGCTAGCTAGCT
+</o>
+<p>
+10
+</p>
+<i>
+Saddam:A
+</i>
+<o>
+T
+</o>
+<p>
+10
+</p>
+<i>
+Bush:T
+</i>
+<o>
+A
+</o>
+<p>
+10
+</p>
+<i>
+BushSr:C
+</i>
+<o>
+G
+</o>
+<p>
+10
+</p>
+<i>
+D:G
+</i>
+<o>
+C
+</o>
+<p>
+10
+</p>
+<i>
+XXX:TGACATCGATGCATCGATCGATCGATCGATCGATCGATCGATC
+</i>
+<o>
+ACTGTAGCTACGTAGCTAGCTAGCTAGCTAGCTAGCTAGCTAG
+</o>
+<p>
+10
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+Harshad:GAAACT
+</i>
+<o>
+CTTTGA
+</o>
+<i>
+Manoj:ACCAAAAGCTGCAGTATGA
+</i>
+<o>
+TGGTTTTCGACGTCATACT
+</o>
+<i>
+Einstein:TAGGTCTCACTTAGCTTTCGTCCCTATAGTATATAGCTCCCAACCATCCA
+</i>
+<o>
+ATCCAGAGTGAATCGAAAGCAGGGATATCATATATCGAGGGTTGGTAGGT
+</o>
+</examples>
+</g>
+<g>
+<pname>
+200
+</pname>
+<ques>
+Problem Statement: 
+
+	A simple, easy to remember system for encoding integer amounts can be very useful.
+	A good system is to use a substitution code, in which each digit is encoded by a letter. An easy to remember 10-letter word or phrase, the key, is chosen. Every '1' in the value is replaced by the first letter of the key, every '2' is replaced by the second letter of the key, and so on. Every '0' is replaced by the last letter of the key. Letters that do not appear in the key can be inserted anywhere without affecting the value represented by the code.. This helps to make the resulting code much harder to break (without knowing the key).
+	Your program will have the strings key and code as input and it should return the decoded value.
+
+Note:
+1) First line of the input will be the key and second line of input will be the code.
+
+Constraints:
+
+1) code contains between 1 and 9 characters inclusive, all uppercase letters 'A'-'Z'
+2) code contains at least one letter that is found in key
+3) key contains exactly 10 uppercase letters 'A'-'Z', all distinct from each other
+
+Time Limit: 200ms
+
+Examples:
+
+(1)
+
+ Input :
+TRADINGFEW
+LGXWEV
+
+Output: 709
+
+Explanation: The L,X, and V are ignored since they do not appear in the key. G is the seventh letter in the key, W is the 10th letter, and E is the 9th letter.
+
+(2)
+
+Input :
+ABCDEFGHIJ
+XJ
+
+Output: 0
+
+(3)
+
+Input :
+CRYSTALBUM
+MMA
+
+Output: 6
+
+<Source: www.topcoder.com>
+</ques>
+<code>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string key,code;
+
+	cin>>key>>code;
+
+	int ans=0;
+	for(int i=0;i<code.length();i++)
+	{
+		int j = key.find(code.at(i),0)+1;
+		if(j==0) 
+			continue;
+		if(j==10)
+			 j=0;
+		ans = ans*10 + j;	
+	}
+	cout<<ans;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+TRADINGFEW
+LGXWEV
+</i>
+<o>
+709
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XJ
+</i>
+<o>
+0
+</o>
+<p>
+4
+</p>
+<i>
+CRYSTALBUM
+MMA
+</i>
+<o>
+6
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BLKVA
+</i>
+<o>
+21
+</o>
+<p>
+4
+</p>
+<i>
+KLMNOPQRST
+P
+</i>
+<o>
+6
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+JAJAJAJAX
+</i>
+<o>
+1010101
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+IXJYXIJAX
+</i>
+<o>
+90901
+</o>
+<p>
+4
+</p>
+<i>
+ACFHTBDEGQ
+QGEDBTHFC
+</i>
+<o>
+98765432
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+JJJJJJJJJ
+</i>
+<o>
+0
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XDJYXDJ
+</i>
+<o>
+4040
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGZYX
+YAZLDKSMN
+</i>
+<o>
+9184
+</o>
+<p>
+4
+</p>
+<i>
+FREAKYQUIP
+ZBFEK
+</i>
+<o>
+135
+</o>
+<p>
+4
+</p>
+<i>
+PLASTERWIG
+ASTERWIX
+</i>
+<o>
+3456789
+</o>
+<p>
+4
+</p>
+<i>
+FGHIJKLMNO
+ABKAOAK
+</i>
+<o>
+606
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+I
+</i>
+<o>
+9
+</o>
+<p>
+4
+</p>
+<i>
+THREWAKING
+DIJKLSIY
+</i>
+<o>
+878
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BCA
+</i>
+<o>
+231
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+C
+</i>
+<o>
+3
+</o>
+<p>
+4
+</p>
+<i>
+TRADINGFEW
+LGXWEVTA
+</i>
+<o>
+70913
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIW
+ABDRYHGOW
+</i>
+<o>
+124870
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XJABJ
+</i>
+<o>
+120
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BABA
+</i>
+<o>
+2121
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+AAABCDEFG
+</i>
+<o>
+111234567
+</o>
+<p>
+4
+</p>
+<i>
+LRADINGFEW
+LGXWEV
+</i>
+<o>
+1709
+</o>
+<p>
+4
+</p>
+<i>
+TRADINGFEW
+LGXWEVFAF
+</i>
+<o>
+709838
+</o>
+<p>
+4
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+TRADINGFEW
+LGXWEV
+</i>
+<o>
+709
+</o>
+<i>
+ABCDEFGHIJ
+XJ
+</i>
+<o>
+0
+</o>
+<i>
+CRYSTALBUM
+MMA
+</i>
+<o>
+6
+</o>
+</examples>
+</g>

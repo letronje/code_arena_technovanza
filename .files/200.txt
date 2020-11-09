@@ -1,0 +1,60 @@
+Problem Statement:
+
+	The System Administartor was doing something very important.Tired by all the work , he decided to take a break and went for a coffee break. A mischievious student switched the keycaps on the Administrator's keyboard. The Administartor came back and started typing on the keyboard without looking at the monitor.After some typing, he lokked at the monitor to verify and realised that the keyboard was tampered. Now, he is now trying to remember what he was trying to type.
+	The input to your program will be the message 'm' that he saw on the monitor followed by the number of keycap switches 'k' on the next line , followed by 'k' switches.Each switch is represented by a string of the form "*:*" (quotes added for clarity), where each * represents a single uppercase letter ('A'-'Z') . For eg. the string "A:B"  means the keycaps of A and B were switched.Your program must return the original intended message (what keys the user thought he was pressing). A keycap can be switched around more than once. For example, if someone switched around 'A' and 'S', then switched around 'S' and 'D', then 'D' would be where 'A' originally was, 'S' where 'D' was, and 'A' where 'S' was.The order of the keycaps in the string doesn't matter, but the order of the strings 
+does.
+
+Note:
+-There is no restriction on how many times keycaps can be switched. It is 
+perfectly possible to return to the original keyboard configuration.
+
+Constraints:
+-string m will be between 1 and 50 characters in length, inclusive.
+-each character of typed will be an uppercase letter ('A'-'Z').
+-no of switches will be between 1 and 50 elements, inclusive.
+
+TimeLimit: 200 msecs
+
+Examples:
+
+(1)
+
+Input:
+AAAAA
+3
+A:B
+B:C
+A:D
+
+Output:
+CCCCC
+
+Explanation :
+At first, all keys look right. After the A:B switch, A looks like B and B looks 
+like A. After the B:C switch, A looks like C, B looks like A, and C looks like 
+B. The third switch is irrelevant. Since "AAAAA" is what comes out, Administrator must have been pressing "CCCCC" 
+
+(2)
+
+Input:
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Output :
+AEBCD
+
+(3)
+
+Input: 
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Output:
+WHOSWITCHEDMYKEYCAPSAROUND

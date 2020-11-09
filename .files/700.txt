@@ -1,0 +1,46 @@
+Problem Statement: 
+
+	A simple, easy to remember system for encoding integer amounts can be very useful. For example, dealers at flea markets put the information about an item on a card that they let potential buyers see. They find it advantageous to encode the amount they originally paid for the item on the card.
+	A good system is to use a substitution code, in which each digit is encoded by a letter. An easy to remember 10-letter word or phrase, the key, is chosen. Every '1' in the value is replaced by the first letter of the key, every '2' is replaced by the second letter of the key, and so on. Every '0' is replaced by the last letter of the key. Letters that do not appear in the key can be inserted anywhere without affecting the value represented by the code.. This helps to make the resulting code much harder to break (without knowing the key).
+	Your program will have the strings key and code as input and it should return the decoded value.
+
+Note:
+1) First line of the input will be the key and second line of input will be the code.
+
+Constraints:
+
+1) code contains between 1 and 9 characters inclusive, all uppercase letters 'A'-'Z'
+2) code contains at least one letter that is found in key
+3) key contains exactly 10 uppercase letters 'A'-'Z', all distinct from each other
+
+Time Limit: 200ms
+
+Examples:
+
+(1)
+
+ Input :
+TRADINGFEW
+LGXWEV
+
+Output: 709
+
+Explanation: The L,X, and V are ignored since they do not appear in the key. G is the seventh letter in the key, W is the 10th letter, and E is the 9th letter.
+
+(2)
+
+Input :
+ABCDEFGHIJ
+XJ
+
+Output: 0
+
+(3)
+
+Input :
+CRYSTALBUM
+MMA
+
+Output: 6
+
+<Source: www.topcoder.com>

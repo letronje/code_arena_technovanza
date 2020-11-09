@@ -1,0 +1,95 @@
+Problem Statement:
+
+	The goal of this problem is to write a program that solves a square jigsaw puzzle by fitting together the scattered puzzle pieces. You have to arrange these pieces, if possible, to form the original puzzle. 
+	The pieces cannot be rotated or flipped from their original orientation. There may be more than one possible solution for a set of pieces. 
+	The first line of the input is the number of pieces 'p' in the puzzle followed by the size 's' of the square puzzle. Each piece is then specified by listing a single line with two integers, the number of rows and columns in the piece, followed by one or more lines which specify the shape of the piece.
+	The shape specification consists of the characters `0' and `1'. A `1' indicates the solid shape of the puzzle and a `0' indicates empty space. The pieces should be numbered by the order they are encountered in the input. That is, the first piece in a puzzle is piece 1, the next is piece 2, etc. All pieces may be assumed to be valid.
+	If there is only one possible way of arranging the pieces to form the  square puzzle, then the completed puzzle must be displayed in the form of an 'n' row by 'n' column square by using all the 'p' pieces exactly once. In order to distinguish the pieces from one another, the solid portions of piece 1 should be replaced with the character `1', of piece 2 with character `2' and so on, etc. 
+	If there are more than one possible ways of arranging the pieces to form the square puzzle, then output only the no of such possible ways. 
+	For puzzles which have no possible solution, simply output "Impossible". 
+
+Constraints:
+
+1> No piece will be smaller than 1 row by 1 column and larger than 10 rows by 10 columns. 
+2> The size of the square puzzle will be atmost 10
+2> There will be at least 1 and at most 9 pieces. 
+
+Time Limit: 1000 ms.
+
+Examples:
+
+(1)
+
+Input:
+2
+3
+2 3
+111
+101
+2 3
+010
+111
+
+Output:
+111
+121
+222
+
+Explanation:
+There are two pieces:
+a) 111 (2 rows, 3 cols) 
+    101
+b) 010 (2 rows, 3 cols)
+    111		  	    
+Here, the 2nd piece can be fitted to bottom part of the 1st piece. In order to display the output, the 1s in the 2nd piece are replaced by 2.
+
+Therefore we get the above mentioned output.
+
+(2)
+
+Input:
+3
+5
+5 5
+11111
+11101
+10001
+11101
+11111
+1 2
+11
+3 1
+1
+1
+1
+
+Output:
+11111
+11131
+12231
+11131
+11111
+
+As you can see, pieces can have a hole (of any shape) inside in which other pieces can be fitted.
+
+(3)
+
+Input:
+4
+2
+1 1 
+1
+1 1
+1
+1 1
+1
+1 1
+1
+
+Output:
+24
+
+Explanation: Each 1 by 1 piece can occupy any of the 4 empty places.
+ .'. Number of possibilities = 4! = 24
+
+<Source: ACM >

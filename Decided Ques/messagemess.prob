@@ -1,0 +1,536 @@
+<ques>
+Problem Statement
+    It is a common practice in cryptography to remove the spaces from a message before encoding it to help to disguise its structure. Even after it is then decoded, we are left with the problem of putting the spaces back in the message.
+
+	The program will take as input , an array of string( dictionary of possible words ) and a string message. It returns the message with single spaces inserted to divide the message into words from the dictionary. If there is more than one way to insert spaces, it returns "AMBIGUOUS!" If there is no way to insert spaces, it returns "IMPOSSIBLE!" The return should never have any leading or trailing spaces.
+	The first line of the input will be 'n',the size of the array followed by n strings.
+
+Notes
+- Don't forget the '!' at the end of the two special returns
+- A proper message may require 0 spaces to be inserted
+
+Constraints:
+
+- dictionary will contain between 1 and 50 elements inclusive
+- the elements of dictionary will be distinct
+- each element of dictionary will contain between 1 and 50 characters
+- message will contain between 1 and 50 characters
+- every character in message and in each element of dictionary will be an uppercase letter 'A'-'Z'
+
+Time Limit: 
+
+Examples:
+
+1)
+Input:
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+
+Output: HI YOU SAY HI
+
+A word from dictionary may appear multiple times in the message.
+
+2)
+Input:
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+
+Output: AMBIGUOUS!
+
+"ABC BCD" and "ABCB CD" are both possible interpretations of message.
+
+3)
+Input:   
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+
+Output: IMPOSSIBLE!
+
+There is no way to concatenate words from this dictionary to form "IMPOSSIBLE"
+
+4)
+Input:
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+
+Output: IMPOSSIBLE
+
+This message can be decoded without ambiguity. This requires the insertion of no spaces since the entire message appears as a word in the dictionary.
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <queue>
+using namespace std;
+typedef vector<int> VI;  typedef vector<vector<int> > VVI;
+typedef vector<string> VS;  typedef vector<vector<string> > VVS;
+typedef signed long long i64;  typedef unsigned long long u64;
+
+int main()
+{
+
+	vector <string> a;
+	string b;
+	int size;
+	cin>>size;
+	for(int i=0;i<size;i++)
+	{
+		string temp;
+		cin>>temp;
+		a.push_back(temp);
+	}
+	cin>>b;
+	int i, j, k, x, y, z, n;
+
+  	VI prev(b.size()+1, -1);
+  	prev[0] = -2;
+  	for( i = 1; i <= b.size(); i++ )
+  		for( j = 0; j < i; j++ ) if( prev[j] != -1 ) {
+    if( find(a.begin(), a.end(), b.substr(j, i-j)) != a.end() ) {
+      if( prev[i] != -1 || prev[j] == -3 ) prev[i] = -3;
+      else prev[i] = j;
+    }
+  }
+  if( prev[b.size()] == -1 ) {cout<<"IMPOSSIBLE!";return 0;}
+  if( prev[b.size()] == -3 ) {cout<<"AMBIGUOUS!";return 0;}
+  for( x = b.size(); prev[x]; x = prev[x] ) {
+    b = b.substr(0, prev[x]) + " " + b.substr(prev[x]);
+  }
+  cout<<b;
+}
+</code>
+<cases>
+<tl>
+100
+</tl>
+<i>
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+</i>
+<o>
+HI YOU SAY HI
+</o>
+<p>
+3
+</p>
+<i>
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE
+</o>
+<p>
+3
+</p>
+<i>
+4
+A B C D BADCAB
+</i>
+<o>
+B A D C A B
+</o>
+<p>
+3
+</p>
+<i>
+4 A B C D ABRACADABRA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+3 APPLE APPLET ET APPLET
+</i>
+<o>
+APPLET
+</o>
+<p>
+3
+</p>
+<i>
+4 A BA BAB AR ABABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+5 A BA BABA AR ABA ABABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+6 A BA BABA AR ABA ABAB ABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB AR
+</o>
+<p>
+3
+</p>
+<i>
+6 TA PEA DOG CAT APE TAPE TAPEAPEAPE
+</i>
+<o>
+TAPE APE APE
+</o>
+<p>
+3
+</p>
+<i>
+10 AB BA AA BB BABAAB ABAAAB BAAB BABA BBBA BAAA
+ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+5 AB BA AA BB BABAAB ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+28 A B C BAB BAD E F G H I J K L EF M N O P Q R S T U V W X Y Z BAABAABBAAABAABAABAABBBBADEEABAAAABAAABAABBBBAFBAA
+</i>
+<o>
+B A A B A A B B A A A B A A B A A B A A B B B BAD E E A B A A A A B A A A B A A B B B B A F B A A
+</o>
+<p>
+3
+</p>
+<i>
+1 XYX XYXXYXXYXXYXXYXXYX
+</i>
+<o>
+XYX XYX XYX XYX XYX XYX
+</o>
+<p>
+3
+</p>
+<i>
+3 AB AC A A
+</i>
+<o>
+A
+</o>
+<p>
+3
+</p>
+<i>
+3 AB AC A C
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+15 A B AB BA ABA BAB ABAB BABA ABABA BABAB ABABAB BABABA ABABABA BABABAB ABABABABABABABABABABABAC ABABABABABABABABABABABACABABABABABABABABABABABAC
+</i>
+<o>
+ABABABABABABABABABABABAC ABABABABABABABABABABABAC
+</o>
+<p>
+3
+</p>
+<i>
+50
+A
+AA
+AAA
+AAAA
+AAAAA
+AAAAAA
+AAAAAAA
+AAAAAAAA
+AAAAAAAAA
+AAAAAAAAAA
+AAAAAAAAAAA
+AAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+23
+A B AA AB BA BB AAA AAB ABA BAA BBB BBA BAB ABB AAAA AAAB AABA ABAA BAAA BBBB BBBA BBAB BABB ABABBBABABBBABABBAAABABBAAABBABABBBABABBBABABBC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+
+</i>
+<o>
+
+</o>
+<p>
+3
+</p>
+<i>
+2 BLAH BLA BLAHA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+3 AB CD ABCD ABCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+5 A AA AAA AAAA AAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+5 A AA AAA AAAA AAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3 H HH HHCH HHHHHHHHHHHHHHHHHHHHHHHHHHHCHHHHHHHHHHHHHHHHHHHHC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+28 A AB ABC ABCD ABCDE ABCDEF ABCDEFG BCDEFG CDEFG DEFG EFG FG G B C D E F BC CD DE EF BCD CDE DEF BCDE CDEF BCDEF ABCDEFGABCDEFGABCDEFGABCDEFGZ
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+4 AB CD EF ABC ABCDEF
+</i>
+<o>
+AB CD EF
+</o>
+<p>
+3
+</p>
+<i>
+3 AB CDEF CD ABCDEF
+</i>
+<o>
+AB CDEF
+</o>
+<p>
+3
+</p>
+<i>
+3 AB C ABC ABC
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+6 A AA AAA AAAA AAAAA AAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3 HI H I HI
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+7
+</p>
+</cases>
+<examples>
+<tl>
+100
+</tl>
+<i>
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+</i>
+<o>
+HI YOU SAY HI
+</o>
+<i>
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<i>
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<i>
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE
+</o>
+</examples>

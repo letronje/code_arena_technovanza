@@ -1,0 +1,488 @@
+
+Testing 100 Point Problem ......
+Submitted For : 86.6946
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 13.8711
+TimeTaken : 18 msecs
+
+Test Case 2 : Correct :-)
+Score : 10.4034
+TimeTaken : 3 msecs
+
+Test Case 3 : Correct :-)
+Score : 10.4034
+TimeTaken : 4 msecs
+
+Test Case 4 : Correct :-)
+Score : 12.1372
+TimeTaken : 4 msecs
+
+Test Case 5 : Correct :-)
+Score : 12.1372
+TimeTaken : 5 msecs
+
+Test Case 6 : Correct :-)
+Score : 10.4034
+TimeTaken : 5 msecs
+
+Test Case 7 : Correct :-)
+Score : 3.46778
+TimeTaken : 8 msecs
+
+Test Case 8 : Correct :-)
+Score : 13.8711
+TimeTaken : 1 msecs
+
+Total Score For 100 Point Problem : 86.6946
+
+------------------------------------------------------------
+
+Testing 200 Point Problem ......
+Submitted For : 179.834
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 7.19336
+TimeTaken : 5 msecs
+
+Test Case 2 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 3 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 5 : Correct :-)
+Score : 7.19336
+TimeTaken : 16 msecs
+
+Test Case 6 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 7 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 8 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 9 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 10 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 11 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 12 : Correct :-)
+Score : 7.19336
+TimeTaken : 2 msecs
+
+Test Case 13 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 14 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 15 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 16 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 17 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 18 : Correct :-)
+Score : 7.19336
+TimeTaken : 2 msecs
+
+Test Case 19 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 20 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 21 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 22 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Test Case 23 : Correct :-)
+Score : 7.19336
+TimeTaken : 3 msecs
+
+Test Case 24 : Correct :-)
+Score : 7.19336
+TimeTaken : 3 msecs
+
+Test Case 25 : Correct :-)
+Score : 7.19336
+TimeTaken : 1 msecs
+
+Total Score For 200 Point Problem : 179.834
+
+------------------------------------------------------------
+
+Testing 500 Point Problem ......
+Submitted For : 256.878
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 7.70634
+TimeTaken : 6 msecs
+
+Test Case 2 : Incorrect :(
+
+Input : 
+
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 3 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 4 : Incorrect :(
+
+Input : 
+
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+IMPOSSIBLE
+
+Score : 0
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+4
+A B C D BADCAB
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+B A D C A B
+
+Score : 0
+
+Test Case 6 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 7 : Incorrect :(
+
+Input : 
+
+3 APPLE APPLET ET APPLET
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+APPLET
+
+Score : 0
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+4 A BA BAB AR ABABABABABABABABABABABABABABABABABABABABABABABAR
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 9 : Correct :-)
+Score : 7.70634
+TimeTaken : 2 msecs
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+6 A BA BABA AR ABA ABAB ABABABABABABABABABABABABABABABABABABABABABABAR
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB AR
+
+Score : 0
+
+Test Case 11 : Incorrect :(
+
+Input : 
+
+6 TA PEA DOG CAT APE TAPE TAPEAPEAPE
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+TAPE APE APE
+
+Score : 0
+
+Test Case 12 : Incorrect :(
+
+Input : 
+
+10 AB BA AA BB BABAAB ABAAAB BAAB BABA BBBA BAAA
+ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABA
+
+Program Output : 
+
+AMBIGUOUS!
+
+Required Output : 
+
+IMPOSSIBLE!
+
+Score : 0
+
+Test Case 13 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 14 : Incorrect :(
+
+Input : 
+
+28 A B C BAB BAD E F G H I J K L EF M N O P Q R S T U V W X Y Z BAABAABBAAABAABAABAABBBBADEEABAAAABAAABAABBBBAFBAA
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+B A A B A A B B A A A B A A B A A B A A B B B BAD E E A B A A A A B A A A B A A B B B B A F B A A
+
+Score : 0
+
+Test Case 15 : Correct :-)
+Score : 7.70634
+TimeTaken : 2 msecs
+
+Test Case 16 : Incorrect :(
+
+Input : 
+
+3 AB AC A A
+
+Program Output : 
+
+AMBIGUOUS!
+
+Required Output : 
+
+A
+
+Score : 0
+
+Test Case 17 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 18 : Incorrect :(
+
+Input : 
+
+15 A B AB BA ABA BAB ABAB BABA ABABA BABAB ABABAB BABABA ABABABA BABABAB ABABABABABABABABABABABAC ABABABABABABABABABABABACABABABABABABABABABABABAC
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+ABABABABABABABABABABABAC ABABABABABABABABABABABAC
+
+Score : 0
+
+Test Case 19 : 
+Process Exited With An Error :-(
+Score : 0
+
+Test Case 20 : Correct :-)
+Score : 7.70634
+TimeTaken : 4 msecs
+
+Test Case 21 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 22 : Incorrect :(
+
+Input : 
+
+3 AB CD ABCD ABCD
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 23 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 24 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 25 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 26 : Correct :-)
+Score : 7.70634
+TimeTaken : 3 msecs
+
+Test Case 27 : Incorrect :(
+
+Input : 
+
+4 AB CD EF ABC ABCDEF
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AB CD EF
+
+Score : 0
+
+Test Case 28 : Incorrect :(
+
+Input : 
+
+3 AB CDEF CD ABCDEF
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AB CDEF
+
+Score : 0
+
+Test Case 29 : Incorrect :(
+
+Input : 
+
+3 AB C ABC ABC
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 30 : Correct :-)
+Score : 7.70634
+TimeTaken : 1 msecs
+
+Test Case 31 : Incorrect :(
+
+Input : 
+
+3 HI H I HI
+
+Program Output : 
+
+HI
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Output for 17 Test Cases were WRONG !!!
+
+Total Score For 500 Point Problem : 15.2727 ( Instead Of 107.889 )
+
+......................................................................
+
+Total Score Of Team VSM : 281.801

@@ -1,0 +1,35 @@
+Problem Statement:
+
+	In 2029, Discovery landed on Mars. The leader of the mission, Dr.Neil Armstrong IIJunior stepped out and set his foot on the red martian surface. But instead of repeating his father's famous remark, he gave a cry of surprise and fear. For he had been confronted by three green, ugly looking dwarf-like creatures !!! The friendly Martians took the astronauts to their city. During their stay on Mars, they found out that the Martians were quite eager to communicate with them. Though their language was quite different,the astronauts realised that their number system was quite similar to ours.The only difference was that they used a  different base (base is the number of unique digits in a number system for eg. decimal number system has a base of 10 ) because they had only 3 fingers.
+	Now, the NASA scientists have establised a radio communication with the Martians. But in order to send data to Mars, they have to convert numbers from decimal system to their system. Your task is to write a program which can convert a number from decimal system to ANY other base.
+	
+Note:
+
+1) The input will consist of the number 'n' and the base 'b' to which n is to be converted.
+
+Constraints:
+
+1) n will be between 1 and 1023 both inclusive.
+2) b will be between 2 and 9 both inclusive.
+
+Time Limit: 200 msecs
+
+Examples:
+
+1) 
+
+Input : 32 2
+	
+Output: 100000
+
+Explanation: 32 is represented as 100000 in binary system ( base 2 )
+
+2)
+
+Input : 54 5
+   
+Output: 204
+
+Explanation: 54 in decimal is equivalent to 204 in base 5. 
+
+<< Source : Our imagination :) >>

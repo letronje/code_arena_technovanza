@@ -1,0 +1,306 @@
+
+Testing 200 Point Problem ......
+Submitted For : 161.351
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 6.45404
+TimeTaken : 8 msecs
+
+Test Case 2 : Correct :-)
+Score : 6.45404
+TimeTaken : 5 msecs
+
+Test Case 3 : Incorrect :(
+
+Input : 
+
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Program Output : 
+
+A[BCD
+
+Required Output : 
+
+AEBCD
+
+Score : 0
+
+Test Case 4 : Correct :-)
+Score : 6.45404
+TimeTaken : 4 msecs
+
+Test Case 5 : Correct :-)
+Score : 6.45404
+TimeTaken : 6 msecs
+
+Test Case 6 : Correct :-)
+Score : 6.45404
+TimeTaken : 5 msecs
+
+Test Case 7 : Correct :-)
+Score : 6.45404
+TimeTaken : 5 msecs
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+AGKKSLEKAMMSNEOWPPDOSIMED
+7
+A:K
+S:K
+A:E
+P:D
+D:M
+L:E
+N:W
+
+Program Output : 
+
+[GSSKEAS[DDKWAONMMPOKIDAP
+
+Required Output : 
+
+SGLLKEALSDDKWAONMMPOKIDAP
+
+Score : 0
+
+Test Case 9 : Incorrect :(
+
+Input : 
+
+LRUNPSTFDJOGY
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+A[[[E[[[[[[[[
+
+Required Output : 
+
+KEYBOARDSHIFT
+
+Score : 0
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+ERJSBRNRRMDJOGYRFYPYJRTOHJYDOFR
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+[[[[[[[[[B[[[[[[[[E[[[[[[[[[[[[
+
+Required Output : 
+
+WEHAVEBEENSHIFTEDTOTHERIGHTSIDE
+
+Score : 0
+
+Test Case 11 : Correct :-)
+Score : 6.45404
+TimeTaken : 9 msecs
+
+Test Case 12 : Correct :-)
+Score : 6.45404
+TimeTaken : 16 msecs
+
+Test Case 13 : Correct :-)
+Score : 6.45404
+TimeTaken : 1 msecs
+
+Test Case 14 : Incorrect :(
+
+Input : 
+
+GKSKKEOGOSOKEKOGOKSKEO
+4
+G:K
+K:S
+S:G
+S:K
+
+Program Output : 
+
+GS[SSEOGO[OSESOGOS[SEO
+
+Required Output : 
+
+GKSKKEOGOSOKEKOGOKSKEO
+
+Score : 0
+
+Test Case 15 : Correct :-)
+Score : 6.45404
+TimeTaken : 4 msecs
+
+Test Case 16 : Correct :-)
+Score : 6.45404
+TimeTaken : 0 msecs
+
+Test Case 17 : Incorrect :(
+
+Input : 
+
+ASD
+3
+A:S
+S:D
+D:A
+
+Program Output : 
+
+A[S
+
+Required Output : 
+
+ADS
+
+Score : 0
+
+Test Case 18 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+A:B
+B:C
+
+Program Output : 
+
+[AB
+
+Required Output : 
+
+ACB
+
+Score : 0
+
+Test Case 19 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+B:C
+A:B
+
+Program Output : 
+
+CA[
+
+Required Output : 
+
+CBA
+
+Score : 0
+
+Test Case 20 : Correct :-)
+Score : 6.45404
+TimeTaken : 4 msecs
+
+Test Case 21 : Correct :-)
+Score : 6.45404
+TimeTaken : 1 msecs
+
+Test Case 22 : Incorrect :(
+
+Input : 
+
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Program Output : 
+
+A[BCD
+
+Required Output : 
+
+AEBCD
+
+Score : 0
+
+Test Case 23 : Correct :-)
+Score : 6.45404
+TimeTaken : 4 msecs
+
+Test Case 24 : Correct :-)
+Score : 6.45404
+TimeTaken : 1 msecs
+
+Test Case 25 : Correct :-)
+Score : 6.45404
+TimeTaken : 1 msecs
+
+Output for 9 Test Cases were WRONG !!!
+
+Total Score For 200 Point Problem : 23.2727 ( Instead Of 103.265 )
+
+......................................................................
+
+Total Score Of Team SameerAshish : 23.2727
+

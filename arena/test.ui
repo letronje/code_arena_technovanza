@@ -1,0 +1,330 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>test</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>test</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>560</width>
+            <height>670</height>
+        </rect>
+    </property>
+    <property name="font">
+        <font>
+        </font>
+    </property>
+    <property name="caption">
+        <string>Testing ...</string>
+    </property>
+    <vbox>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>lbltl</cstring>
+            </property>
+            <property name="text">
+                <string>Time Limit : </string>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout15</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QButtonGroup">
+                    <property name="name">
+                        <cstring>buttonGroup3</cstring>
+                    </property>
+                    <property name="title">
+                        <string> Input Type </string>
+                    </property>
+                    <grid>
+                        <property name="name">
+                            <cstring>unnamed</cstring>
+                        </property>
+                        <widget class="QLayoutWidget" row="0" column="0">
+                            <property name="name">
+                                <cstring>layout14</cstring>
+                            </property>
+                            <hbox>
+                                <property name="name">
+                                    <cstring>unnamed</cstring>
+                                </property>
+                                <widget class="QRadioButton">
+                                    <property name="name">
+                                        <cstring>rbcustom</cstring>
+                                    </property>
+                                    <property name="text">
+                                        <string>Custom</string>
+                                    </property>
+                                    <property name="checked">
+                                        <bool>true</bool>
+                                    </property>
+                                </widget>
+                                <widget class="QLayoutWidget">
+                                    <property name="name">
+                                        <cstring>layout13</cstring>
+                                    </property>
+                                    <hbox>
+                                        <property name="name">
+                                            <cstring>unnamed</cstring>
+                                        </property>
+                                        <widget class="QRadioButton">
+                                            <property name="name">
+                                                <cstring>rbegs</cstring>
+                                            </property>
+                                            <property name="text">
+                                                <string>Examples</string>
+                                            </property>
+                                            <property name="checked">
+                                                <bool>false</bool>
+                                            </property>
+                                        </widget>
+                                        <widget class="QComboBox">
+                                            <property name="name">
+                                                <cstring>cmb</cstring>
+                                            </property>
+                                            <property name="enabled">
+                                                <bool>false</bool>
+                                            </property>
+                                        </widget>
+                                    </hbox>
+                                </widget>
+                            </hbox>
+                        </widget>
+                    </grid>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>refresh</cstring>
+                    </property>
+                    <property name="text">
+                        <string>Refresh</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="text">
+                <string>Input : </string>
+            </property>
+        </widget>
+        <widget class="QTextEdit">
+            <property name="name">
+                <cstring>txtip</cstring>
+            </property>
+            <property name="paletteBackgroundColor">
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="acceptDrops">
+                <bool>false</bool>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>op</cstring>
+            </property>
+            <property name="text">
+                <string>Output : </string>
+            </property>
+        </widget>
+        <widget class="QTextEdit">
+            <property name="name">
+                <cstring>txtop</cstring>
+            </property>
+            <property name="paletteBackgroundColor">
+                <color>
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>textLabel5</cstring>
+            </property>
+            <property name="text">
+                <string>Message : </string>
+            </property>
+        </widget>
+        <widget class="QTextEdit">
+            <property name="name">
+                <cstring>msg</cstring>
+            </property>
+            <property name="minimumSize">
+                <size>
+                    <width>0</width>
+                    <height>0</height>
+                </size>
+            </property>
+            <property name="maximumSize">
+                <size>
+                    <width>32767</width>
+                    <height>80</height>
+                </size>
+            </property>
+            <property name="readOnly">
+                <bool>true</bool>
+            </property>
+        </widget>
+        <widget class="QLayoutWidget">
+            <property name="name">
+                <cstring>layout4</cstring>
+            </property>
+            <hbox>
+                <property name="name">
+                    <cstring>unnamed</cstring>
+                </property>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>btntest</cstring>
+                    </property>
+                    <property name="paletteBackgroundColor">
+                        <color>
+                            <red>231</red>
+                            <green>233</green>
+                            <blue>255</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>Test</string>
+                    </property>
+                    <property name="accel">
+                        <string>Ctrl+T</string>
+                    </property>
+                    <property name="default">
+                        <bool>false</bool>
+                    </property>
+                </widget>
+                <widget class="QPushButton">
+                    <property name="name">
+                        <cstring>Close</cstring>
+                    </property>
+                    <property name="paletteBackgroundColor">
+                        <color>
+                            <red>231</red>
+                            <green>233</green>
+                            <blue>255</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>Close</string>
+                    </property>
+                    <property name="accel">
+                        <string>Esc</string>
+                    </property>
+                </widget>
+            </hbox>
+        </widget>
+        <widget class="QLabel">
+            <property name="name">
+                <cstring>lblwait</cstring>
+            </property>
+            <property name="paletteForegroundColor">
+                <color>
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>127</blue>
+                </color>
+            </property>
+            <property name="font">
+                <font>
+                    <family>Luxi Serif</family>
+                    <bold>1</bold>
+                </font>
+            </property>
+            <property name="text">
+                <string>Please Wait ...</string>
+            </property>
+            <property name="alignment">
+                <set>AlignVCenter|AlignLeft</set>
+            </property>
+        </widget>
+    </vbox>
+</widget>
+<connections>
+    <connection>
+        <sender>btntest</sender>
+        <signal>clicked()</signal>
+        <receiver>test</receiver>
+        <slot>btntest_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>Close</sender>
+        <signal>clicked()</signal>
+        <receiver>test</receiver>
+        <slot>close_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>cmb</sender>
+        <signal>activated(int)</signal>
+        <receiver>test</receiver>
+        <slot>cmb_activated()</slot>
+    </connection>
+    <connection>
+        <sender>txtip</sender>
+        <signal>textChanged()</signal>
+        <receiver>test</receiver>
+        <slot>txtip_textChanged()</slot>
+    </connection>
+    <connection>
+        <sender>refresh</sender>
+        <signal>clicked()</signal>
+        <receiver>test</receiver>
+        <slot>refresh_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>rbcustom</sender>
+        <signal>clicked()</signal>
+        <receiver>test</receiver>
+        <slot>rbcustom_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>rbegs</sender>
+        <signal>clicked()</signal>
+        <receiver>test</receiver>
+        <slot>rbegs_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">test.ui.h</include>
+</includes>
+<slots>
+    <slot>closeEvent( QCloseEvent * ce )</slot>
+    <slot>LoadExamples()</slot>
+    <slot>close_clicked()</slot>
+    <slot>LoadExample()</slot>
+    <slot>cmb_activated()</slot>
+    <slot>txtip_textChanged()</slot>
+    <slot>Exit()</slot>
+    <slot>refresh_clicked()</slot>
+    <slot>btntest_clicked()</slot>
+    <slot>CheckPThread()</slot>
+    <slot>rbcustom_clicked()</slot>
+    <slot>rbegs_clicked()</slot>
+</slots>
+<functions>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

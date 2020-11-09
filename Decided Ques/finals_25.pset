@@ -1,0 +1,4826 @@
+<g>
+<pname>
+100
+</pname>
+<ques>
+Problem Statement:
+
+	Heard of the Kaprekar's constant ? Here's how you can calculate it.
+Take any four digit number (whose digits are not all identical),say, 3141.Then do the following:
+
+(1)	Rearrange the digits to form the largest and smallest 4-digit numbers possible.
+(2) Take these two numbers and subtract the smaller number from the larger.
+(3) Use the number you obtain and repeat the above process.   
+
+,i.e, 4311-1134=3177 , 7731-1377=6354 ...... and so on 
+
+	After some steps, you will get a number X . If you apply the above procedure on X , you will get back X . This number is called the Kaprekar's constant.
+	The input to your program will be a 4 digit number 'n' . You program must output the no of steps taken to reach X.
+
+Constraints:
+
+(1) n will be between 1000 and 9998, both  inclusive
+
+Time Limit: 200 msecs
+
+Examples:
+
+(1) 
+Input : 1004
+
+Output	 : 7
+
+Explanation : 1004 => 4086 => 8172 => 7443 ...  X
+	
+(2) 
+Input : 1000
+
+Output	 : 5
+
+Explanation : 1000 => 0999 => 8991 ... X
+</ques>
+<code>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <strstream.h>
+
+using namespace std ;
+
+string Asc(string s)
+{
+	sort(s.begin(),s.end());
+	return s;
+}
+string Desc(string s)
+{
+	sort(s.begin(),s.end());
+	reverse(s.begin(),s.end());
+	return s;
+}
+
+int ToInt(string s)
+{
+	strstream ss;
+	ss<<s;
+	int si;
+	ss>>si;
+	return si;	
+}
+int main ()
+{
+	string s;
+	cin>>s;
+	int i,ctr=0;
+ 	while( ( i = ToInt(Desc(s)) - ToInt(Asc(s)) ) != ToInt(s) )  
+	{
+		strstream ss;
+		ss<<i;
+		ss>>s;
+		if(s.length() !=4)
+			s=string(4-s.length(),'0')+s;
+		ctr++;
+	}
+	cout << ctr ;
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+9998
+</i>
+<o>
+5
+</o>
+<p>
+16
+</p>
+<i>
+1004
+</i>
+<o>
+7
+</o>
+<p>
+12
+</p>
+<i>
+1000
+</i>
+<o>
+5
+</o>
+<p>
+12
+</p>
+<i>
+1674
+</i>
+<o>
+1
+</o>
+<p>
+14
+</p>
+<i>
+6174
+</i>
+<o>
+0
+</o>
+<p>
+14
+</p>
+<i>
+9997
+</i>
+<o>
+4
+</o>
+<p>
+12
+</p>
+<i>
+1234
+</i>
+<o>
+3
+</o>
+<p>
+4
+</p>
+<i>
+9990
+</i>
+<o>
+4
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+1004
+</i>
+<o>
+7
+</o>
+<i>
+1000
+</i>
+<o>
+5
+</o>
+</examples>
+<pname>
+300
+</pname>
+<ques>
+Problem Statement:
+
+	A statistician wants to convince his fellow players on a Game Show that they would benefit from a smarter banking strategy. 
+ 
+	The game works as follows:  A player is asked a series of questions.  After 
+each question the player answers correctly, the player has the option of 
+"banking".  When the player banks, a value is added to their total earnings for 
+the round.  The value is proportional to the number of correct answers the 
+player has answered in a row; if the player has answered x correct questions in 
+a row when banking, award[x] is added to their total for the round (0 is 
+element 0, 1000 is element 1, etc..): 
+award[] = { 0, 1000, 2500, 5000, 10000, 25000, 50000, 75000, 125000 } 
+After banking, the number of consecutive correct questions is reset to 0.   If 
+there is an incorrect answer, or the round ends before the player banks, the 
+count is reset to 0.   
+ 
+	The game consists of 7 rounds, with all values in the 7th round being doubled (double all values in the array). 
+ 
+	The statistician believes that more money can be made by choosing a constant number of correct answers to wait for before banking, and always banking after exactly that many correct answers.  To verify his reasoning, the statistician wants a program that inputs an array of strings of 7 elements representing the 7 rounds of the game.  Each String consists of R's and W's.  R's represent correct answers and W's represent incorrect answers.  The first character in the String represents the correctness of the player's first answer in the round, the second character represents the second answer, etc...   The program outputs an integer array of 8 elements that are the total earnings the players would earn in the game if the player banked immediately after exactly 1, 2, 3, 4, 5, 6, 7, and 8 consecutive correct answers.  The element 0 in the int[] is the score if the player always banked immediately after getting 1 correct answer.  The element 1 is the score if the player always banked immediately after getting 2 consecutive correct answers, etc...  
+
+Constraints: 
+
+Input:
+1) The array of strings will contains exactly 7 elements, each representing a single round.
+2) Each string is between 2 and 50 (inclusive) characters long and contains only the characters 'R' and 'W' (upper case). 
+
+Output: 
+1)The int[] will contain exactly 8 elements.  Element 0 in the array is the total game score the player gets for banking after every correct answer.  Element 1 is the total game score for banking after every two consecutive correct answers, etc... 
+ 
+Time Limit: 200ms
+
+Examples: 
+
+1)
+Input:
+RRRR
+RRRR
+RW
+WW
+RWRW
+RRRRWRR
+RRRRRRRRWR 
+ 
+Output:
+35000 37500 35000 70000 50000 100000 150000 250000
+
+Explanation:
+In Round 1,  
+if the player always banked after 1 correct answer, they would bank 4 times: 
+4*award[1] = 4000. 
+if the player always banked after 2 correct answers, they would bank 2 times: 
+2*award[2]  = 5000. 
+if the player always banked after 3 correct answers, they would bank 1 time: 
+1*award[3] = 5000. 
+if the player always banked after 4 correct answers, they would bank 1 time: 
+1*award[4] = 10000. 
+if the player always banked after 5, 6, 7, or 8 answers, they would never get 
+to bank, and earn 0. 
+So the round 1 subtotals would be: 
+subtotal: {4000, 5000, 5000, 10000, 0, 0, 0, 0} 
+ 
+Round 2 is the same, so we have: 
+Subtotal after round 2: {8000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 3 (RW) gives us one banking after 1 correct solution, and nothing else 
+subtotal: {9000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 4 (WW) gives us nothing, so the subtotal doesn't change at all. 
+ 
+Round 5 (RWRW) gives us two banking after 1 correct solution and nothing else 
+subtotal: {11000, 10000, 10000, 20000, 0, 0, 0, 0} 
+ 
+Round 6 (RRRRWRR) gives us six bankings after 1 correct, three after 2 correct, 
+one after 3 correct, one after 4 correct and the subtotal becomes: 
+{17000, 17500, 15000, 30000, 0, 0, 0, 0} 
+ 
+Round 7 (RRRRRRRRWR) gives us nine bankings after 1 correct, four after 2 
+correct, two after 3 correct, two after 4 correct, one after 5 correct, one 
+after 6 correct, one after 7 correct, and one after 8 correct.  All these 
+totals are doubled, giving us a final total: 
+{35000, 37500, 35000, 70000, 50000, 100000, 150000, 250000} and this int[] 
+should be output. 
+ 
+2)
+Input: 
+RWRRRR
+RWWRWR
+RRRRRRWR
+RRRWRWRW
+RWWWRWWR
+RRRRWR
+RWWWWW
+
+Output:
+30000 20000 25000 30000 25000 50000 0 0
+</ques>
+<code>
+#include <iostream> 
+ 
+#include <string> 
+using namespace std; 
+ 
+int main() 
+{ 
+    int award[9]={0,1000,2500,5000,10000,25000,50000,75000,125000}; 
+    string s[7]; 
+    for(int i=0;i<7;i++) 
+    { 
+        string temp; 
+        cin>>temp; 
+        s[i]=temp; 
+    } 
+    int ans[9]={0,0,0,0,0,0,0,0,0}; 
+    //first 6 rnds 
+    for(int i=0;i<6;i++) 
+    { 
+        string curr = s[i]; 
+ 
+        string r=""; 
+        for(int k=1;k<=8;k++) 
+        { 
+                r+='R'; 
+                int j=-k; 
+ 
+                while((j=(int)curr.find(r,j+k))!=-1) 
+                {                 
+                     ans[k]+=award[k]; 
+                } 
+        } 
+    } 
+    //for 7th rnd 
+    string curr = s[6]; 
+    string r=""; 
+    for(int k=1;k<=8;k++) 
+    { 
+          r+='R'; 
+          int j=-k; 
+          while((j=curr.find(r,j+k))!=-1) 
+          {                 
+               ans[k]+=2* award[k]; 
+          } 
+    } 
+ 
+    for(int i=1;i<9;i++) 
+    { 
+        cout<<ans[i]<<" "; 
+    } 
+ 
+    return 0; 
+} 
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+RRRR RRRR RRRR RRRR RRRR RRRR RRWRR
+</i>
+<o>
+32000 40000 30000 60000 0 0 0 0
+</o>
+<p>
+16
+</p>
+<i>
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWRWWWWWWWWWWWWWWW
+WWWWWWWWWWWWWWWWWWWRWWWWWWWWWW
+</i>
+<o>
+3000 0 0 0 0 0 0 0
+</o>
+<p>
+17
+</p>
+<i>
+WRRWWRWWWWRWRWWWRWWRRWRRRWRWRR
+WRRRWRRWRWRWWRRWRWWRRRWWWWRW
+WWWRRRRWWWWWRRRWWRRRWRRWWW
+RWRRRWWWWRRWWWWRWWRWWRRW
+WRRRWWWWWRRWRWRWRWRRRR
+RWRWRRWWRWRWRWWRRWWW
+RWRRWWWWWWWWRWWWWW
+</i>
+<o>
+79000 60000 45000 20000 0 0 0 0
+</o>
+<p>
+17
+</p>
+<i>
+WWRRRRWRWWRRRWRRRWRRWWWRWWRWRR
+RRRWRRRWWRWRRRRWRRWWRRRRRWRR
+RRWRWWRRWRWWWRWWWRWRWRRRRR
+RWRRRWRRRWWWWWRWRWRRWRRR
+WRRWWWWWWWRRWWRWWRWWRW
+WWRWRRWWWRWRWWRWWWRR
+WWWWRWWRWWWWRRRWWW
+</i>
+<o>
+90000 70000 65000 40000 50000 0 0 0
+</o>
+<p>
+17
+</p>
+<i>
+RWRWWRRWRRRRWRRWRWWRRWRRWRWRRW
+RWWRRRRRRWWRRRWRRWRRRRWWWRWR
+RWRRRWRWRWRWWRRRRWRRWRRRRR
+RRRRRRWWWWRRRRRRWRWRRWRR
+WRRRWRWRWRRRRWRRRRRWWW
+RWRWWWRRWWRWRWWWWRWW
+RRWWWWWRWRWRWRRWRR
+</i>
+<o>
+110000 100000 75000 90000 125000 150000 0 0
+</o>
+<p>
+17
+</p>
+<i>
+WW WW WW WW WW WW RRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRRWRRRRR
+</i>
+<o>
+80000 80000 80000 160000 400000 0 0 0
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+RRRR
+RRRR
+RW
+WW
+RWRW
+RRRRWRR
+RRRRRRRRWR
+</i>
+<o>
+35000 37500 35000 70000 50000 100000 150000 250000
+</o>
+<i>
+RWRRRR
+RWWRWR
+RRRRRRWR
+RRRWRWRW
+RWWWRWWR
+RRRRWR
+RWWWWW
+</i>
+<o>
+30000 20000 25000 30000 25000 50000 0 0
+</o>
+</examples>
+</g>
+<g>
+<pname>
+200
+</pname>
+<ques>
+Problem Statement:
+
+	The System Administartor was doing something very important.Tired by all the work , he decided to take a break and went for a coffee break. A mischievious student switched the keycaps on the Administrator's keyboard. The Administartor came back and started typing on the keyboard without looking at the monitor.After some typing, he lokked at the monitor to verify and realised that the keyboard was tampered. Now, he is now trying to remember what he was trying to type.
+	The input to your program will be the message 'm' that he saw on the monitor followed by the number of keycap switches 'k' on the next line , followed by 'k' switches.Each switch is represented by a string of the form "*:*" (quotes added for clarity), where each * represents a single uppercase letter ('A'-'Z') . For eg. the string "A:B"  means the keycaps of A and B were switched.Your program must return the original intended message (what keys the user thought he was pressing). A keycap can be switched around more than once. For example, if someone switched around 'A' and 'S', then switched around 'S' and 'D', then 'D' would be where 'A' originally was, 'S' where 'D' was, and 'A' where 'S' was.The order of the keycaps in the string doesn't matter, but the order of the strings 
+does.
+
+Note:
+-There is no restriction on how many times keycaps can be switched. It is 
+perfectly possible to return to the original keyboard configuration.
+
+Constraints:
+-string m will be between 1 and 50 characters in length, inclusive.
+-each character of typed will be an uppercase letter ('A'-'Z').
+-no of switches will be between 1 and 50 elements, inclusive.
+
+TimeLimit: 200 msecs
+
+Examples:
+
+(1)
+
+Input:
+AAAAA
+3
+A:B
+B:C
+A:D
+
+Output:
+CCCCC
+
+Explanation :
+At first, all keys look right. After the A:B switch, A looks like B and B looks 
+like A. After the B:C switch, A looks like C, B looks like A, and C looks like 
+B. The third switch is irrelevant. Since "AAAAA" is what comes out, Administrator must have been pressing "CCCCC" 
+
+(2)
+
+Input:
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+
+Output :
+AEBCD
+
+(3)
+
+Input: 
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Output:
+WHOSWITCHEDMYKEYCAPSAROUND
+</ques>
+<code>
+#include <string>
+#include <iostream>
+#include <numeric>
+
+using namespace std ;
+
+int main ()
+{
+	string visible ;
+	cin>>visible;
+	
+	string orig,switched ;
+	for( int i=0;i<26;i++)
+		orig.push_back(65+i);
+	switched=orig;
+	
+	int no_switches ;
+	cin>>no_switches ;
+		
+	for( int i=0;i<no_switches;i++)
+	{
+		string s;
+		cin>>s;
+		char c1,c2;
+		sscanf(s.c_str(),"%c:%c",&c1,&c2);
+		int c1_index = switched.find(c1) ;
+		int c2_index = switched.find(c2);
+		char temp=switched.at(c1_index);
+		switched.at(c1_index)=switched.at(c2_index);
+		switched.at(c2_index)=temp ;
+	}
+	for( int i=0;i<visible.length();i++)
+		cout << switched.at(visible.at(i)-65);
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+AAAAA
+1
+A:B
+</i>
+<o>
+BBBBB
+</o>
+<p>
+4
+</p>
+<i>
+AAAAA
+3
+A:B
+B:C
+A:D
+
+</i>
+<o>
+CCCCC
+</o>
+<p>
+4
+</p>
+<i>
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+</i>
+<o>
+AEBCD
+</o>
+<p>
+4
+</p>
+<i>
+HEWWO 
+1
+W:L
+</i>
+<o>
+HELLO
+</o>
+<p>
+4
+</p>
+<i>
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+</i>
+<o>
+WHOSWITCHEDMYKEYCAPSAROUND
+</o>
+<p>
+4
+</p>
+<i>
+WHUTSWETHTHATYPIS
+4
+A:E
+A:I
+A:O
+A:U
+</i>
+<o>
+WHATSWITHTHETYPOS
+</o>
+<p>
+4
+</p>
+<i>
+AGAMEMNON
+2
+A:B
+M:N
+</i>
+<o>
+BGBNENMOM
+</o>
+<p>
+4
+</p>
+<i>
+AGKKSLEKAMMSNEOWPPDOSIMED
+7
+A:K
+S:K
+A:E
+P:D
+D:M
+L:E
+N:W
+</i>
+<o>
+SGLLKEALSDDKWAONMMPOKIDAP
+</o>
+<p>
+4
+</p>
+<i>
+LRUNPSTFDJOGY
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+</i>
+<o>
+KEYBOARDSHIFT
+</o>
+<p>
+4
+</p>
+<i>
+ERJSBRNRRMDJOGYRFYPYJRTOHJYDOFR
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+</i>
+<o>
+WEHAVEBEENSHIFTEDTOTHERIGHTSIDE
+</o>
+<p>
+4
+</p>
+<i>
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+25
+A:B
+B:C
+C:D
+D:E
+E:F
+F:G
+G:H
+H:I
+I:J
+J:K
+K:L
+L:M
+M:N
+N:O
+O:P
+P:Q
+Q:R
+R:S
+S:T
+T:U
+U:V
+V:W
+W:X
+X:Y
+Y:Z
+</i>
+<o>
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+</o>
+<p>
+4
+</p>
+<i>
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+25
+Z:Y
+Y:X
+X:W
+W:V
+V:U
+U:T
+T:S
+S:R
+R:Q
+Q:P
+P:O
+O:N
+N:M
+M:L
+L:K
+K:J
+J:I
+I:H
+H:G
+G:F
+F:E
+E:D
+D:C
+C:B
+B:A
+</i>
+<o>
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+</o>
+<p>
+4
+</p>
+<i>
+AGSGEMMZMZMXPOVQJEWYTMZ
+1
+A:E
+</i>
+<o>
+EGSGAMMZMZMXPOVQJAWYTMZ
+</o>
+<p>
+4
+</p>
+<i>
+GKSKKEOGOSOKEKOGOKSKEO
+4
+G:K
+K:S
+S:G
+S:K
+
+</i>
+<o>
+GKSKKEOGOSOKEKOGOKSKEO
+</o>
+<p>
+4
+</p>
+<i>
+FINITO
+1
+A:B
+</i>
+<o>
+FINITO
+</o>
+<p>
+4
+</p>
+<i>
+ABC
+2
+A:B
+B:C
+</i>
+<o>
+CAB
+</o>
+<p>
+4
+</p>
+<i>
+ASD
+3
+A:S
+S:D
+D:A
+</i>
+<o>
+ADS
+</o>
+<p>
+4
+</p>
+<i>
+ABC
+3
+A:B
+A:B
+B:C
+</i>
+<o>
+ACB
+</o>
+<p>
+4
+</p>
+<i>
+ABC
+3
+A:B
+B:C
+A:B
+
+</i>
+<o>
+CBA
+</o>
+<p>
+4
+</p>
+<i>
+TESTESTEST
+3
+E:S
+E:S
+T:E
+
+</i>
+<o>
+ETSETSETSE
+</o>
+<p>
+4
+</p>
+<i>
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+</i>
+<o>
+WHOSWITCHEDMYKEYCAPSAROUND
+</o>
+<p>
+4
+</p>
+<i>
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+</i>
+<o>
+AEBCD
+</o>
+<p>
+4
+</p>
+<i>
+AC
+1
+A:C
+</i>
+<o>
+CA
+</o>
+<p>
+4
+</p>
+<i>
+QQQ
+4
+A:B
+B:Q
+A:R
+B:R
+</i>
+<o>
+RRR
+</o>
+<p>
+4
+</p>
+<i>
+ZZZZZZZZZZZZZZ
+1
+Z:A
+</i>
+<o>
+AAAAAAAAAAAAAA
+</o>
+<p>
+4
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+AAAAA
+3
+A:B
+B:C
+A:D
+</i>
+<o>
+CCCCC
+</o>
+<i>
+ABCDE
+5
+A:B
+B:C
+C:D
+D:E
+E:A
+</i>
+<o>
+AEBCD
+</o>
+<i>
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+</i>
+<o>
+WHOSWITCHEDMYKEYCAPSAROUND
+</o>
+</examples>
+<pname>
+400
+</pname>
+<ques>
+Problem Statement:
+
+	A friend of you is doing research on the Traveling Knight Problem (TKP) where you are to find the shortest closed tour of knight moves that visits each square of a given set of n squares on a chessboard exactly once. He thinks that the most difficult part of the problem is determining the smallest number of knight moves between two given squares and that, once you have accomplished this, finding the tour would be easy.
+
+	Of course you know that it is vice versa. So you offer him to write a program that solves the "difficult" part.
+
+	Your job is to write a program that takes two squares a and b as input and then determines the number of knight moves on a shortest route from a to b.
+
+Input:
+
+The input will contain one line containing two squares separated by one space. A square is a string consisting of a letter (a-h) representing the column and a digit (1-8) representing the row on the chessboard.
+
+Output:
+
+	Output one line saying "To get from xx to yy takes n knight moves.".
+
+Time Limit: 200ms
+
+Examples:
+
+1) Input: e2 e4
+   Output: To get from e2 to e4 takes 2 knight moves.
+
+2) Input: a1 h8
+   Output: To get from a1 to h8 takes 6 knight moves.
+
+<Source: ACM>
+</ques>
+<code>
+#include <iostream>
+#include <string>
+
+#include <queue>
+#include <vector>
+using namespace std;
+
+vector<vector<int> >grid (8,8);  
+    
+int func(queue<int> qr,queue<int> qc,queue<int> qcnt,int er,int ec)
+{
+
+    int row = qr.front();
+    int col = qc.front();
+    
+    qr.pop();
+    qc.pop();
+
+    int cnt = qcnt.front();
+    qcnt.pop();
+    
+    
+    if(row==er && col==ec) return cnt;
+    
+    if( row+2<=7)
+    {
+        if(col+1<=7 && !grid.at(row+2).at(col+1))
+        {
+                grid.at(row+2).at(col+1)=1;
+                qr.push(row+2);
+                qc.push(col+1);
+                qcnt.push(cnt+1);
+
+        }
+        if(col-1>=0 && !grid.at(row+2).at(col-1) )
+        {
+                grid.at(row+2).at(col-1)=1;        
+                qr.push(row+2);
+                qc.push(col-1);
+                qcnt.push(cnt+1);
+
+         }
+    }
+    if(row+1<=7 )
+    {
+    
+        if( col-2>=0 && !grid.at(row+1).at(col-2) )
+        {
+                grid.at(row+1).at(col-2)=1;
+                qr.push(row+1);
+                qc.push(col-2);
+                qcnt.push(cnt+1);
+
+         }
+        if(col+2<=7 && !grid.at(row+1).at(col+2))
+        {
+                grid.at(row+1).at(col+2)=1;
+                qr.push(row+1);
+                qc.push(col+2);
+                qcnt.push(cnt+1);
+
+         }
+    }
+    if(row-1>=0 )
+    {
+
+        if(col-2>=0 && !grid.at(row-1).at(col-2))
+        {
+                grid.at(row-1).at(col-2)=1;        
+                qr.push(row-1);
+                qc.push(col-2);
+                qcnt.push(cnt+1);
+
+         }
+        if( row-1>=0 && col+2<=7 && !grid.at(row-1).at(col+2))
+        {
+                grid.at(row-1).at(col+2)=1;
+                qr.push(row-1);
+                qc.push(col+2);
+                qcnt.push(cnt+1);
+        }
+    }
+    if( row-2>=0 )
+    {
+        if(col-1>=0 && !grid.at(row-2).at(col-1))
+        {
+                grid.at(row-2).at(col-1)=1;        
+                qr.push(row-2);
+                qc.push(col-1);
+                qcnt.push(cnt+1);
+        }
+        if( col+1<=7 && !grid.at(row-2).at(col+1))
+        {
+                grid.at(row-2).at(col+1)=1;        
+                qr.push(row-2);
+                qc.push(col+1);
+                qcnt.push(cnt+1);
+        }
+    }
+    
+    return func(qr,qc,qcnt,er,ec);
+}
+
+int main()
+{
+    
+    char t[6];
+
+    while(gets(t)!=NULL)
+    {
+      for(int i=0;i<=7;i++)
+      {
+            for(int j=0;j<=7;j++)
+            {
+                        grid.at(i).at(j)=0;
+            }
+      }
+
+    string s=t;
+
+    int sr,sc,er,ec;
+    sc = s[0]-'a';
+    sr = s[1]-'1';
+    
+    ec = s[3]-'a';
+    er = s[4]-'1';
+
+    queue<int> qr;
+    queue<int> qc;
+    queue<int> qcnt;
+    grid.at(sr).at(sc)=1;
+    qr.push(sr);
+    qc.push(sc);
+    qcnt.push(0);
+    
+    cout<<"To get from "<<s[0]<<s[1]<<" to "<<s[3]<<s[4]<<" takes "<<func(qr,qc,qcnt,er,ec)<<" knight moves.\n";
+    }
+    return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+e2 e4
+</i>
+<o>
+To get from e2 to e4 takes 2 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+a1 b2
+</i>
+<o>
+To get from a1 to b2 takes 4 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+b2 c3
+</i>
+<o>
+To get from b2 to c3 takes 2 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+a1 h8
+</i>
+<o>
+To get from a1 to h8 takes 6 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+a1 h7
+</i>
+<o>
+To get from a1 to h7 takes 5 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+h8 a1
+</i>
+<o>
+To get from h8 to a1 takes 6 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+b1 c3
+</i>
+<o>
+To get from b1 to c3 takes 1 knight moves.
+</o>
+<p>
+12
+</p>
+<i>
+f6 f6
+</i>
+<o>
+To get from f6 to f6 takes 0 knight moves.
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+e2 e4
+</i>
+<o>
+To get from e2 to e4 takes 2 knight moves.
+</o>
+<i>
+a1 h8
+</i>
+<o>
+To get from a1 to h8 takes 6 knight moves.
+</o>
+</examples>
+</g>
+<g>
+<pname>
+500
+</pname>
+<ques>
+Problem Statement
+    It is a common practice in cryptography to remove the spaces from a message before encoding it to help to disguise its structure. Even after it is then decoded, we are left with the problem of putting the spaces back in the message.
+
+	The program will take as input , an array of string( dictionary of possible words ) and a string message. It returns the message with single spaces inserted to divide the message into words from the dictionary. If there is more than one way to insert spaces, it returns "AMBIGUOUS!" If there is no way to insert spaces, it returns "IMPOSSIBLE!" The return should never have any leading or trailing spaces.
+	The first line of the input will be 'n',the size of the array followed by n strings.
+
+Notes
+- Don't forget the '!' at the end of the two special returns
+- A proper message may require 0 spaces to be inserted
+
+Constraints:
+
+- dictionary will contain between 1 and 50 elements inclusive
+- the elements of dictionary will be distinct
+- each element of dictionary will contain between 1 and 50 characters
+- message will contain between 1 and 50 characters
+- every character in message and in each element of dictionary will be an uppercase letter 'A'-'Z'
+
+Time Limit: 200 ms
+
+Examples:
+
+1)
+Input:
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+
+Output: HI YOU SAY HI
+
+A word from dictionary may appear multiple times in the message.
+
+2)
+Input:
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+
+Output: AMBIGUOUS!
+
+"ABC BCD" and "ABCB CD" are both possible interpretations of message.
+
+3)
+Input:   
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+
+Output: IMPOSSIBLE!
+
+There is no way to concatenate words from this dictionary to form "IMPOSSIBLE"
+
+4)
+Input:
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+
+Output: IMPOSSIBLE
+
+This message can be decoded without ambiguity. This requires the insertion of no spaces since the entire message appears as a word in the dictionary.
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <functional>
+#include <numeric>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <queue>
+using namespace std;
+typedef vector<int> VI;  typedef vector<vector<int> > VVI;
+typedef vector<string> VS;  typedef vector<vector<string> > VVS;
+typedef signed long long i64;  typedef unsigned long long u64;
+
+int main()
+{
+
+	vector <string> a;
+	string b;
+	int size;
+	cin>>size;
+	for(int i=0;i<size;i++)
+	{
+		string temp;
+		cin>>temp;
+		a.push_back(temp);
+	}
+	cin>>b;
+	int i, j, k, x, y, z, n;
+
+  	VI prev(b.size()+1, -1);
+  	prev[0] = -2;
+  	for( i = 1; i <= b.size(); i++ )
+  		for( j = 0; j < i; j++ ) if( prev[j] != -1 ) {
+    if( find(a.begin(), a.end(), b.substr(j, i-j)) != a.end() ) {
+      if( prev[i] != -1 || prev[j] == -3 ) prev[i] = -3;
+      else prev[i] = j;
+    }
+  }
+  if( prev[b.size()] == -1 ) {cout<<"IMPOSSIBLE!";return 0;}
+  if( prev[b.size()] == -3 ) {cout<<"AMBIGUOUS!";return 0;}
+  for( x = b.size(); prev[x]; x = prev[x] ) {
+    b = b.substr(0, prev[x]) + " " + b.substr(prev[x]);
+  }
+  cout<<b;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+</i>
+<o>
+HI YOU SAY HI
+</o>
+<p>
+3
+</p>
+<i>
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE
+</o>
+<p>
+3
+</p>
+<i>
+4
+A B C D BADCAB
+</i>
+<o>
+B A D C A B
+</o>
+<p>
+3
+</p>
+<i>
+4 A B C D ABRACADABRA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+3 APPLE APPLET ET APPLET
+</i>
+<o>
+APPLET
+</o>
+<p>
+3
+</p>
+<i>
+4 A BA BAB AR ABABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+5 A BA BABA AR ABA ABABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+6 A BA BABA AR ABA ABAB ABABABABABABABABABABABABABABABABABABABABABABAR
+</i>
+<o>
+ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB AR
+</o>
+<p>
+3
+</p>
+<i>
+6 TA PEA DOG CAT APE TAPE TAPEAPEAPE
+</i>
+<o>
+TAPE APE APE
+</o>
+<p>
+3
+</p>
+<i>
+10 AB BA AA BB BABAAB ABAAAB BAAB BABA BBBA BAAA
+ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+5 AB BA AA BB BABAAB ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+28 A B C BAB BAD E F G H I J K L EF M N O P Q R S T U V W X Y Z BAABAABBAAABAABAABAABBBBADEEABAAAABAAABAABBBBAFBAA
+</i>
+<o>
+B A A B A A B B A A A B A A B A A B A A B B B BAD E E A B A A A A B A A A B A A B B B B A F B A A
+</o>
+<p>
+3
+</p>
+<i>
+1 XYX XYXXYXXYXXYXXYXXYX
+</i>
+<o>
+XYX XYX XYX XYX XYX XYX
+</o>
+<p>
+3
+</p>
+<i>
+3 AB AC A A
+</i>
+<o>
+A
+</o>
+<p>
+3
+</p>
+<i>
+3 AB AC A C
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+15 A B AB BA ABA BAB ABAB BABA ABABA BABAB ABABAB BABABA ABABABA BABABAB ABABABABABABABABABABABAC ABABABABABABABABABABABACABABABABABABABABABABABAC
+</i>
+<o>
+ABABABABABABABABABABABAC ABABABABABABABABABABABAC
+</o>
+<p>
+3
+</p>
+<i>
+50
+A
+AA
+AAA
+AAAA
+AAAAA
+AAAAAA
+AAAAAAA
+AAAAAAAA
+AAAAAAAAA
+AAAAAAAAAA
+AAAAAAAAAAA
+AAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+23
+A B AA AB BA BB AAA AAB ABA BAA BBB BBA BAB ABB AAAA AAAB AABA ABAA BAAA BBBB BBBA BBAB BABB ABABBBABABBBABABBAAABABBAAABBABABBBABABBBABABBC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+
+</i>
+<o>
+
+</o>
+<p>
+3
+</p>
+<i>
+2 BLAH BLA BLAHA
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+3 AB CD ABCD ABCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+5 A AA AAA AAAA AAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+5 A AA AAA AAAA AAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3 H HH HHCH HHHHHHHHHHHHHHHHHHHHHHHHHHHCHHHHHHHHHHHHHHHHHHHHC
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+28 A AB ABC ABCD ABCDE ABCDEF ABCDEFG BCDEFG CDEFG DEFG EFG FG G B C D E F BC CD DE EF BCD CDE DEF BCDE CDEF BCDEF ABCDEFGABCDEFGABCDEFGABCDEFGZ
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<p>
+3
+</p>
+<i>
+4 AB CD EF ABC ABCDEF
+</i>
+<o>
+AB CD EF
+</o>
+<p>
+3
+</p>
+<i>
+3 AB CDEF CD ABCDEF
+</i>
+<o>
+AB CDEF
+</o>
+<p>
+3
+</p>
+<i>
+3 AB C ABC ABC
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+6 A AA AAA AAAA AAAAA AAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+3
+</p>
+<i>
+3 HI H I HI
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<p>
+7
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+</i>
+<o>
+HI YOU SAY HI
+</o>
+<i>
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+</i>
+<o>
+AMBIGUOUS!
+</o>
+<i>
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE!
+</o>
+<i>
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+</i>
+<o>
+IMPOSSIBLE
+</o>
+</examples>
+<pname>
+600
+</pname>
+<ques>
+Problem Statement:
+
+	A river houses two breeds of frogs on either side of its banks. The black frogs live on the left bank while the white frogs live in the right bank. The frogs have decided to migrate to the other bank. Since the water current is very strong, the only way of crossing the river is to use a bridge which is in the form of a sequence of equally spaced stones.
+ 	There are m black, m white frogs and 2m+1 stones. The black frogs are sitting on m stones to the left while the white ones are sitting on m stones to the right , leaving the centre stone unoccupied. The black frogs always jump towards right and white frogs towards left. A frog can only jump to the adjacent stone (if it is empty) or the stone after that (provided the adjacent stone is occupied by a frog of the opposite color). A frog will never jump over a frog of its own color. Finally, after migrating, the black frogs occupy the m right stones and white frogs occupy m left stones, leaving the centre stone empty once again.
+	A white frog is represented by 'W' and a black frog is represented by 'B'. An empty stone is represented by '_' (underscore). 
+	The input to your program will be value m. Assuming that the black frog to the left of the center stone jumped to the center stone first, your program must output the position of the frogs after each jump. Each step is to be output on a new line.(See Examples)
+	For example if m=2, then, the output must start with the step: BB_WW ( Initial Position ) followed by B_BWW on the next line and so on. The final step must be WW_BB ( Final Position after migration). 
+
+Constraints:
+
+1> 'm' will be between 1 and 15, both inclusive
+
+Time Limit: 700 ms.
+
+Examples:
+
+(1)
+
+Input:
+1
+
+Output:
+B_W
+_BW
+WB_
+W_B
+
+(2)
+
+Input:
+2
+
+Output:
+BB_WW
+B_BWW
+BWB_W
+BWBW_
+BW_WB
+_WBWB
+W_BWB
+WWB_B
+WW_BB
+</ques>
+<code>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+#define BLACK 	'B'
+#define WHITE	'W'
+#define EMPTY	'_'
+
+using namespace std ;
+
+int no_frogs;//no of frogs per side
+string final;
+vector<string> soln;
+
+struct Node
+{
+	string s;
+	Node* left;
+	Node* right;	
+	Node* father ;
+};
+void Swap(string& s,int i,int j)
+{
+	int temp=s.at(i);
+	s.at(i)=s.at(j);
+	s.at(j)=temp ;
+}
+void ShowSol(vector<string>& v)
+{
+	for(int i=0;i<v.size();i++)
+		cout << v.at(i)<<endl;	
+}
+Node* AddAsChild(Node& n,int i,int j)
+{
+	string temp=n.s;
+	Swap(temp,i,j);
+	Node** child;
+	if(n.left == NULL)
+		child=&(n.left);
+	if(n.right == NULL)
+		child=&(n.right);
+		
+	*child = new Node;
+	(*child)->s = temp;
+	(*child)->left=NULL;
+	(*child)->right=NULL ;
+	(*child)->father=&n;
+	
+	if((*child)->s == final)
+	{
+		soln.clear();
+		Node* temp =  (*child)->father;
+		soln.push_back(final);	
+
+		while(temp !=NULL)
+		{
+			soln.push_back(temp->s);
+			temp = temp->father;
+		}
+		reverse(soln.begin(),soln.end());
+		ShowSol(soln);
+		exit(0);
+	}
+	else
+		return (*child);
+}
+
+void MakeTree(Node& n)
+{
+	int i=0;
+	while(i<n.s.length() && n.s.at(i)!=EMPTY )
+		i++;
+	int ll=i-2,ul=i+2;
+	if(ll < 0 )
+		ll=0;
+	if(ul >(n.s.length()-1))
+		ul=n.s.length()-1;
+	for(int j=ll;j<=ul;j++)
+	{
+		if(n.s.at(j)==BLACK )
+		{
+			if(j+1<=ul && n.s.at(j+1)==EMPTY)
+				MakeTree(*AddAsChild(n,j,j+1));	
+			if(j+2<=ul && n.s.at(j+2)==EMPTY && n.s.at(j+1) == WHITE)
+				MakeTree(*AddAsChild(n,j,j+2));
+		}	
+		else if ( n.s.at(j)==WHITE )	
+		{
+			
+			if(j-1>=ll && n.s.at(j-1)==EMPTY )
+				MakeTree(*AddAsChild(n,j,j-1));
+			if(j-2>=ll && n.s.at(j-2)==EMPTY && n.s.at(j-1) == BLACK)
+				MakeTree(*AddAsChild(n,j-2,j));
+		}	
+	}
+}
+
+int main (int argc,char* argv[])
+{
+	
+	cin>>no_frogs ;
+	if(no_frogs>20)
+		return 0;
+	Node n;
+	int i=0;
+	for(i=0;i<no_frogs;i++)
+		n.s += BLACK;	
+	n.s += EMPTY;
+	
+	for(i=0;i<no_frogs;i++)
+		n.s += WHITE;	
+	final=n.s;
+	reverse(final.begin(),final.end());
+	n.left=n.right=NULL;
+	n.father=NULL ;
+	MakeTree(n);
+	return 0;
+}
+</code>
+<cases>
+<tl>
+700
+</tl>
+<i>
+1
+</i>
+<o>
+B_W
+_BW
+WB_
+W_B
+</o>
+<p>
+1
+</p>
+<i>
+2
+</i>
+<o>
+BB_WW
+B_BWW
+BWB_W
+BWBW_
+BW_WB
+_WBWB
+W_BWB
+WWB_B
+WW_BB
+</o>
+<p>
+1
+</p>
+<i>
+3
+</i>
+<o>
+BBB_WWW
+BB_BWWW
+BBWB_WW
+BBWBW_W
+BBW_WBW
+B_WBWBW
+_BWBWBW
+WB_BWBW
+WBWB_BW
+WBWBWB_
+WBWBW_B
+WBW_WBB
+W_WBWBB
+WW_BWBB
+WWWB_BB
+WWW_BBB
+</o>
+<p>
+2
+</p>
+<i>
+4
+</i>
+<o>
+BBBB_WWWW
+BBB_BWWWW
+BBBWB_WWW
+BBBWBW_WW
+BBBW_WBWW
+BB_WBWBWW
+B_BWBWBWW
+BWB_BWBWW
+BWBWB_BWW
+BWBWBWB_W
+BWBWBWBW_
+BWBWBW_WB
+BWBW_WBWB
+BW_WBWBWB
+_WBWBWBWB
+W_BWBWBWB
+WWB_BWBWB
+WWBWB_BWB
+WWBWBWB_B
+WWBWBW_BB
+WWBW_WBBB
+WW_WBWBBB
+WWW_BWBBB
+WWWWB_BBB
+WWWW_BBBB
+</o>
+<p>
+3
+</p>
+<i>
+5
+</i>
+<o>
+BBBBB_WWWWW
+BBBB_BWWWWW
+BBBBWB_WWWW
+BBBBWBW_WWW
+BBBBW_WBWWW
+BBB_WBWBWWW
+BB_BWBWBWWW
+BBWB_BWBWWW
+BBWBWB_BWWW
+BBWBWBWB_WW
+BBWBWBWBW_W
+BBWBWBW_WBW
+BBWBW_WBWBW
+BBW_WBWBWBW
+B_WBWBWBWBW
+_BWBWBWBWBW
+WB_BWBWBWBW
+WBWB_BWBWBW
+WBWBWB_BWBW
+WBWBWBWB_BW
+WBWBWBWBWB_
+WBWBWBWBW_B
+WBWBWBW_WBB
+WBWBW_WBWBB
+WBW_WBWBWBB
+W_WBWBWBWBB
+WW_BWBWBWBB
+WWWB_BWBWBB
+WWWBWB_BWBB
+WWWBWBWB_BB
+WWWBWBW_BBB
+WWWBW_WBBBB
+WWW_WBWBBBB
+WWWW_BWBBBB
+WWWWWB_BBBB
+WWWWW_BBBBB
+</o>
+<p>
+3
+</p>
+<i>
+6
+</i>
+<o>
+BBBBBB_WWWWWW
+BBBBB_BWWWWWW
+BBBBBWB_WWWWW
+BBBBBWBW_WWWW
+BBBBBW_WBWWWW
+BBBB_WBWBWWWW
+BBB_BWBWBWWWW
+BBBWB_BWBWWWW
+BBBWBWB_BWWWW
+BBBWBWBWB_WWW
+BBBWBWBWBW_WW
+BBBWBWBW_WBWW
+BBBWBW_WBWBWW
+BBBW_WBWBWBWW
+BB_WBWBWBWBWW
+B_BWBWBWBWBWW
+BWB_BWBWBWBWW
+BWBWB_BWBWBWW
+BWBWBWB_BWBWW
+BWBWBWBWB_BWW
+BWBWBWBWBWB_W
+BWBWBWBWBWBW_
+BWBWBWBWBW_WB
+BWBWBWBW_WBWB
+BWBWBW_WBWBWB
+BWBW_WBWBWBWB
+BW_WBWBWBWBWB
+_WBWBWBWBWBWB
+W_BWBWBWBWBWB
+WWB_BWBWBWBWB
+WWBWB_BWBWBWB
+WWBWBWB_BWBWB
+WWBWBWBWB_BWB
+WWBWBWBWBWB_B
+WWBWBWBWBW_BB
+WWBWBWBW_WBBB
+WWBWBW_WBWBBB
+WWBW_WBWBWBBB
+WW_WBWBWBWBBB
+WWW_BWBWBWBBB
+WWWWB_BWBWBBB
+WWWWBWB_BWBBB
+WWWWBWBWB_BBB
+WWWWBWBW_BBBB
+WWWWBW_WBBBBB
+WWWW_WBWBBBBB
+WWWWW_BWBBBBB
+WWWWWWB_BBBBB
+WWWWWW_BBBBBB
+</o>
+<p>
+5
+</p>
+<i>
+7
+</i>
+<o>
+BBBBBBB_WWWWWWW
+BBBBBB_BWWWWWWW
+BBBBBBWB_WWWWWW
+BBBBBBWBW_WWWWW
+BBBBBBW_WBWWWWW
+BBBBB_WBWBWWWWW
+BBBB_BWBWBWWWWW
+BBBBWB_BWBWWWWW
+BBBBWBWB_BWWWWW
+BBBBWBWBWB_WWWW
+BBBBWBWBWBW_WWW
+BBBBWBWBW_WBWWW
+BBBBWBW_WBWBWWW
+BBBBW_WBWBWBWWW
+BBB_WBWBWBWBWWW
+BB_BWBWBWBWBWWW
+BBWB_BWBWBWBWWW
+BBWBWB_BWBWBWWW
+BBWBWBWB_BWBWWW
+BBWBWBWBWB_BWWW
+BBWBWBWBWBWB_WW
+BBWBWBWBWBWBW_W
+BBWBWBWBWBW_WBW
+BBWBWBWBW_WBWBW
+BBWBWBW_WBWBWBW
+BBWBW_WBWBWBWBW
+BBW_WBWBWBWBWBW
+B_WBWBWBWBWBWBW
+_BWBWBWBWBWBWBW
+WB_BWBWBWBWBWBW
+WBWB_BWBWBWBWBW
+WBWBWB_BWBWBWBW
+WBWBWBWB_BWBWBW
+WBWBWBWBWB_BWBW
+WBWBWBWBWBWB_BW
+WBWBWBWBWBWBWB_
+WBWBWBWBWBWBW_B
+WBWBWBWBWBW_WBB
+WBWBWBWBW_WBWBB
+WBWBWBW_WBWBWBB
+WBWBW_WBWBWBWBB
+WBW_WBWBWBWBWBB
+W_WBWBWBWBWBWBB
+WW_BWBWBWBWBWBB
+WWWB_BWBWBWBWBB
+WWWBWB_BWBWBWBB
+WWWBWBWB_BWBWBB
+WWWBWBWBWB_BWBB
+WWWBWBWBWBWB_BB
+WWWBWBWBWBW_BBB
+WWWBWBWBW_WBBBB
+WWWBWBW_WBWBBBB
+WWWBW_WBWBWBBBB
+WWW_WBWBWBWBBBB
+WWWW_BWBWBWBBBB
+WWWWWB_BWBWBBBB
+WWWWWBWB_BWBBBB
+WWWWWBWBWB_BBBB
+WWWWWBWBW_BBBBB
+WWWWWBW_WBBBBBB
+WWWWW_WBWBBBBBB
+WWWWWW_BWBBBBBB
+WWWWWWWB_BBBBBB
+WWWWWWW_BBBBBBB
+</o>
+<p>
+5
+</p>
+<i>
+8
+</i>
+<o>
+BBBBBBBB_WWWWWWWW
+BBBBBBB_BWWWWWWWW
+BBBBBBBWB_WWWWWWW
+BBBBBBBWBW_WWWWWW
+BBBBBBBW_WBWWWWWW
+BBBBBB_WBWBWWWWWW
+BBBBB_BWBWBWWWWWW
+BBBBBWB_BWBWWWWWW
+BBBBBWBWB_BWWWWWW
+BBBBBWBWBWB_WWWWW
+BBBBBWBWBWBW_WWWW
+BBBBBWBWBW_WBWWWW
+BBBBBWBW_WBWBWWWW
+BBBBBW_WBWBWBWWWW
+BBBB_WBWBWBWBWWWW
+BBB_BWBWBWBWBWWWW
+BBBWB_BWBWBWBWWWW
+BBBWBWB_BWBWBWWWW
+BBBWBWBWB_BWBWWWW
+BBBWBWBWBWB_BWWWW
+BBBWBWBWBWBWB_WWW
+BBBWBWBWBWBWBW_WW
+BBBWBWBWBWBW_WBWW
+BBBWBWBWBW_WBWBWW
+BBBWBWBW_WBWBWBWW
+BBBWBW_WBWBWBWBWW
+BBBW_WBWBWBWBWBWW
+BB_WBWBWBWBWBWBWW
+B_BWBWBWBWBWBWBWW
+BWB_BWBWBWBWBWBWW
+BWBWB_BWBWBWBWBWW
+BWBWBWB_BWBWBWBWW
+BWBWBWBWB_BWBWBWW
+BWBWBWBWBWB_BWBWW
+BWBWBWBWBWBWB_BWW
+BWBWBWBWBWBWBWB_W
+BWBWBWBWBWBWBWBW_
+BWBWBWBWBWBWBW_WB
+BWBWBWBWBWBW_WBWB
+BWBWBWBWBW_WBWBWB
+BWBWBWBW_WBWBWBWB
+BWBWBW_WBWBWBWBWB
+BWBW_WBWBWBWBWBWB
+BW_WBWBWBWBWBWBWB
+_WBWBWBWBWBWBWBWB
+W_BWBWBWBWBWBWBWB
+WWB_BWBWBWBWBWBWB
+WWBWB_BWBWBWBWBWB
+WWBWBWB_BWBWBWBWB
+WWBWBWBWB_BWBWBWB
+WWBWBWBWBWB_BWBWB
+WWBWBWBWBWBWB_BWB
+WWBWBWBWBWBWBWB_B
+WWBWBWBWBWBWBW_BB
+WWBWBWBWBWBW_WBBB
+WWBWBWBWBW_WBWBBB
+WWBWBWBW_WBWBWBBB
+WWBWBW_WBWBWBWBBB
+WWBW_WBWBWBWBWBBB
+WW_WBWBWBWBWBWBBB
+WWW_BWBWBWBWBWBBB
+WWWWB_BWBWBWBWBBB
+WWWWBWB_BWBWBWBBB
+WWWWBWBWB_BWBWBBB
+WWWWBWBWBWB_BWBBB
+WWWWBWBWBWBWB_BBB
+WWWWBWBWBWBW_BBBB
+WWWWBWBWBW_WBBBBB
+WWWWBWBW_WBWBBBBB
+WWWWBW_WBWBWBBBBB
+WWWW_WBWBWBWBBBBB
+WWWWW_BWBWBWBBBBB
+WWWWWWB_BWBWBBBBB
+WWWWWWBWB_BWBBBBB
+WWWWWWBWBWB_BBBBB
+WWWWWWBWBW_BBBBBB
+WWWWWWBW_WBBBBBBB
+WWWWWW_WBWBBBBBBB
+WWWWWWW_BWBBBBBBB
+WWWWWWWWB_BBBBBBB
+WWWWWWWW_BBBBBBBB
+</o>
+<p>
+6
+</p>
+<i>
+9
+</i>
+<o>
+BBBBBBBBB_WWWWWWWWW
+BBBBBBBB_BWWWWWWWWW
+BBBBBBBBWB_WWWWWWWW
+BBBBBBBBWBW_WWWWWWW
+BBBBBBBBW_WBWWWWWWW
+BBBBBBB_WBWBWWWWWWW
+BBBBBB_BWBWBWWWWWWW
+BBBBBBWB_BWBWWWWWWW
+BBBBBBWBWB_BWWWWWWW
+BBBBBBWBWBWB_WWWWWW
+BBBBBBWBWBWBW_WWWWW
+BBBBBBWBWBW_WBWWWWW
+BBBBBBWBW_WBWBWWWWW
+BBBBBBW_WBWBWBWWWWW
+BBBBB_WBWBWBWBWWWWW
+BBBB_BWBWBWBWBWWWWW
+BBBBWB_BWBWBWBWWWWW
+BBBBWBWB_BWBWBWWWWW
+BBBBWBWBWB_BWBWWWWW
+BBBBWBWBWBWB_BWWWWW
+BBBBWBWBWBWBWB_WWWW
+BBBBWBWBWBWBWBW_WWW
+BBBBWBWBWBWBW_WBWWW
+BBBBWBWBWBW_WBWBWWW
+BBBBWBWBW_WBWBWBWWW
+BBBBWBW_WBWBWBWBWWW
+BBBBW_WBWBWBWBWBWWW
+BBB_WBWBWBWBWBWBWWW
+BB_BWBWBWBWBWBWBWWW
+BBWB_BWBWBWBWBWBWWW
+BBWBWB_BWBWBWBWBWWW
+BBWBWBWB_BWBWBWBWWW
+BBWBWBWBWB_BWBWBWWW
+BBWBWBWBWBWB_BWBWWW
+BBWBWBWBWBWBWB_BWWW
+BBWBWBWBWBWBWBWB_WW
+BBWBWBWBWBWBWBWBW_W
+BBWBWBWBWBWBWBW_WBW
+BBWBWBWBWBWBW_WBWBW
+BBWBWBWBWBW_WBWBWBW
+BBWBWBWBW_WBWBWBWBW
+BBWBWBW_WBWBWBWBWBW
+BBWBW_WBWBWBWBWBWBW
+BBW_WBWBWBWBWBWBWBW
+B_WBWBWBWBWBWBWBWBW
+_BWBWBWBWBWBWBWBWBW
+WB_BWBWBWBWBWBWBWBW
+WBWB_BWBWBWBWBWBWBW
+WBWBWB_BWBWBWBWBWBW
+WBWBWBWB_BWBWBWBWBW
+WBWBWBWBWB_BWBWBWBW
+WBWBWBWBWBWB_BWBWBW
+WBWBWBWBWBWBWB_BWBW
+WBWBWBWBWBWBWBWB_BW
+WBWBWBWBWBWBWBWBWB_
+WBWBWBWBWBWBWBWBW_B
+WBWBWBWBWBWBWBW_WBB
+WBWBWBWBWBWBW_WBWBB
+WBWBWBWBWBW_WBWBWBB
+WBWBWBWBW_WBWBWBWBB
+WBWBWBW_WBWBWBWBWBB
+WBWBW_WBWBWBWBWBWBB
+WBW_WBWBWBWBWBWBWBB
+W_WBWBWBWBWBWBWBWBB
+WW_BWBWBWBWBWBWBWBB
+WWWB_BWBWBWBWBWBWBB
+WWWBWB_BWBWBWBWBWBB
+WWWBWBWB_BWBWBWBWBB
+WWWBWBWBWB_BWBWBWBB
+WWWBWBWBWBWB_BWBWBB
+WWWBWBWBWBWBWB_BWBB
+WWWBWBWBWBWBWBWB_BB
+WWWBWBWBWBWBWBW_BBB
+WWWBWBWBWBWBW_WBBBB
+WWWBWBWBWBW_WBWBBBB
+WWWBWBWBW_WBWBWBBBB
+WWWBWBW_WBWBWBWBBBB
+WWWBW_WBWBWBWBWBBBB
+WWW_WBWBWBWBWBWBBBB
+WWWW_BWBWBWBWBWBBBB
+WWWWWB_BWBWBWBWBBBB
+WWWWWBWB_BWBWBWBBBB
+WWWWWBWBWB_BWBWBBBB
+WWWWWBWBWBWB_BWBBBB
+WWWWWBWBWBWBWB_BBBB
+WWWWWBWBWBWBW_BBBBB
+WWWWWBWBWBW_WBBBBBB
+WWWWWBWBW_WBWBBBBBB
+WWWWWBW_WBWBWBBBBBB
+WWWWW_WBWBWBWBBBBBB
+WWWWWW_BWBWBWBBBBBB
+WWWWWWWB_BWBWBBBBBB
+WWWWWWWBWB_BWBBBBBB
+WWWWWWWBWBWB_BBBBBB
+WWWWWWWBWBW_BBBBBBB
+WWWWWWWBW_WBBBBBBBB
+WWWWWWW_WBWBBBBBBBB
+WWWWWWWW_BWBBBBBBBB
+WWWWWWWWWB_BBBBBBBB
+WWWWWWWWW_BBBBBBBBB
+</o>
+<p>
+8
+</p>
+<i>
+10
+</i>
+<o>
+BBBBBBBBBB_WWWWWWWWWW
+BBBBBBBBB_BWWWWWWWWWW
+BBBBBBBBBWB_WWWWWWWWW
+BBBBBBBBBWBW_WWWWWWWW
+BBBBBBBBBW_WBWWWWWWWW
+BBBBBBBB_WBWBWWWWWWWW
+BBBBBBB_BWBWBWWWWWWWW
+BBBBBBBWB_BWBWWWWWWWW
+BBBBBBBWBWB_BWWWWWWWW
+BBBBBBBWBWBWB_WWWWWWW
+BBBBBBBWBWBWBW_WWWWWW
+BBBBBBBWBWBW_WBWWWWWW
+BBBBBBBWBW_WBWBWWWWWW
+BBBBBBBW_WBWBWBWWWWWW
+BBBBBB_WBWBWBWBWWWWWW
+BBBBB_BWBWBWBWBWWWWWW
+BBBBBWB_BWBWBWBWWWWWW
+BBBBBWBWB_BWBWBWWWWWW
+BBBBBWBWBWB_BWBWWWWWW
+BBBBBWBWBWBWB_BWWWWWW
+BBBBBWBWBWBWBWB_WWWWW
+BBBBBWBWBWBWBWBW_WWWW
+BBBBBWBWBWBWBW_WBWWWW
+BBBBBWBWBWBW_WBWBWWWW
+BBBBBWBWBW_WBWBWBWWWW
+BBBBBWBW_WBWBWBWBWWWW
+BBBBBW_WBWBWBWBWBWWWW
+BBBB_WBWBWBWBWBWBWWWW
+BBB_BWBWBWBWBWBWBWWWW
+BBBWB_BWBWBWBWBWBWWWW
+BBBWBWB_BWBWBWBWBWWWW
+BBBWBWBWB_BWBWBWBWWWW
+BBBWBWBWBWB_BWBWBWWWW
+BBBWBWBWBWBWB_BWBWWWW
+BBBWBWBWBWBWBWB_BWWWW
+BBBWBWBWBWBWBWBWB_WWW
+BBBWBWBWBWBWBWBWBW_WW
+BBBWBWBWBWBWBWBW_WBWW
+BBBWBWBWBWBWBW_WBWBWW
+BBBWBWBWBWBW_WBWBWBWW
+BBBWBWBWBW_WBWBWBWBWW
+BBBWBWBW_WBWBWBWBWBWW
+BBBWBW_WBWBWBWBWBWBWW
+BBBW_WBWBWBWBWBWBWBWW
+BB_WBWBWBWBWBWBWBWBWW
+B_BWBWBWBWBWBWBWBWBWW
+BWB_BWBWBWBWBWBWBWBWW
+BWBWB_BWBWBWBWBWBWBWW
+BWBWBWB_BWBWBWBWBWBWW
+BWBWBWBWB_BWBWBWBWBWW
+BWBWBWBWBWB_BWBWBWBWW
+BWBWBWBWBWBWB_BWBWBWW
+BWBWBWBWBWBWBWB_BWBWW
+BWBWBWBWBWBWBWBWB_BWW
+BWBWBWBWBWBWBWBWBWB_W
+BWBWBWBWBWBWBWBWBWBW_
+BWBWBWBWBWBWBWBWBW_WB
+BWBWBWBWBWBWBWBW_WBWB
+BWBWBWBWBWBWBW_WBWBWB
+BWBWBWBWBWBW_WBWBWBWB
+BWBWBWBWBW_WBWBWBWBWB
+BWBWBWBW_WBWBWBWBWBWB
+BWBWBW_WBWBWBWBWBWBWB
+BWBW_WBWBWBWBWBWBWBWB
+BW_WBWBWBWBWBWBWBWBWB
+_WBWBWBWBWBWBWBWBWBWB
+W_BWBWBWBWBWBWBWBWBWB
+WWB_BWBWBWBWBWBWBWBWB
+WWBWB_BWBWBWBWBWBWBWB
+WWBWBWB_BWBWBWBWBWBWB
+WWBWBWBWB_BWBWBWBWBWB
+WWBWBWBWBWB_BWBWBWBWB
+WWBWBWBWBWBWB_BWBWBWB
+WWBWBWBWBWBWBWB_BWBWB
+WWBWBWBWBWBWBWBWB_BWB
+WWBWBWBWBWBWBWBWBWB_B
+WWBWBWBWBWBWBWBWBW_BB
+WWBWBWBWBWBWBWBW_WBBB
+WWBWBWBWBWBWBW_WBWBBB
+WWBWBWBWBWBW_WBWBWBBB
+WWBWBWBWBW_WBWBWBWBBB
+WWBWBWBW_WBWBWBWBWBBB
+WWBWBW_WBWBWBWBWBWBBB
+WWBW_WBWBWBWBWBWBWBBB
+WW_WBWBWBWBWBWBWBWBBB
+WWW_BWBWBWBWBWBWBWBBB
+WWWWB_BWBWBWBWBWBWBBB
+WWWWBWB_BWBWBWBWBWBBB
+WWWWBWBWB_BWBWBWBWBBB
+WWWWBWBWBWB_BWBWBWBBB
+WWWWBWBWBWBWB_BWBWBBB
+WWWWBWBWBWBWBWB_BWBBB
+WWWWBWBWBWBWBWBWB_BBB
+WWWWBWBWBWBWBWBW_BBBB
+WWWWBWBWBWBWBW_WBBBBB
+WWWWBWBWBWBW_WBWBBBBB
+WWWWBWBWBW_WBWBWBBBBB
+WWWWBWBW_WBWBWBWBBBBB
+WWWWBW_WBWBWBWBWBBBBB
+WWWW_WBWBWBWBWBWBBBBB
+WWWWW_BWBWBWBWBWBBBBB
+WWWWWWB_BWBWBWBWBBBBB
+WWWWWWBWB_BWBWBWBBBBB
+WWWWWWBWBWB_BWBWBBBBB
+WWWWWWBWBWBWB_BWBBBBB
+WWWWWWBWBWBWBWB_BBBBB
+WWWWWWBWBWBWBW_BBBBBB
+WWWWWWBWBWBW_WBBBBBBB
+WWWWWWBWBW_WBWBBBBBBB
+WWWWWWBW_WBWBWBBBBBBB
+WWWWWW_WBWBWBWBBBBBBB
+WWWWWWW_BWBWBWBBBBBBB
+WWWWWWWWB_BWBWBBBBBBB
+WWWWWWWWBWB_BWBBBBBBB
+WWWWWWWWBWBWB_BBBBBBB
+WWWWWWWWBWBW_BBBBBBBB
+WWWWWWWWBW_WBBBBBBBBB
+WWWWWWWW_WBWBBBBBBBBB
+WWWWWWWWW_BWBBBBBBBBB
+WWWWWWWWWWB_BBBBBBBBB
+WWWWWWWWWW_BBBBBBBBBB
+</o>
+<p>
+8
+</p>
+<i>
+11
+</i>
+<o>
+BBBBBBBBBBB_WWWWWWWWWWW
+BBBBBBBBBB_BWWWWWWWWWWW
+BBBBBBBBBBWB_WWWWWWWWWW
+BBBBBBBBBBWBW_WWWWWWWWW
+BBBBBBBBBBW_WBWWWWWWWWW
+BBBBBBBBB_WBWBWWWWWWWWW
+BBBBBBBB_BWBWBWWWWWWWWW
+BBBBBBBBWB_BWBWWWWWWWWW
+BBBBBBBBWBWB_BWWWWWWWWW
+BBBBBBBBWBWBWB_WWWWWWWW
+BBBBBBBBWBWBWBW_WWWWWWW
+BBBBBBBBWBWBW_WBWWWWWWW
+BBBBBBBBWBW_WBWBWWWWWWW
+BBBBBBBBW_WBWBWBWWWWWWW
+BBBBBBB_WBWBWBWBWWWWWWW
+BBBBBB_BWBWBWBWBWWWWWWW
+BBBBBBWB_BWBWBWBWWWWWWW
+BBBBBBWBWB_BWBWBWWWWWWW
+BBBBBBWBWBWB_BWBWWWWWWW
+BBBBBBWBWBWBWB_BWWWWWWW
+BBBBBBWBWBWBWBWB_WWWWWW
+BBBBBBWBWBWBWBWBW_WWWWW
+BBBBBBWBWBWBWBW_WBWWWWW
+BBBBBBWBWBWBW_WBWBWWWWW
+BBBBBBWBWBW_WBWBWBWWWWW
+BBBBBBWBW_WBWBWBWBWWWWW
+BBBBBBW_WBWBWBWBWBWWWWW
+BBBBB_WBWBWBWBWBWBWWWWW
+BBBB_BWBWBWBWBWBWBWWWWW
+BBBBWB_BWBWBWBWBWBWWWWW
+BBBBWBWB_BWBWBWBWBWWWWW
+BBBBWBWBWB_BWBWBWBWWWWW
+BBBBWBWBWBWB_BWBWBWWWWW
+BBBBWBWBWBWBWB_BWBWWWWW
+BBBBWBWBWBWBWBWB_BWWWWW
+BBBBWBWBWBWBWBWBWB_WWWW
+BBBBWBWBWBWBWBWBWBW_WWW
+BBBBWBWBWBWBWBWBW_WBWWW
+BBBBWBWBWBWBWBW_WBWBWWW
+BBBBWBWBWBWBW_WBWBWBWWW
+BBBBWBWBWBW_WBWBWBWBWWW
+BBBBWBWBW_WBWBWBWBWBWWW
+BBBBWBW_WBWBWBWBWBWBWWW
+BBBBW_WBWBWBWBWBWBWBWWW
+BBB_WBWBWBWBWBWBWBWBWWW
+BB_BWBWBWBWBWBWBWBWBWWW
+BBWB_BWBWBWBWBWBWBWBWWW
+BBWBWB_BWBWBWBWBWBWBWWW
+BBWBWBWB_BWBWBWBWBWBWWW
+BBWBWBWBWB_BWBWBWBWBWWW
+BBWBWBWBWBWB_BWBWBWBWWW
+BBWBWBWBWBWBWB_BWBWBWWW
+BBWBWBWBWBWBWBWB_BWBWWW
+BBWBWBWBWBWBWBWBWB_BWWW
+BBWBWBWBWBWBWBWBWBWB_WW
+BBWBWBWBWBWBWBWBWBWBW_W
+BBWBWBWBWBWBWBWBWBW_WBW
+BBWBWBWBWBWBWBWBW_WBWBW
+BBWBWBWBWBWBWBW_WBWBWBW
+BBWBWBWBWBWBW_WBWBWBWBW
+BBWBWBWBWBW_WBWBWBWBWBW
+BBWBWBWBW_WBWBWBWBWBWBW
+BBWBWBW_WBWBWBWBWBWBWBW
+BBWBW_WBWBWBWBWBWBWBWBW
+BBW_WBWBWBWBWBWBWBWBWBW
+B_WBWBWBWBWBWBWBWBWBWBW
+_BWBWBWBWBWBWBWBWBWBWBW
+WB_BWBWBWBWBWBWBWBWBWBW
+WBWB_BWBWBWBWBWBWBWBWBW
+WBWBWB_BWBWBWBWBWBWBWBW
+WBWBWBWB_BWBWBWBWBWBWBW
+WBWBWBWBWB_BWBWBWBWBWBW
+WBWBWBWBWBWB_BWBWBWBWBW
+WBWBWBWBWBWBWB_BWBWBWBW
+WBWBWBWBWBWBWBWB_BWBWBW
+WBWBWBWBWBWBWBWBWB_BWBW
+WBWBWBWBWBWBWBWBWBWB_BW
+WBWBWBWBWBWBWBWBWBWBWB_
+WBWBWBWBWBWBWBWBWBWBW_B
+WBWBWBWBWBWBWBWBWBW_WBB
+WBWBWBWBWBWBWBWBW_WBWBB
+WBWBWBWBWBWBWBW_WBWBWBB
+WBWBWBWBWBWBW_WBWBWBWBB
+WBWBWBWBWBW_WBWBWBWBWBB
+WBWBWBWBW_WBWBWBWBWBWBB
+WBWBWBW_WBWBWBWBWBWBWBB
+WBWBW_WBWBWBWBWBWBWBWBB
+WBW_WBWBWBWBWBWBWBWBWBB
+W_WBWBWBWBWBWBWBWBWBWBB
+WW_BWBWBWBWBWBWBWBWBWBB
+WWWB_BWBWBWBWBWBWBWBWBB
+WWWBWB_BWBWBWBWBWBWBWBB
+WWWBWBWB_BWBWBWBWBWBWBB
+WWWBWBWBWB_BWBWBWBWBWBB
+WWWBWBWBWBWB_BWBWBWBWBB
+WWWBWBWBWBWBWB_BWBWBWBB
+WWWBWBWBWBWBWBWB_BWBWBB
+WWWBWBWBWBWBWBWBWB_BWBB
+WWWBWBWBWBWBWBWBWBWB_BB
+WWWBWBWBWBWBWBWBWBW_BBB
+WWWBWBWBWBWBWBWBW_WBBBB
+WWWBWBWBWBWBWBW_WBWBBBB
+WWWBWBWBWBWBW_WBWBWBBBB
+WWWBWBWBWBW_WBWBWBWBBBB
+WWWBWBWBW_WBWBWBWBWBBBB
+WWWBWBW_WBWBWBWBWBWBBBB
+WWWBW_WBWBWBWBWBWBWBBBB
+WWW_WBWBWBWBWBWBWBWBBBB
+WWWW_BWBWBWBWBWBWBWBBBB
+WWWWWB_BWBWBWBWBWBWBBBB
+WWWWWBWB_BWBWBWBWBWBBBB
+WWWWWBWBWB_BWBWBWBWBBBB
+WWWWWBWBWBWB_BWBWBWBBBB
+WWWWWBWBWBWBWB_BWBWBBBB
+WWWWWBWBWBWBWBWB_BWBBBB
+WWWWWBWBWBWBWBWBWB_BBBB
+WWWWWBWBWBWBWBWBW_BBBBB
+WWWWWBWBWBWBWBW_WBBBBBB
+WWWWWBWBWBWBW_WBWBBBBBB
+WWWWWBWBWBW_WBWBWBBBBBB
+WWWWWBWBW_WBWBWBWBBBBBB
+WWWWWBW_WBWBWBWBWBBBBBB
+WWWWW_WBWBWBWBWBWBBBBBB
+WWWWWW_BWBWBWBWBWBBBBBB
+WWWWWWWB_BWBWBWBWBBBBBB
+WWWWWWWBWB_BWBWBWBBBBBB
+WWWWWWWBWBWB_BWBWBBBBBB
+WWWWWWWBWBWBWB_BWBBBBBB
+WWWWWWWBWBWBWBWB_BBBBBB
+WWWWWWWBWBWBWBW_BBBBBBB
+WWWWWWWBWBWBW_WBBBBBBBB
+WWWWWWWBWBW_WBWBBBBBBBB
+WWWWWWWBW_WBWBWBBBBBBBB
+WWWWWWW_WBWBWBWBBBBBBBB
+WWWWWWWW_BWBWBWBBBBBBBB
+WWWWWWWWWB_BWBWBBBBBBBB
+WWWWWWWWWBWB_BWBBBBBBBB
+WWWWWWWWWBWBWB_BBBBBBBB
+WWWWWWWWWBWBW_BBBBBBBBB
+WWWWWWWWWBW_WBBBBBBBBBB
+WWWWWWWWW_WBWBBBBBBBBBB
+WWWWWWWWWW_BWBBBBBBBBBB
+WWWWWWWWWWWB_BBBBBBBBBB
+WWWWWWWWWWW_BBBBBBBBBBB
+</o>
+<p>
+9
+</p>
+<i>
+12
+</i>
+<o>
+BBBBBBBBBBBB_WWWWWWWWWWWW
+BBBBBBBBBBB_BWWWWWWWWWWWW
+BBBBBBBBBBBWB_WWWWWWWWWWW
+BBBBBBBBBBBWBW_WWWWWWWWWW
+BBBBBBBBBBBW_WBWWWWWWWWWW
+BBBBBBBBBB_WBWBWWWWWWWWWW
+BBBBBBBBB_BWBWBWWWWWWWWWW
+BBBBBBBBBWB_BWBWWWWWWWWWW
+BBBBBBBBBWBWB_BWWWWWWWWWW
+BBBBBBBBBWBWBWB_WWWWWWWWW
+BBBBBBBBBWBWBWBW_WWWWWWWW
+BBBBBBBBBWBWBW_WBWWWWWWWW
+BBBBBBBBBWBW_WBWBWWWWWWWW
+BBBBBBBBBW_WBWBWBWWWWWWWW
+BBBBBBBB_WBWBWBWBWWWWWWWW
+BBBBBBB_BWBWBWBWBWWWWWWWW
+BBBBBBBWB_BWBWBWBWWWWWWWW
+BBBBBBBWBWB_BWBWBWWWWWWWW
+BBBBBBBWBWBWB_BWBWWWWWWWW
+BBBBBBBWBWBWBWB_BWWWWWWWW
+BBBBBBBWBWBWBWBWB_WWWWWWW
+BBBBBBBWBWBWBWBWBW_WWWWWW
+BBBBBBBWBWBWBWBW_WBWWWWWW
+BBBBBBBWBWBWBW_WBWBWWWWWW
+BBBBBBBWBWBW_WBWBWBWWWWWW
+BBBBBBBWBW_WBWBWBWBWWWWWW
+BBBBBBBW_WBWBWBWBWBWWWWWW
+BBBBBB_WBWBWBWBWBWBWWWWWW
+BBBBB_BWBWBWBWBWBWBWWWWWW
+BBBBBWB_BWBWBWBWBWBWWWWWW
+BBBBBWBWB_BWBWBWBWBWWWWWW
+BBBBBWBWBWB_BWBWBWBWWWWWW
+BBBBBWBWBWBWB_BWBWBWWWWWW
+BBBBBWBWBWBWBWB_BWBWWWWWW
+BBBBBWBWBWBWBWBWB_BWWWWWW
+BBBBBWBWBWBWBWBWBWB_WWWWW
+BBBBBWBWBWBWBWBWBWBW_WWWW
+BBBBBWBWBWBWBWBWBW_WBWWWW
+BBBBBWBWBWBWBWBW_WBWBWWWW
+BBBBBWBWBWBWBW_WBWBWBWWWW
+BBBBBWBWBWBW_WBWBWBWBWWWW
+BBBBBWBWBW_WBWBWBWBWBWWWW
+BBBBBWBW_WBWBWBWBWBWBWWWW
+BBBBBW_WBWBWBWBWBWBWBWWWW
+BBBB_WBWBWBWBWBWBWBWBWWWW
+BBB_BWBWBWBWBWBWBWBWBWWWW
+BBBWB_BWBWBWBWBWBWBWBWWWW
+BBBWBWB_BWBWBWBWBWBWBWWWW
+BBBWBWBWB_BWBWBWBWBWBWWWW
+BBBWBWBWBWB_BWBWBWBWBWWWW
+BBBWBWBWBWBWB_BWBWBWBWWWW
+BBBWBWBWBWBWBWB_BWBWBWWWW
+BBBWBWBWBWBWBWBWB_BWBWWWW
+BBBWBWBWBWBWBWBWBWB_BWWWW
+BBBWBWBWBWBWBWBWBWBWB_WWW
+BBBWBWBWBWBWBWBWBWBWBW_WW
+BBBWBWBWBWBWBWBWBWBW_WBWW
+BBBWBWBWBWBWBWBWBW_WBWBWW
+BBBWBWBWBWBWBWBW_WBWBWBWW
+BBBWBWBWBWBWBW_WBWBWBWBWW
+BBBWBWBWBWBW_WBWBWBWBWBWW
+BBBWBWBWBW_WBWBWBWBWBWBWW
+BBBWBWBW_WBWBWBWBWBWBWBWW
+BBBWBW_WBWBWBWBWBWBWBWBWW
+BBBW_WBWBWBWBWBWBWBWBWBWW
+BB_WBWBWBWBWBWBWBWBWBWBWW
+B_BWBWBWBWBWBWBWBWBWBWBWW
+BWB_BWBWBWBWBWBWBWBWBWBWW
+BWBWB_BWBWBWBWBWBWBWBWBWW
+BWBWBWB_BWBWBWBWBWBWBWBWW
+BWBWBWBWB_BWBWBWBWBWBWBWW
+BWBWBWBWBWB_BWBWBWBWBWBWW
+BWBWBWBWBWBWB_BWBWBWBWBWW
+BWBWBWBWBWBWBWB_BWBWBWBWW
+BWBWBWBWBWBWBWBWB_BWBWBWW
+BWBWBWBWBWBWBWBWBWB_BWBWW
+BWBWBWBWBWBWBWBWBWBWB_BWW
+BWBWBWBWBWBWBWBWBWBWBWB_W
+BWBWBWBWBWBWBWBWBWBWBWBW_
+BWBWBWBWBWBWBWBWBWBWBW_WB
+BWBWBWBWBWBWBWBWBWBW_WBWB
+BWBWBWBWBWBWBWBWBW_WBWBWB
+BWBWBWBWBWBWBWBW_WBWBWBWB
+BWBWBWBWBWBWBW_WBWBWBWBWB
+BWBWBWBWBWBW_WBWBWBWBWBWB
+BWBWBWBWBW_WBWBWBWBWBWBWB
+BWBWBWBW_WBWBWBWBWBWBWBWB
+BWBWBW_WBWBWBWBWBWBWBWBWB
+BWBW_WBWBWBWBWBWBWBWBWBWB
+BW_WBWBWBWBWBWBWBWBWBWBWB
+_WBWBWBWBWBWBWBWBWBWBWBWB
+W_BWBWBWBWBWBWBWBWBWBWBWB
+WWB_BWBWBWBWBWBWBWBWBWBWB
+WWBWB_BWBWBWBWBWBWBWBWBWB
+WWBWBWB_BWBWBWBWBWBWBWBWB
+WWBWBWBWB_BWBWBWBWBWBWBWB
+WWBWBWBWBWB_BWBWBWBWBWBWB
+WWBWBWBWBWBWB_BWBWBWBWBWB
+WWBWBWBWBWBWBWB_BWBWBWBWB
+WWBWBWBWBWBWBWBWB_BWBWBWB
+WWBWBWBWBWBWBWBWBWB_BWBWB
+WWBWBWBWBWBWBWBWBWBWB_BWB
+WWBWBWBWBWBWBWBWBWBWBWB_B
+WWBWBWBWBWBWBWBWBWBWBW_BB
+WWBWBWBWBWBWBWBWBWBW_WBBB
+WWBWBWBWBWBWBWBWBW_WBWBBB
+WWBWBWBWBWBWBWBW_WBWBWBBB
+WWBWBWBWBWBWBW_WBWBWBWBBB
+WWBWBWBWBWBW_WBWBWBWBWBBB
+WWBWBWBWBW_WBWBWBWBWBWBBB
+WWBWBWBW_WBWBWBWBWBWBWBBB
+WWBWBW_WBWBWBWBWBWBWBWBBB
+WWBW_WBWBWBWBWBWBWBWBWBBB
+WW_WBWBWBWBWBWBWBWBWBWBBB
+WWW_BWBWBWBWBWBWBWBWBWBBB
+WWWWB_BWBWBWBWBWBWBWBWBBB
+WWWWBWB_BWBWBWBWBWBWBWBBB
+WWWWBWBWB_BWBWBWBWBWBWBBB
+WWWWBWBWBWB_BWBWBWBWBWBBB
+WWWWBWBWBWBWB_BWBWBWBWBBB
+WWWWBWBWBWBWBWB_BWBWBWBBB
+WWWWBWBWBWBWBWBWB_BWBWBBB
+WWWWBWBWBWBWBWBWBWB_BWBBB
+WWWWBWBWBWBWBWBWBWBWB_BBB
+WWWWBWBWBWBWBWBWBWBW_BBBB
+WWWWBWBWBWBWBWBWBW_WBBBBB
+WWWWBWBWBWBWBWBW_WBWBBBBB
+WWWWBWBWBWBWBW_WBWBWBBBBB
+WWWWBWBWBWBW_WBWBWBWBBBBB
+WWWWBWBWBW_WBWBWBWBWBBBBB
+WWWWBWBW_WBWBWBWBWBWBBBBB
+WWWWBW_WBWBWBWBWBWBWBBBBB
+WWWW_WBWBWBWBWBWBWBWBBBBB
+WWWWW_BWBWBWBWBWBWBWBBBBB
+WWWWWWB_BWBWBWBWBWBWBBBBB
+WWWWWWBWB_BWBWBWBWBWBBBBB
+WWWWWWBWBWB_BWBWBWBWBBBBB
+WWWWWWBWBWBWB_BWBWBWBBBBB
+WWWWWWBWBWBWBWB_BWBWBBBBB
+WWWWWWBWBWBWBWBWB_BWBBBBB
+WWWWWWBWBWBWBWBWBWB_BBBBB
+WWWWWWBWBWBWBWBWBW_BBBBBB
+WWWWWWBWBWBWBWBW_WBBBBBBB
+WWWWWWBWBWBWBW_WBWBBBBBBB
+WWWWWWBWBWBW_WBWBWBBBBBBB
+WWWWWWBWBW_WBWBWBWBBBBBBB
+WWWWWWBW_WBWBWBWBWBBBBBBB
+WWWWWW_WBWBWBWBWBWBBBBBBB
+WWWWWWW_BWBWBWBWBWBBBBBBB
+WWWWWWWWB_BWBWBWBWBBBBBBB
+WWWWWWWWBWB_BWBWBWBBBBBBB
+WWWWWWWWBWBWB_BWBWBBBBBBB
+WWWWWWWWBWBWBWB_BWBBBBBBB
+WWWWWWWWBWBWBWBWB_BBBBBBB
+WWWWWWWWBWBWBWBW_BBBBBBBB
+WWWWWWWWBWBWBW_WBBBBBBBBB
+WWWWWWWWBWBW_WBWBBBBBBBBB
+WWWWWWWWBW_WBWBWBBBBBBBBB
+WWWWWWWW_WBWBWBWBBBBBBBBB
+WWWWWWWWW_BWBWBWBBBBBBBBB
+WWWWWWWWWWB_BWBWBBBBBBBBB
+WWWWWWWWWWBWB_BWBBBBBBBBB
+WWWWWWWWWWBWBWB_BBBBBBBBB
+WWWWWWWWWWBWBW_BBBBBBBBBB
+WWWWWWWWWWBW_WBBBBBBBBBBB
+WWWWWWWWWW_WBWBBBBBBBBBBB
+WWWWWWWWWWW_BWBBBBBBBBBBB
+WWWWWWWWWWWWB_BBBBBBBBBBB
+WWWWWWWWWWWW_BBBBBBBBBBBB
+</o>
+<p>
+10
+</p>
+<i>
+13
+</i>
+<o>
+BBBBBBBBBBBBB_WWWWWWWWWWWWW
+BBBBBBBBBBBB_BWWWWWWWWWWWWW
+BBBBBBBBBBBBWB_WWWWWWWWWWWW
+BBBBBBBBBBBBWBW_WWWWWWWWWWW
+BBBBBBBBBBBBW_WBWWWWWWWWWWW
+BBBBBBBBBBB_WBWBWWWWWWWWWWW
+BBBBBBBBBB_BWBWBWWWWWWWWWWW
+BBBBBBBBBBWB_BWBWWWWWWWWWWW
+BBBBBBBBBBWBWB_BWWWWWWWWWWW
+BBBBBBBBBBWBWBWB_WWWWWWWWWW
+BBBBBBBBBBWBWBWBW_WWWWWWWWW
+BBBBBBBBBBWBWBW_WBWWWWWWWWW
+BBBBBBBBBBWBW_WBWBWWWWWWWWW
+BBBBBBBBBBW_WBWBWBWWWWWWWWW
+BBBBBBBBB_WBWBWBWBWWWWWWWWW
+BBBBBBBB_BWBWBWBWBWWWWWWWWW
+BBBBBBBBWB_BWBWBWBWWWWWWWWW
+BBBBBBBBWBWB_BWBWBWWWWWWWWW
+BBBBBBBBWBWBWB_BWBWWWWWWWWW
+BBBBBBBBWBWBWBWB_BWWWWWWWWW
+BBBBBBBBWBWBWBWBWB_WWWWWWWW
+BBBBBBBBWBWBWBWBWBW_WWWWWWW
+BBBBBBBBWBWBWBWBW_WBWWWWWWW
+BBBBBBBBWBWBWBW_WBWBWWWWWWW
+BBBBBBBBWBWBW_WBWBWBWWWWWWW
+BBBBBBBBWBW_WBWBWBWBWWWWWWW
+BBBBBBBBW_WBWBWBWBWBWWWWWWW
+BBBBBBB_WBWBWBWBWBWBWWWWWWW
+BBBBBB_BWBWBWBWBWBWBWWWWWWW
+BBBBBBWB_BWBWBWBWBWBWWWWWWW
+BBBBBBWBWB_BWBWBWBWBWWWWWWW
+BBBBBBWBWBWB_BWBWBWBWWWWWWW
+BBBBBBWBWBWBWB_BWBWBWWWWWWW
+BBBBBBWBWBWBWBWB_BWBWWWWWWW
+BBBBBBWBWBWBWBWBWB_BWWWWWWW
+BBBBBBWBWBWBWBWBWBWB_WWWWWW
+BBBBBBWBWBWBWBWBWBWBW_WWWWW
+BBBBBBWBWBWBWBWBWBW_WBWWWWW
+BBBBBBWBWBWBWBWBW_WBWBWWWWW
+BBBBBBWBWBWBWBW_WBWBWBWWWWW
+BBBBBBWBWBWBW_WBWBWBWBWWWWW
+BBBBBBWBWBW_WBWBWBWBWBWWWWW
+BBBBBBWBW_WBWBWBWBWBWBWWWWW
+BBBBBBW_WBWBWBWBWBWBWBWWWWW
+BBBBB_WBWBWBWBWBWBWBWBWWWWW
+BBBB_BWBWBWBWBWBWBWBWBWWWWW
+BBBBWB_BWBWBWBWBWBWBWBWWWWW
+BBBBWBWB_BWBWBWBWBWBWBWWWWW
+BBBBWBWBWB_BWBWBWBWBWBWWWWW
+BBBBWBWBWBWB_BWBWBWBWBWWWWW
+BBBBWBWBWBWBWB_BWBWBWBWWWWW
+BBBBWBWBWBWBWBWB_BWBWBWWWWW
+BBBBWBWBWBWBWBWBWB_BWBWWWWW
+BBBBWBWBWBWBWBWBWBWB_BWWWWW
+BBBBWBWBWBWBWBWBWBWBWB_WWWW
+BBBBWBWBWBWBWBWBWBWBWBW_WWW
+BBBBWBWBWBWBWBWBWBWBW_WBWWW
+BBBBWBWBWBWBWBWBWBW_WBWBWWW
+BBBBWBWBWBWBWBWBW_WBWBWBWWW
+BBBBWBWBWBWBWBW_WBWBWBWBWWW
+BBBBWBWBWBWBW_WBWBWBWBWBWWW
+BBBBWBWBWBW_WBWBWBWBWBWBWWW
+BBBBWBWBW_WBWBWBWBWBWBWBWWW
+BBBBWBW_WBWBWBWBWBWBWBWBWWW
+BBBBW_WBWBWBWBWBWBWBWBWBWWW
+BBB_WBWBWBWBWBWBWBWBWBWBWWW
+BB_BWBWBWBWBWBWBWBWBWBWBWWW
+BBWB_BWBWBWBWBWBWBWBWBWBWWW
+BBWBWB_BWBWBWBWBWBWBWBWBWWW
+BBWBWBWB_BWBWBWBWBWBWBWBWWW
+BBWBWBWBWB_BWBWBWBWBWBWBWWW
+BBWBWBWBWBWB_BWBWBWBWBWBWWW
+BBWBWBWBWBWBWB_BWBWBWBWBWWW
+BBWBWBWBWBWBWBWB_BWBWBWBWWW
+BBWBWBWBWBWBWBWBWB_BWBWBWWW
+BBWBWBWBWBWBWBWBWBWB_BWBWWW
+BBWBWBWBWBWBWBWBWBWBWB_BWWW
+BBWBWBWBWBWBWBWBWBWBWBWB_WW
+BBWBWBWBWBWBWBWBWBWBWBWBW_W
+BBWBWBWBWBWBWBWBWBWBWBW_WBW
+BBWBWBWBWBWBWBWBWBWBW_WBWBW
+BBWBWBWBWBWBWBWBWBW_WBWBWBW
+BBWBWBWBWBWBWBWBW_WBWBWBWBW
+BBWBWBWBWBWBWBW_WBWBWBWBWBW
+BBWBWBWBWBWBW_WBWBWBWBWBWBW
+BBWBWBWBWBW_WBWBWBWBWBWBWBW
+BBWBWBWBW_WBWBWBWBWBWBWBWBW
+BBWBWBW_WBWBWBWBWBWBWBWBWBW
+BBWBW_WBWBWBWBWBWBWBWBWBWBW
+BBW_WBWBWBWBWBWBWBWBWBWBWBW
+B_WBWBWBWBWBWBWBWBWBWBWBWBW
+_BWBWBWBWBWBWBWBWBWBWBWBWBW
+WB_BWBWBWBWBWBWBWBWBWBWBWBW
+WBWB_BWBWBWBWBWBWBWBWBWBWBW
+WBWBWB_BWBWBWBWBWBWBWBWBWBW
+WBWBWBWB_BWBWBWBWBWBWBWBWBW
+WBWBWBWBWB_BWBWBWBWBWBWBWBW
+WBWBWBWBWBWB_BWBWBWBWBWBWBW
+WBWBWBWBWBWBWB_BWBWBWBWBWBW
+WBWBWBWBWBWBWBWB_BWBWBWBWBW
+WBWBWBWBWBWBWBWBWB_BWBWBWBW
+WBWBWBWBWBWBWBWBWBWB_BWBWBW
+WBWBWBWBWBWBWBWBWBWBWB_BWBW
+WBWBWBWBWBWBWBWBWBWBWBWB_BW
+WBWBWBWBWBWBWBWBWBWBWBWBWB_
+WBWBWBWBWBWBWBWBWBWBWBWBW_B
+WBWBWBWBWBWBWBWBWBWBWBW_WBB
+WBWBWBWBWBWBWBWBWBWBW_WBWBB
+WBWBWBWBWBWBWBWBWBW_WBWBWBB
+WBWBWBWBWBWBWBWBW_WBWBWBWBB
+WBWBWBWBWBWBWBW_WBWBWBWBWBB
+WBWBWBWBWBWBW_WBWBWBWBWBWBB
+WBWBWBWBWBW_WBWBWBWBWBWBWBB
+WBWBWBWBW_WBWBWBWBWBWBWBWBB
+WBWBWBW_WBWBWBWBWBWBWBWBWBB
+WBWBW_WBWBWBWBWBWBWBWBWBWBB
+WBW_WBWBWBWBWBWBWBWBWBWBWBB
+W_WBWBWBWBWBWBWBWBWBWBWBWBB
+WW_BWBWBWBWBWBWBWBWBWBWBWBB
+WWWB_BWBWBWBWBWBWBWBWBWBWBB
+WWWBWB_BWBWBWBWBWBWBWBWBWBB
+WWWBWBWB_BWBWBWBWBWBWBWBWBB
+WWWBWBWBWB_BWBWBWBWBWBWBWBB
+WWWBWBWBWBWB_BWBWBWBWBWBWBB
+WWWBWBWBWBWBWB_BWBWBWBWBWBB
+WWWBWBWBWBWBWBWB_BWBWBWBWBB
+WWWBWBWBWBWBWBWBWB_BWBWBWBB
+WWWBWBWBWBWBWBWBWBWB_BWBWBB
+WWWBWBWBWBWBWBWBWBWBWB_BWBB
+WWWBWBWBWBWBWBWBWBWBWBWB_BB
+WWWBWBWBWBWBWBWBWBWBWBW_BBB
+WWWBWBWBWBWBWBWBWBWBW_WBBBB
+WWWBWBWBWBWBWBWBWBW_WBWBBBB
+WWWBWBWBWBWBWBWBW_WBWBWBBBB
+WWWBWBWBWBWBWBW_WBWBWBWBBBB
+WWWBWBWBWBWBW_WBWBWBWBWBBBB
+WWWBWBWBWBW_WBWBWBWBWBWBBBB
+WWWBWBWBW_WBWBWBWBWBWBWBBBB
+WWWBWBW_WBWBWBWBWBWBWBWBBBB
+WWWBW_WBWBWBWBWBWBWBWBWBBBB
+WWW_WBWBWBWBWBWBWBWBWBWBBBB
+WWWW_BWBWBWBWBWBWBWBWBWBBBB
+WWWWWB_BWBWBWBWBWBWBWBWBBBB
+WWWWWBWB_BWBWBWBWBWBWBWBBBB
+WWWWWBWBWB_BWBWBWBWBWBWBBBB
+WWWWWBWBWBWB_BWBWBWBWBWBBBB
+WWWWWBWBWBWBWB_BWBWBWBWBBBB
+WWWWWBWBWBWBWBWB_BWBWBWBBBB
+WWWWWBWBWBWBWBWBWB_BWBWBBBB
+WWWWWBWBWBWBWBWBWBWB_BWBBBB
+WWWWWBWBWBWBWBWBWBWBWB_BBBB
+WWWWWBWBWBWBWBWBWBWBW_BBBBB
+WWWWWBWBWBWBWBWBWBW_WBBBBBB
+WWWWWBWBWBWBWBWBW_WBWBBBBBB
+WWWWWBWBWBWBWBW_WBWBWBBBBBB
+WWWWWBWBWBWBW_WBWBWBWBBBBBB
+WWWWWBWBWBW_WBWBWBWBWBBBBBB
+WWWWWBWBW_WBWBWBWBWBWBBBBBB
+WWWWWBW_WBWBWBWBWBWBWBBBBBB
+WWWWW_WBWBWBWBWBWBWBWBBBBBB
+WWWWWW_BWBWBWBWBWBWBWBBBBBB
+WWWWWWWB_BWBWBWBWBWBWBBBBBB
+WWWWWWWBWB_BWBWBWBWBWBBBBBB
+WWWWWWWBWBWB_BWBWBWBWBBBBBB
+WWWWWWWBWBWBWB_BWBWBWBBBBBB
+WWWWWWWBWBWBWBWB_BWBWBBBBBB
+WWWWWWWBWBWBWBWBWB_BWBBBBBB
+WWWWWWWBWBWBWBWBWBWB_BBBBBB
+WWWWWWWBWBWBWBWBWBW_BBBBBBB
+WWWWWWWBWBWBWBWBW_WBBBBBBBB
+WWWWWWWBWBWBWBW_WBWBBBBBBBB
+WWWWWWWBWBWBW_WBWBWBBBBBBBB
+WWWWWWWBWBW_WBWBWBWBBBBBBBB
+WWWWWWWBW_WBWBWBWBWBBBBBBBB
+WWWWWWW_WBWBWBWBWBWBBBBBBBB
+WWWWWWWW_BWBWBWBWBWBBBBBBBB
+WWWWWWWWWB_BWBWBWBWBBBBBBBB
+WWWWWWWWWBWB_BWBWBWBBBBBBBB
+WWWWWWWWWBWBWB_BWBWBBBBBBBB
+WWWWWWWWWBWBWBWB_BWBBBBBBBB
+WWWWWWWWWBWBWBWBWB_BBBBBBBB
+WWWWWWWWWBWBWBWBW_BBBBBBBBB
+WWWWWWWWWBWBWBW_WBBBBBBBBBB
+WWWWWWWWWBWBW_WBWBBBBBBBBBB
+WWWWWWWWWBW_WBWBWBBBBBBBBBB
+WWWWWWWWW_WBWBWBWBBBBBBBBBB
+WWWWWWWWWW_BWBWBWBBBBBBBBBB
+WWWWWWWWWWWB_BWBWBBBBBBBBBB
+WWWWWWWWWWWBWB_BWBBBBBBBBBB
+WWWWWWWWWWWBWBWB_BBBBBBBBBB
+WWWWWWWWWWWBWBW_BBBBBBBBBBB
+WWWWWWWWWWWBW_WBBBBBBBBBBBB
+WWWWWWWWWWW_WBWBBBBBBBBBBBB
+WWWWWWWWWWWW_BWBBBBBBBBBBBB
+WWWWWWWWWWWWWB_BBBBBBBBBBBB
+WWWWWWWWWWWWW_BBBBBBBBBBBBB
+</o>
+<p>
+11
+</p>
+<i>
+14
+</i>
+<o>
+BBBBBBBBBBBBBB_WWWWWWWWWWWWWW
+BBBBBBBBBBBBB_BWWWWWWWWWWWWWW
+BBBBBBBBBBBBBWB_WWWWWWWWWWWWW
+BBBBBBBBBBBBBWBW_WWWWWWWWWWWW
+BBBBBBBBBBBBBW_WBWWWWWWWWWWWW
+BBBBBBBBBBBB_WBWBWWWWWWWWWWWW
+BBBBBBBBBBB_BWBWBWWWWWWWWWWWW
+BBBBBBBBBBBWB_BWBWWWWWWWWWWWW
+BBBBBBBBBBBWBWB_BWWWWWWWWWWWW
+BBBBBBBBBBBWBWBWB_WWWWWWWWWWW
+BBBBBBBBBBBWBWBWBW_WWWWWWWWWW
+BBBBBBBBBBBWBWBW_WBWWWWWWWWWW
+BBBBBBBBBBBWBW_WBWBWWWWWWWWWW
+BBBBBBBBBBBW_WBWBWBWWWWWWWWWW
+BBBBBBBBBB_WBWBWBWBWWWWWWWWWW
+BBBBBBBBB_BWBWBWBWBWWWWWWWWWW
+BBBBBBBBBWB_BWBWBWBWWWWWWWWWW
+BBBBBBBBBWBWB_BWBWBWWWWWWWWWW
+BBBBBBBBBWBWBWB_BWBWWWWWWWWWW
+BBBBBBBBBWBWBWBWB_BWWWWWWWWWW
+BBBBBBBBBWBWBWBWBWB_WWWWWWWWW
+BBBBBBBBBWBWBWBWBWBW_WWWWWWWW
+BBBBBBBBBWBWBWBWBW_WBWWWWWWWW
+BBBBBBBBBWBWBWBW_WBWBWWWWWWWW
+BBBBBBBBBWBWBW_WBWBWBWWWWWWWW
+BBBBBBBBBWBW_WBWBWBWBWWWWWWWW
+BBBBBBBBBW_WBWBWBWBWBWWWWWWWW
+BBBBBBBB_WBWBWBWBWBWBWWWWWWWW
+BBBBBBB_BWBWBWBWBWBWBWWWWWWWW
+BBBBBBBWB_BWBWBWBWBWBWWWWWWWW
+BBBBBBBWBWB_BWBWBWBWBWWWWWWWW
+BBBBBBBWBWBWB_BWBWBWBWWWWWWWW
+BBBBBBBWBWBWBWB_BWBWBWWWWWWWW
+BBBBBBBWBWBWBWBWB_BWBWWWWWWWW
+BBBBBBBWBWBWBWBWBWB_BWWWWWWWW
+BBBBBBBWBWBWBWBWBWBWB_WWWWWWW
+BBBBBBBWBWBWBWBWBWBWBW_WWWWWW
+BBBBBBBWBWBWBWBWBWBW_WBWWWWWW
+BBBBBBBWBWBWBWBWBW_WBWBWWWWWW
+BBBBBBBWBWBWBWBW_WBWBWBWWWWWW
+BBBBBBBWBWBWBW_WBWBWBWBWWWWWW
+BBBBBBBWBWBW_WBWBWBWBWBWWWWWW
+BBBBBBBWBW_WBWBWBWBWBWBWWWWWW
+BBBBBBBW_WBWBWBWBWBWBWBWWWWWW
+BBBBBB_WBWBWBWBWBWBWBWBWWWWWW
+BBBBB_BWBWBWBWBWBWBWBWBWWWWWW
+BBBBBWB_BWBWBWBWBWBWBWBWWWWWW
+BBBBBWBWB_BWBWBWBWBWBWBWWWWWW
+BBBBBWBWBWB_BWBWBWBWBWBWWWWWW
+BBBBBWBWBWBWB_BWBWBWBWBWWWWWW
+BBBBBWBWBWBWBWB_BWBWBWBWWWWWW
+BBBBBWBWBWBWBWBWB_BWBWBWWWWWW
+BBBBBWBWBWBWBWBWBWB_BWBWWWWWW
+BBBBBWBWBWBWBWBWBWBWB_BWWWWWW
+BBBBBWBWBWBWBWBWBWBWBWB_WWWWW
+BBBBBWBWBWBWBWBWBWBWBWBW_WWWW
+BBBBBWBWBWBWBWBWBWBWBW_WBWWWW
+BBBBBWBWBWBWBWBWBWBW_WBWBWWWW
+BBBBBWBWBWBWBWBWBW_WBWBWBWWWW
+BBBBBWBWBWBWBWBW_WBWBWBWBWWWW
+BBBBBWBWBWBWBW_WBWBWBWBWBWWWW
+BBBBBWBWBWBW_WBWBWBWBWBWBWWWW
+BBBBBWBWBW_WBWBWBWBWBWBWBWWWW
+BBBBBWBW_WBWBWBWBWBWBWBWBWWWW
+BBBBBW_WBWBWBWBWBWBWBWBWBWWWW
+BBBB_WBWBWBWBWBWBWBWBWBWBWWWW
+BBB_BWBWBWBWBWBWBWBWBWBWBWWWW
+BBBWB_BWBWBWBWBWBWBWBWBWBWWWW
+BBBWBWB_BWBWBWBWBWBWBWBWBWWWW
+BBBWBWBWB_BWBWBWBWBWBWBWBWWWW
+BBBWBWBWBWB_BWBWBWBWBWBWBWWWW
+BBBWBWBWBWBWB_BWBWBWBWBWBWWWW
+BBBWBWBWBWBWBWB_BWBWBWBWBWWWW
+BBBWBWBWBWBWBWBWB_BWBWBWBWWWW
+BBBWBWBWBWBWBWBWBWB_BWBWBWWWW
+BBBWBWBWBWBWBWBWBWBWB_BWBWWWW
+BBBWBWBWBWBWBWBWBWBWBWB_BWWWW
+BBBWBWBWBWBWBWBWBWBWBWBWB_WWW
+BBBWBWBWBWBWBWBWBWBWBWBWBW_WW
+BBBWBWBWBWBWBWBWBWBWBWBW_WBWW
+BBBWBWBWBWBWBWBWBWBWBW_WBWBWW
+BBBWBWBWBWBWBWBWBWBW_WBWBWBWW
+BBBWBWBWBWBWBWBWBW_WBWBWBWBWW
+BBBWBWBWBWBWBWBW_WBWBWBWBWBWW
+BBBWBWBWBWBWBW_WBWBWBWBWBWBWW
+BBBWBWBWBWBW_WBWBWBWBWBWBWBWW
+BBBWBWBWBW_WBWBWBWBWBWBWBWBWW
+BBBWBWBW_WBWBWBWBWBWBWBWBWBWW
+BBBWBW_WBWBWBWBWBWBWBWBWBWBWW
+BBBW_WBWBWBWBWBWBWBWBWBWBWBWW
+BB_WBWBWBWBWBWBWBWBWBWBWBWBWW
+B_BWBWBWBWBWBWBWBWBWBWBWBWBWW
+BWB_BWBWBWBWBWBWBWBWBWBWBWBWW
+BWBWB_BWBWBWBWBWBWBWBWBWBWBWW
+BWBWBWB_BWBWBWBWBWBWBWBWBWBWW
+BWBWBWBWB_BWBWBWBWBWBWBWBWBWW
+BWBWBWBWBWB_BWBWBWBWBWBWBWBWW
+BWBWBWBWBWBWB_BWBWBWBWBWBWBWW
+BWBWBWBWBWBWBWB_BWBWBWBWBWBWW
+BWBWBWBWBWBWBWBWB_BWBWBWBWBWW
+BWBWBWBWBWBWBWBWBWB_BWBWBWBWW
+BWBWBWBWBWBWBWBWBWBWB_BWBWBWW
+BWBWBWBWBWBWBWBWBWBWBWB_BWBWW
+BWBWBWBWBWBWBWBWBWBWBWBWB_BWW
+BWBWBWBWBWBWBWBWBWBWBWBWBWB_W
+BWBWBWBWBWBWBWBWBWBWBWBWBWBW_
+BWBWBWBWBWBWBWBWBWBWBWBWBW_WB
+BWBWBWBWBWBWBWBWBWBWBWBW_WBWB
+BWBWBWBWBWBWBWBWBWBWBW_WBWBWB
+BWBWBWBWBWBWBWBWBWBW_WBWBWBWB
+BWBWBWBWBWBWBWBWBW_WBWBWBWBWB
+BWBWBWBWBWBWBWBW_WBWBWBWBWBWB
+BWBWBWBWBWBWBW_WBWBWBWBWBWBWB
+BWBWBWBWBWBW_WBWBWBWBWBWBWBWB
+BWBWBWBWBW_WBWBWBWBWBWBWBWBWB
+BWBWBWBW_WBWBWBWBWBWBWBWBWBWB
+BWBWBW_WBWBWBWBWBWBWBWBWBWBWB
+BWBW_WBWBWBWBWBWBWBWBWBWBWBWB
+BW_WBWBWBWBWBWBWBWBWBWBWBWBWB
+_WBWBWBWBWBWBWBWBWBWBWBWBWBWB
+W_BWBWBWBWBWBWBWBWBWBWBWBWBWB
+WWB_BWBWBWBWBWBWBWBWBWBWBWBWB
+WWBWB_BWBWBWBWBWBWBWBWBWBWBWB
+WWBWBWB_BWBWBWBWBWBWBWBWBWBWB
+WWBWBWBWB_BWBWBWBWBWBWBWBWBWB
+WWBWBWBWBWB_BWBWBWBWBWBWBWBWB
+WWBWBWBWBWBWB_BWBWBWBWBWBWBWB
+WWBWBWBWBWBWBWB_BWBWBWBWBWBWB
+WWBWBWBWBWBWBWBWB_BWBWBWBWBWB
+WWBWBWBWBWBWBWBWBWB_BWBWBWBWB
+WWBWBWBWBWBWBWBWBWBWB_BWBWBWB
+WWBWBWBWBWBWBWBWBWBWBWB_BWBWB
+WWBWBWBWBWBWBWBWBWBWBWBWB_BWB
+WWBWBWBWBWBWBWBWBWBWBWBWBWB_B
+WWBWBWBWBWBWBWBWBWBWBWBWBW_BB
+WWBWBWBWBWBWBWBWBWBWBWBW_WBBB
+WWBWBWBWBWBWBWBWBWBWBW_WBWBBB
+WWBWBWBWBWBWBWBWBWBW_WBWBWBBB
+WWBWBWBWBWBWBWBWBW_WBWBWBWBBB
+WWBWBWBWBWBWBWBW_WBWBWBWBWBBB
+WWBWBWBWBWBWBW_WBWBWBWBWBWBBB
+WWBWBWBWBWBW_WBWBWBWBWBWBWBBB
+WWBWBWBWBW_WBWBWBWBWBWBWBWBBB
+WWBWBWBW_WBWBWBWBWBWBWBWBWBBB
+WWBWBW_WBWBWBWBWBWBWBWBWBWBBB
+WWBW_WBWBWBWBWBWBWBWBWBWBWBBB
+WW_WBWBWBWBWBWBWBWBWBWBWBWBBB
+WWW_BWBWBWBWBWBWBWBWBWBWBWBBB
+WWWWB_BWBWBWBWBWBWBWBWBWBWBBB
+WWWWBWB_BWBWBWBWBWBWBWBWBWBBB
+WWWWBWBWB_BWBWBWBWBWBWBWBWBBB
+WWWWBWBWBWB_BWBWBWBWBWBWBWBBB
+WWWWBWBWBWBWB_BWBWBWBWBWBWBBB
+WWWWBWBWBWBWBWB_BWBWBWBWBWBBB
+WWWWBWBWBWBWBWBWB_BWBWBWBWBBB
+WWWWBWBWBWBWBWBWBWB_BWBWBWBBB
+WWWWBWBWBWBWBWBWBWBWB_BWBWBBB
+WWWWBWBWBWBWBWBWBWBWBWB_BWBBB
+WWWWBWBWBWBWBWBWBWBWBWBWB_BBB
+WWWWBWBWBWBWBWBWBWBWBWBW_BBBB
+WWWWBWBWBWBWBWBWBWBWBW_WBBBBB
+WWWWBWBWBWBWBWBWBWBW_WBWBBBBB
+WWWWBWBWBWBWBWBWBW_WBWBWBBBBB
+WWWWBWBWBWBWBWBW_WBWBWBWBBBBB
+WWWWBWBWBWBWBW_WBWBWBWBWBBBBB
+WWWWBWBWBWBW_WBWBWBWBWBWBBBBB
+WWWWBWBWBW_WBWBWBWBWBWBWBBBBB
+WWWWBWBW_WBWBWBWBWBWBWBWBBBBB
+WWWWBW_WBWBWBWBWBWBWBWBWBBBBB
+WWWW_WBWBWBWBWBWBWBWBWBWBBBBB
+WWWWW_BWBWBWBWBWBWBWBWBWBBBBB
+WWWWWWB_BWBWBWBWBWBWBWBWBBBBB
+WWWWWWBWB_BWBWBWBWBWBWBWBBBBB
+WWWWWWBWBWB_BWBWBWBWBWBWBBBBB
+WWWWWWBWBWBWB_BWBWBWBWBWBBBBB
+WWWWWWBWBWBWBWB_BWBWBWBWBBBBB
+WWWWWWBWBWBWBWBWB_BWBWBWBBBBB
+WWWWWWBWBWBWBWBWBWB_BWBWBBBBB
+WWWWWWBWBWBWBWBWBWBWB_BWBBBBB
+WWWWWWBWBWBWBWBWBWBWBWB_BBBBB
+WWWWWWBWBWBWBWBWBWBWBW_BBBBBB
+WWWWWWBWBWBWBWBWBWBW_WBBBBBBB
+WWWWWWBWBWBWBWBWBW_WBWBBBBBBB
+WWWWWWBWBWBWBWBW_WBWBWBBBBBBB
+WWWWWWBWBWBWBW_WBWBWBWBBBBBBB
+WWWWWWBWBWBW_WBWBWBWBWBBBBBBB
+WWWWWWBWBW_WBWBWBWBWBWBBBBBBB
+WWWWWWBW_WBWBWBWBWBWBWBBBBBBB
+WWWWWW_WBWBWBWBWBWBWBWBBBBBBB
+WWWWWWW_BWBWBWBWBWBWBWBBBBBBB
+WWWWWWWWB_BWBWBWBWBWBWBBBBBBB
+WWWWWWWWBWB_BWBWBWBWBWBBBBBBB
+WWWWWWWWBWBWB_BWBWBWBWBBBBBBB
+WWWWWWWWBWBWBWB_BWBWBWBBBBBBB
+WWWWWWWWBWBWBWBWB_BWBWBBBBBBB
+WWWWWWWWBWBWBWBWBWB_BWBBBBBBB
+WWWWWWWWBWBWBWBWBWBWB_BBBBBBB
+WWWWWWWWBWBWBWBWBWBW_BBBBBBBB
+WWWWWWWWBWBWBWBWBW_WBBBBBBBBB
+WWWWWWWWBWBWBWBW_WBWBBBBBBBBB
+WWWWWWWWBWBWBW_WBWBWBBBBBBBBB
+WWWWWWWWBWBW_WBWBWBWBBBBBBBBB
+WWWWWWWWBW_WBWBWBWBWBBBBBBBBB
+WWWWWWWW_WBWBWBWBWBWBBBBBBBBB
+WWWWWWWWW_BWBWBWBWBWBBBBBBBBB
+WWWWWWWWWWB_BWBWBWBWBBBBBBBBB
+WWWWWWWWWWBWB_BWBWBWBBBBBBBBB
+WWWWWWWWWWBWBWB_BWBWBBBBBBBBB
+WWWWWWWWWWBWBWBWB_BWBBBBBBBBB
+WWWWWWWWWWBWBWBWBWB_BBBBBBBBB
+WWWWWWWWWWBWBWBWBW_BBBBBBBBBB
+WWWWWWWWWWBWBWBW_WBBBBBBBBBBB
+WWWWWWWWWWBWBW_WBWBBBBBBBBBBB
+WWWWWWWWWWBW_WBWBWBBBBBBBBBBB
+WWWWWWWWWW_WBWBWBWBBBBBBBBBBB
+WWWWWWWWWWW_BWBWBWBBBBBBBBBBB
+WWWWWWWWWWWWB_BWBWBBBBBBBBBBB
+WWWWWWWWWWWWBWB_BWBBBBBBBBBBB
+WWWWWWWWWWWWBWBWB_BBBBBBBBBBB
+WWWWWWWWWWWWBWBW_BBBBBBBBBBBB
+WWWWWWWWWWWWBW_WBBBBBBBBBBBBB
+WWWWWWWWWWWW_WBWBBBBBBBBBBBBB
+WWWWWWWWWWWWW_BWBBBBBBBBBBBBB
+WWWWWWWWWWWWWWB_BBBBBBBBBBBBB
+WWWWWWWWWWWWWW_BBBBBBBBBBBBBB
+</o>
+<p>
+12
+</p>
+<i>
+15
+</i>
+<o>
+BBBBBBBBBBBBBBB_WWWWWWWWWWWWWWW
+BBBBBBBBBBBBBB_BWWWWWWWWWWWWWWW
+BBBBBBBBBBBBBBWB_WWWWWWWWWWWWWW
+BBBBBBBBBBBBBBWBW_WWWWWWWWWWWWW
+BBBBBBBBBBBBBBW_WBWWWWWWWWWWWWW
+BBBBBBBBBBBBB_WBWBWWWWWWWWWWWWW
+BBBBBBBBBBBB_BWBWBWWWWWWWWWWWWW
+BBBBBBBBBBBBWB_BWBWWWWWWWWWWWWW
+BBBBBBBBBBBBWBWB_BWWWWWWWWWWWWW
+BBBBBBBBBBBBWBWBWB_WWWWWWWWWWWW
+BBBBBBBBBBBBWBWBWBW_WWWWWWWWWWW
+BBBBBBBBBBBBWBWBW_WBWWWWWWWWWWW
+BBBBBBBBBBBBWBW_WBWBWWWWWWWWWWW
+BBBBBBBBBBBBW_WBWBWBWWWWWWWWWWW
+BBBBBBBBBBB_WBWBWBWBWWWWWWWWWWW
+BBBBBBBBBB_BWBWBWBWBWWWWWWWWWWW
+BBBBBBBBBBWB_BWBWBWBWWWWWWWWWWW
+BBBBBBBBBBWBWB_BWBWBWWWWWWWWWWW
+BBBBBBBBBBWBWBWB_BWBWWWWWWWWWWW
+BBBBBBBBBBWBWBWBWB_BWWWWWWWWWWW
+BBBBBBBBBBWBWBWBWBWB_WWWWWWWWWW
+BBBBBBBBBBWBWBWBWBWBW_WWWWWWWWW
+BBBBBBBBBBWBWBWBWBW_WBWWWWWWWWW
+BBBBBBBBBBWBWBWBW_WBWBWWWWWWWWW
+BBBBBBBBBBWBWBW_WBWBWBWWWWWWWWW
+BBBBBBBBBBWBW_WBWBWBWBWWWWWWWWW
+BBBBBBBBBBW_WBWBWBWBWBWWWWWWWWW
+BBBBBBBBB_WBWBWBWBWBWBWWWWWWWWW
+BBBBBBBB_BWBWBWBWBWBWBWWWWWWWWW
+BBBBBBBBWB_BWBWBWBWBWBWWWWWWWWW
+BBBBBBBBWBWB_BWBWBWBWBWWWWWWWWW
+BBBBBBBBWBWBWB_BWBWBWBWWWWWWWWW
+BBBBBBBBWBWBWBWB_BWBWBWWWWWWWWW
+BBBBBBBBWBWBWBWBWB_BWBWWWWWWWWW
+BBBBBBBBWBWBWBWBWBWB_BWWWWWWWWW
+BBBBBBBBWBWBWBWBWBWBWB_WWWWWWWW
+BBBBBBBBWBWBWBWBWBWBWBW_WWWWWWW
+BBBBBBBBWBWBWBWBWBWBW_WBWWWWWWW
+BBBBBBBBWBWBWBWBWBW_WBWBWWWWWWW
+BBBBBBBBWBWBWBWBW_WBWBWBWWWWWWW
+BBBBBBBBWBWBWBW_WBWBWBWBWWWWWWW
+BBBBBBBBWBWBW_WBWBWBWBWBWWWWWWW
+BBBBBBBBWBW_WBWBWBWBWBWBWWWWWWW
+BBBBBBBBW_WBWBWBWBWBWBWBWWWWWWW
+BBBBBBB_WBWBWBWBWBWBWBWBWWWWWWW
+BBBBBB_BWBWBWBWBWBWBWBWBWWWWWWW
+BBBBBBWB_BWBWBWBWBWBWBWBWWWWWWW
+BBBBBBWBWB_BWBWBWBWBWBWBWWWWWWW
+BBBBBBWBWBWB_BWBWBWBWBWBWWWWWWW
+BBBBBBWBWBWBWB_BWBWBWBWBWWWWWWW
+BBBBBBWBWBWBWBWB_BWBWBWBWWWWWWW
+BBBBBBWBWBWBWBWBWB_BWBWBWWWWWWW
+BBBBBBWBWBWBWBWBWBWB_BWBWWWWWWW
+BBBBBBWBWBWBWBWBWBWBWB_BWWWWWWW
+BBBBBBWBWBWBWBWBWBWBWBWB_WWWWWW
+BBBBBBWBWBWBWBWBWBWBWBWBW_WWWWW
+BBBBBBWBWBWBWBWBWBWBWBW_WBWWWWW
+BBBBBBWBWBWBWBWBWBWBW_WBWBWWWWW
+BBBBBBWBWBWBWBWBWBW_WBWBWBWWWWW
+BBBBBBWBWBWBWBWBW_WBWBWBWBWWWWW
+BBBBBBWBWBWBWBW_WBWBWBWBWBWWWWW
+BBBBBBWBWBWBW_WBWBWBWBWBWBWWWWW
+BBBBBBWBWBW_WBWBWBWBWBWBWBWWWWW
+BBBBBBWBW_WBWBWBWBWBWBWBWBWWWWW
+BBBBBBW_WBWBWBWBWBWBWBWBWBWWWWW
+BBBBB_WBWBWBWBWBWBWBWBWBWBWWWWW
+BBBB_BWBWBWBWBWBWBWBWBWBWBWWWWW
+BBBBWB_BWBWBWBWBWBWBWBWBWBWWWWW
+BBBBWBWB_BWBWBWBWBWBWBWBWBWWWWW
+BBBBWBWBWB_BWBWBWBWBWBWBWBWWWWW
+BBBBWBWBWBWB_BWBWBWBWBWBWBWWWWW
+BBBBWBWBWBWBWB_BWBWBWBWBWBWWWWW
+BBBBWBWBWBWBWBWB_BWBWBWBWBWWWWW
+BBBBWBWBWBWBWBWBWB_BWBWBWBWWWWW
+BBBBWBWBWBWBWBWBWBWB_BWBWBWWWWW
+BBBBWBWBWBWBWBWBWBWBWB_BWBWWWWW
+BBBBWBWBWBWBWBWBWBWBWBWB_BWWWWW
+BBBBWBWBWBWBWBWBWBWBWBWBWB_WWWW
+BBBBWBWBWBWBWBWBWBWBWBWBWBW_WWW
+BBBBWBWBWBWBWBWBWBWBWBWBW_WBWWW
+BBBBWBWBWBWBWBWBWBWBWBW_WBWBWWW
+BBBBWBWBWBWBWBWBWBWBW_WBWBWBWWW
+BBBBWBWBWBWBWBWBWBW_WBWBWBWBWWW
+BBBBWBWBWBWBWBWBW_WBWBWBWBWBWWW
+BBBBWBWBWBWBWBW_WBWBWBWBWBWBWWW
+BBBBWBWBWBWBW_WBWBWBWBWBWBWBWWW
+BBBBWBWBWBW_WBWBWBWBWBWBWBWBWWW
+BBBBWBWBW_WBWBWBWBWBWBWBWBWBWWW
+BBBBWBW_WBWBWBWBWBWBWBWBWBWBWWW
+BBBBW_WBWBWBWBWBWBWBWBWBWBWBWWW
+BBB_WBWBWBWBWBWBWBWBWBWBWBWBWWW
+BB_BWBWBWBWBWBWBWBWBWBWBWBWBWWW
+BBWB_BWBWBWBWBWBWBWBWBWBWBWBWWW
+BBWBWB_BWBWBWBWBWBWBWBWBWBWBWWW
+BBWBWBWB_BWBWBWBWBWBWBWBWBWBWWW
+BBWBWBWBWB_BWBWBWBWBWBWBWBWBWWW
+BBWBWBWBWBWB_BWBWBWBWBWBWBWBWWW
+BBWBWBWBWBWBWB_BWBWBWBWBWBWBWWW
+BBWBWBWBWBWBWBWB_BWBWBWBWBWBWWW
+BBWBWBWBWBWBWBWBWB_BWBWBWBWBWWW
+BBWBWBWBWBWBWBWBWBWB_BWBWBWBWWW
+BBWBWBWBWBWBWBWBWBWBWB_BWBWBWWW
+BBWBWBWBWBWBWBWBWBWBWBWB_BWBWWW
+BBWBWBWBWBWBWBWBWBWBWBWBWB_BWWW
+BBWBWBWBWBWBWBWBWBWBWBWBWBWB_WW
+BBWBWBWBWBWBWBWBWBWBWBWBWBWBW_W
+BBWBWBWBWBWBWBWBWBWBWBWBWBW_WBW
+BBWBWBWBWBWBWBWBWBWBWBWBW_WBWBW
+BBWBWBWBWBWBWBWBWBWBWBW_WBWBWBW
+BBWBWBWBWBWBWBWBWBWBW_WBWBWBWBW
+BBWBWBWBWBWBWBWBWBW_WBWBWBWBWBW
+BBWBWBWBWBWBWBWBW_WBWBWBWBWBWBW
+BBWBWBWBWBWBWBW_WBWBWBWBWBWBWBW
+BBWBWBWBWBWBW_WBWBWBWBWBWBWBWBW
+BBWBWBWBWBW_WBWBWBWBWBWBWBWBWBW
+BBWBWBWBW_WBWBWBWBWBWBWBWBWBWBW
+BBWBWBW_WBWBWBWBWBWBWBWBWBWBWBW
+BBWBW_WBWBWBWBWBWBWBWBWBWBWBWBW
+BBW_WBWBWBWBWBWBWBWBWBWBWBWBWBW
+B_WBWBWBWBWBWBWBWBWBWBWBWBWBWBW
+_BWBWBWBWBWBWBWBWBWBWBWBWBWBWBW
+WB_BWBWBWBWBWBWBWBWBWBWBWBWBWBW
+WBWB_BWBWBWBWBWBWBWBWBWBWBWBWBW
+WBWBWB_BWBWBWBWBWBWBWBWBWBWBWBW
+WBWBWBWB_BWBWBWBWBWBWBWBWBWBWBW
+WBWBWBWBWB_BWBWBWBWBWBWBWBWBWBW
+WBWBWBWBWBWB_BWBWBWBWBWBWBWBWBW
+WBWBWBWBWBWBWB_BWBWBWBWBWBWBWBW
+WBWBWBWBWBWBWBWB_BWBWBWBWBWBWBW
+WBWBWBWBWBWBWBWBWB_BWBWBWBWBWBW
+WBWBWBWBWBWBWBWBWBWB_BWBWBWBWBW
+WBWBWBWBWBWBWBWBWBWBWB_BWBWBWBW
+WBWBWBWBWBWBWBWBWBWBWBWB_BWBWBW
+WBWBWBWBWBWBWBWBWBWBWBWBWB_BWBW
+WBWBWBWBWBWBWBWBWBWBWBWBWBWB_BW
+WBWBWBWBWBWBWBWBWBWBWBWBWBWBWB_
+WBWBWBWBWBWBWBWBWBWBWBWBWBWBW_B
+WBWBWBWBWBWBWBWBWBWBWBWBWBW_WBB
+WBWBWBWBWBWBWBWBWBWBWBWBW_WBWBB
+WBWBWBWBWBWBWBWBWBWBWBW_WBWBWBB
+WBWBWBWBWBWBWBWBWBWBW_WBWBWBWBB
+WBWBWBWBWBWBWBWBWBW_WBWBWBWBWBB
+WBWBWBWBWBWBWBWBW_WBWBWBWBWBWBB
+WBWBWBWBWBWBWBW_WBWBWBWBWBWBWBB
+WBWBWBWBWBWBW_WBWBWBWBWBWBWBWBB
+WBWBWBWBWBW_WBWBWBWBWBWBWBWBWBB
+WBWBWBWBW_WBWBWBWBWBWBWBWBWBWBB
+WBWBWBW_WBWBWBWBWBWBWBWBWBWBWBB
+WBWBW_WBWBWBWBWBWBWBWBWBWBWBWBB
+WBW_WBWBWBWBWBWBWBWBWBWBWBWBWBB
+W_WBWBWBWBWBWBWBWBWBWBWBWBWBWBB
+WW_BWBWBWBWBWBWBWBWBWBWBWBWBWBB
+WWWB_BWBWBWBWBWBWBWBWBWBWBWBWBB
+WWWBWB_BWBWBWBWBWBWBWBWBWBWBWBB
+WWWBWBWB_BWBWBWBWBWBWBWBWBWBWBB
+WWWBWBWBWB_BWBWBWBWBWBWBWBWBWBB
+WWWBWBWBWBWB_BWBWBWBWBWBWBWBWBB
+WWWBWBWBWBWBWB_BWBWBWBWBWBWBWBB
+WWWBWBWBWBWBWBWB_BWBWBWBWBWBWBB
+WWWBWBWBWBWBWBWBWB_BWBWBWBWBWBB
+WWWBWBWBWBWBWBWBWBWB_BWBWBWBWBB
+WWWBWBWBWBWBWBWBWBWBWB_BWBWBWBB
+WWWBWBWBWBWBWBWBWBWBWBWB_BWBWBB
+WWWBWBWBWBWBWBWBWBWBWBWBWB_BWBB
+WWWBWBWBWBWBWBWBWBWBWBWBWBWB_BB
+WWWBWBWBWBWBWBWBWBWBWBWBWBW_BBB
+WWWBWBWBWBWBWBWBWBWBWBWBW_WBBBB
+WWWBWBWBWBWBWBWBWBWBWBW_WBWBBBB
+WWWBWBWBWBWBWBWBWBWBW_WBWBWBBBB
+WWWBWBWBWBWBWBWBWBW_WBWBWBWBBBB
+WWWBWBWBWBWBWBWBW_WBWBWBWBWBBBB
+WWWBWBWBWBWBWBW_WBWBWBWBWBWBBBB
+WWWBWBWBWBWBW_WBWBWBWBWBWBWBBBB
+WWWBWBWBWBW_WBWBWBWBWBWBWBWBBBB
+WWWBWBWBW_WBWBWBWBWBWBWBWBWBBBB
+WWWBWBW_WBWBWBWBWBWBWBWBWBWBBBB
+WWWBW_WBWBWBWBWBWBWBWBWBWBWBBBB
+WWW_WBWBWBWBWBWBWBWBWBWBWBWBBBB
+WWWW_BWBWBWBWBWBWBWBWBWBWBWBBBB
+WWWWWB_BWBWBWBWBWBWBWBWBWBWBBBB
+WWWWWBWB_BWBWBWBWBWBWBWBWBWBBBB
+WWWWWBWBWB_BWBWBWBWBWBWBWBWBBBB
+WWWWWBWBWBWB_BWBWBWBWBWBWBWBBBB
+WWWWWBWBWBWBWB_BWBWBWBWBWBWBBBB
+WWWWWBWBWBWBWBWB_BWBWBWBWBWBBBB
+WWWWWBWBWBWBWBWBWB_BWBWBWBWBBBB
+WWWWWBWBWBWBWBWBWBWB_BWBWBWBBBB
+WWWWWBWBWBWBWBWBWBWBWB_BWBWBBBB
+WWWWWBWBWBWBWBWBWBWBWBWB_BWBBBB
+WWWWWBWBWBWBWBWBWBWBWBWBWB_BBBB
+WWWWWBWBWBWBWBWBWBWBWBWBW_BBBBB
+WWWWWBWBWBWBWBWBWBWBWBW_WBBBBBB
+WWWWWBWBWBWBWBWBWBWBW_WBWBBBBBB
+WWWWWBWBWBWBWBWBWBW_WBWBWBBBBBB
+WWWWWBWBWBWBWBWBW_WBWBWBWBBBBBB
+WWWWWBWBWBWBWBW_WBWBWBWBWBBBBBB
+WWWWWBWBWBWBW_WBWBWBWBWBWBBBBBB
+WWWWWBWBWBW_WBWBWBWBWBWBWBBBBBB
+WWWWWBWBW_WBWBWBWBWBWBWBWBBBBBB
+WWWWWBW_WBWBWBWBWBWBWBWBWBBBBBB
+WWWWW_WBWBWBWBWBWBWBWBWBWBBBBBB
+WWWWWW_BWBWBWBWBWBWBWBWBWBBBBBB
+WWWWWWWB_BWBWBWBWBWBWBWBWBBBBBB
+WWWWWWWBWB_BWBWBWBWBWBWBWBBBBBB
+WWWWWWWBWBWB_BWBWBWBWBWBWBBBBBB
+WWWWWWWBWBWBWB_BWBWBWBWBWBBBBBB
+WWWWWWWBWBWBWBWB_BWBWBWBWBBBBBB
+WWWWWWWBWBWBWBWBWB_BWBWBWBBBBBB
+WWWWWWWBWBWBWBWBWBWB_BWBWBBBBBB
+WWWWWWWBWBWBWBWBWBWBWB_BWBBBBBB
+WWWWWWWBWBWBWBWBWBWBWBWB_BBBBBB
+WWWWWWWBWBWBWBWBWBWBWBW_BBBBBBB
+WWWWWWWBWBWBWBWBWBWBW_WBBBBBBBB
+WWWWWWWBWBWBWBWBWBW_WBWBBBBBBBB
+WWWWWWWBWBWBWBWBW_WBWBWBBBBBBBB
+WWWWWWWBWBWBWBW_WBWBWBWBBBBBBBB
+WWWWWWWBWBWBW_WBWBWBWBWBBBBBBBB
+WWWWWWWBWBW_WBWBWBWBWBWBBBBBBBB
+WWWWWWWBW_WBWBWBWBWBWBWBBBBBBBB
+WWWWWWW_WBWBWBWBWBWBWBWBBBBBBBB
+WWWWWWWW_BWBWBWBWBWBWBWBBBBBBBB
+WWWWWWWWWB_BWBWBWBWBWBWBBBBBBBB
+WWWWWWWWWBWB_BWBWBWBWBWBBBBBBBB
+WWWWWWWWWBWBWB_BWBWBWBWBBBBBBBB
+WWWWWWWWWBWBWBWB_BWBWBWBBBBBBBB
+WWWWWWWWWBWBWBWBWB_BWBWBBBBBBBB
+WWWWWWWWWBWBWBWBWBWB_BWBBBBBBBB
+WWWWWWWWWBWBWBWBWBWBWB_BBBBBBBB
+WWWWWWWWWBWBWBWBWBWBW_BBBBBBBBB
+WWWWWWWWWBWBWBWBWBW_WBBBBBBBBBB
+WWWWWWWWWBWBWBWBW_WBWBBBBBBBBBB
+WWWWWWWWWBWBWBW_WBWBWBBBBBBBBBB
+WWWWWWWWWBWBW_WBWBWBWBBBBBBBBBB
+WWWWWWWWWBW_WBWBWBWBWBBBBBBBBBB
+WWWWWWWWW_WBWBWBWBWBWBBBBBBBBBB
+WWWWWWWWWW_BWBWBWBWBWBBBBBBBBBB
+WWWWWWWWWWWB_BWBWBWBWBBBBBBBBBB
+WWWWWWWWWWWBWB_BWBWBWBBBBBBBBBB
+WWWWWWWWWWWBWBWB_BWBWBBBBBBBBBB
+WWWWWWWWWWWBWBWBWB_BWBBBBBBBBBB
+WWWWWWWWWWWBWBWBWBWB_BBBBBBBBBB
+WWWWWWWWWWWBWBWBWBW_BBBBBBBBBBB
+WWWWWWWWWWWBWBWBW_WBBBBBBBBBBBB
+WWWWWWWWWWWBWBW_WBWBBBBBBBBBBBB
+WWWWWWWWWWWBW_WBWBWBBBBBBBBBBBB
+WWWWWWWWWWW_WBWBWBWBBBBBBBBBBBB
+WWWWWWWWWWWW_BWBWBWBBBBBBBBBBBB
+WWWWWWWWWWWWWB_BWBWBBBBBBBBBBBB
+WWWWWWWWWWWWWBWB_BWBBBBBBBBBBBB
+WWWWWWWWWWWWWBWBWB_BBBBBBBBBBBB
+WWWWWWWWWWWWWBWBW_BBBBBBBBBBBBB
+WWWWWWWWWWWWWBW_WBBBBBBBBBBBBBB
+WWWWWWWWWWWWW_WBWBBBBBBBBBBBBBB
+WWWWWWWWWWWWWW_BWBBBBBBBBBBBBBB
+WWWWWWWWWWWWWWWB_BBBBBBBBBBBBBB
+WWWWWWWWWWWWWWW_BBBBBBBBBBBBBBB
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+700
+</tl>
+<i>
+1
+</i>
+<o>
+B_W
+_BW
+WB_
+W_B
+</o>
+<i>
+2
+</i>
+<o>
+BB_WW
+B_BWW
+BWB_W
+BWBW_
+BW_WB
+_WBWB
+W_BWB
+WWB_B
+WW_BB
+</o>
+</examples>
+</g>
+<g>
+<pname>
+700
+</pname>
+<ques>
+Problem Statement:
+
+	Millions of people around the world are finding that a day isn't complete without tackling the latest edition of a simple puzzle called Sudoku. Sudoku means "single number" in Japanese.
+	The puzzle typically consists of a nine-by-nine grid . Some of the spaces contain numbers; most of the spaces are blank. Your goal is to fill in the blanks with digits from 1 to 9 so that each row, each column, and each of the nine three-by-three blocks making up the grid contains exactly one of each of the nine digits.You have to write a program which can solve such a puzzle .
+	The input to your program will the incomplete 9 by 9 grid in the from of 9 strings on 9 lines , with each string representing a row . A zero '0' indicates an empty space, which is to be filled with an appropriate digit.Your program must output the solved puzzle in the form of 9 string on 9 lines without any underscores.
+
+TimeLimit: 700 msecs
+
+Examples:
+
+1)
+
+Input:
+
+006300050
+700609320
+000070000
+300485000
+010000090
+000791008
+000040000
+043902001
+060003500
+
+Output:
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+2)
+
+Input:
+
+005904060
+040500001
+902000000
+009000008
+800305007
+100000500
+000000206
+300009070
+090807400
+
+Output:
+
+785914362
+643572981
+912638754
+259741638
+864395127
+137286549
+478153296
+321469875
+596827413
+
+<Source : All the Newspapers >
+</ques>
+<code>
+#include <iostream>
+#include <set>
+#include <fstream>
+#include <vector>
+
+using namespace std ;
+
+class Set//Set of integers
+{
+	public:
+		set<int> s;
+		void operator += ( const int& x )//adds no to set
+		{
+			s.insert(x);
+		}
+		void operator += ( Set& ins )//adds another set to a set
+		{
+			set<int>::iterator i ;
+			for(i=ins.s.begin();i != ins.s.end();i++)
+				s.insert(*i);
+		}
+		void operator -= ( int& x )//removes a no from a set
+		{
+			set<int> :: iterator i;
+			for(i=s.begin();i!=s.end();i++)
+			{
+				if((*i)==x)
+				{
+					s.erase(i);
+					return ;
+				}
+			}
+		}
+};
+
+void GetBoard(Set board[9][9])
+{
+	Set d;
+	for(int i=1;i<=9;i++)
+		d += i;
+	for(int i=0;i<9;i++)
+	{
+		string s;
+		cin>>s;
+		for(int j=0;j<9;j++)
+		{
+			if(s.at(j)!='0')	
+				board[i][j] += s.at(j)-48 ;	
+			else
+				board[i][j] = d;					
+		}
+	}
+}
+
+void ShowBoard(Set board[9][9])//show board at any instant
+{
+	cout << endl ;
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			set<int> :: iterator k;
+			int ctr=0;
+			for(k=board[i][j].s.begin();k!=board[i][j].s.end();k++,ctr++)
+				cout << *k ;
+		}
+		cout << endl ;
+	}
+}
+
+void ReduceRowCol(Set board[9][9],int& row,int& col)
+{
+	vector < pair<int,int> > v;
+	int ans = *board[row][col].s.begin();
+	for(int k=0;k<9;k++)
+	{
+		if(board[row][k].s.size() > 1)
+		{
+			board[row][k] -= ans ;
+			if(board[row][k].s.size()==1)
+				v.push_back(pair<int,int> (row,k));		
+		}
+		if(board[k][col].s.size() > 1)
+		{
+			board[k][col] -= ans;
+			if(board[k][col].s.size()==1)
+				v.push_back(pair<int,int> (k,col));		
+		}
+	}	
+	for(int k=0;k<v.size();k++)
+		ReduceRowCol(board,v.at(k).first,v.at(k).second);
+}
+void ReduceBlock (Set board[9][9],int& row,int& col)
+{
+	int sr=row/3*3, sc=col/3*3, ans=*board[row][col].s.begin();
+	for(int i=sr;i<=(sr+2);i++)
+		for(int j=sc;j<=(sc+2);j++)
+			if(i!=row && j!=col)
+				board[i][j] -= ans;
+}
+
+void Copy(Set b1[9][9],Set b2 [9][9])
+{
+	for(int i=0;i<9;i++)
+		for(int j=0;j<9;j++)
+			b1[i][j]=b2[i][j];
+}
+void GetSetBackUp(Set b1[9][9],Set b2 [9][9])//copies b2 to b1
+{
+	Copy(b1,b2);	
+}
+
+bool TestRowCol  (Set [9][9],int& ,int& );
+bool TestBlock   (Set [9][9],int& ,int& );
+bool TestSolution(Set [9][9]);
+
+int no_sol=0;
+Set soln [9][9];
+
+
+int Solve(Set board[9][9],int row,int col)//bactracking solver for higher difficulty
+{
+	if( col == 9)//if reached 9th col,then Solve next row's 0th col
+	{
+		col=0;
+		row++ ;
+		if(row==9)
+		{
+			if(no_sol==0 )
+			{
+				if(TestSolution(board))
+				{Copy(soln,board);
+				no_sol=1;	
+				return 1;
+				}
+			}	
+			else
+			{
+				if(TestSolution(board))
+				{
+					no_sol ++ ;
+				}
+			}	
+			return 0;
+		}
+	}		
+	
+	Set buffer[9][9];
+	GetSetBackUp(buffer,board);// take a snapshot of current board
+	
+	if(board[row][col].s.size()==1)// if a cell is already solved , then solve next col
+	{
+		ReduceRowCol(board,row,col);
+		ReduceBlock(board,row,col);
+		return Solve(board,row,col+1);
+	}
+	
+	Set allowed=board[row][col];//set of elements allowed in current cell
+	if(allowed.s.empty())
+		return 0 ;//dead end
+		
+	//try each element one by one	
+	for(set<int>::iterator i=allowed.s.begin();i!=allowed.s.end();i++)
+	{
+		board[row][col].s.clear();//clear set of current cell	
+		board[row][col].s.insert(*i);//insert allowed value as the single value in the cell
+		
+		//now reduce no of possible nos in each cell
+		
+		ReduceRowCol(board,row,col);
+		ReduceBlock(board,row,col);
+		
+		if(Solve(board,row,col+1))
+			return 1;
+		else
+			GetSetBackUp(board,buffer);//backtracking(restore previous state of board from buffer);
+	}
+	return 0;
+}
+
+
+void CalcPossibilities(Set board [9][9])
+{
+	//now reduce no of possible nos in each cell
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			if(board[i][j].s.size()==1)
+			{
+				//remove single no in current cell from all other cells(size>1) in same row & col
+				ReduceRowCol(board,i,j);
+				//remove single no in current cell from all other cells in same 3x3 block
+				ReduceBlock(board,i,j);
+			}
+		}
+	}
+}
+int main()
+{
+	Set board[9][9];
+	GetBoard(board);
+	CalcPossibilities(board);
+	Solve(board,0,0);
+	if(no_sol==0)
+		cout << "Could Not Solve" ;
+	else 
+		ShowBoard(soln);
+	return 0;
+}
+
+bool TestRowCol(Set board[9][9],int& row,int& col)
+{
+	if(board[row][col].s.size()!=1)
+	{
+		//cout << "\n\nError at ("<<row <<"," << col << ")\n";
+		//cout << "\nIncorrect\n\n";
+		//exit(1);
+		return false;	
+	}	
+	int already_used = *board[row][col].s.begin();
+	for(int k=0;k<9;k++)
+	{
+		if(k!=col && (*board[row][k].s.begin()) == already_used )
+		{
+			//cout <<"\n\n("<<row <<"," << k << ") = (" << row << "," << col << ")"<<endl; 
+			//cout << "\nIncorrect\n\n";
+			//exit(1); 
+			return false;	
+		}	
+		if(k!=row && (*board[k][col].s.begin()) == already_used )
+		{
+			//cout <<"\n\n("<<k<<"," << col << ") = (" << row << "," << col << ")"<<endl;
+			//cout << "\nIncorrect\n\n";
+			//exit(1);
+			return false;
+		}	
+	}	
+	return true ;
+}
+bool TestBlock (Set board[9][9],int& row,int& col)
+{
+	if(board[row][col].s.size()!=1)
+	{
+		//cout << "\n\nError at ("<<row <<"," << col << ")\n";
+		//cout << "\nIncorrect\n\n";
+		//exit(1) ;
+		return false;
+	}
+	int sr=row/3*3;
+	int sc=col/3*3;
+	
+	int ans=*board[row][col].s.begin();
+	
+	for(int i=sr;i<=(sr+2);i++)
+	{
+		for(int j=sc;j<=(sc+2);j++)
+		{
+			if(i!=row && j!=col && ((*board[i][j].s.begin()) == ans))
+			{
+				//cout <<"\n\n("<<i<<"," << j << ") = (" << row << "," << col << ")"<<endl;
+				//cout << "\nIncorrect\n\n";
+				//exit(1);	
+				return false;
+			}	
+		}
+	}
+	return true ;
+}
+
+bool TestSolution(Set board[9][9])
+{
+	//cout << "Testing ... " ;
+	for(int i=0;i<9;i++)
+	{
+		for(int j=0;j<9;j++)
+		{
+			if(!TestRowCol(board,i,j))
+				return false;
+			if(!TestBlock(board,i,j))
+				return false;
+		}
+	}
+	//cout << "Correct\n\n";
+	return true ;
+}
+
+/*
+
+0 5 0 0 0 3 0 0 0 
+8 0 0 2 0 0 6 0 4
+0 0 0 1 5 0 0 0 0 
+1 0 0 9 8 0 0 0 6
+6 0 4 0 0 0 8 0 5
+9 0 0 0 6 2 0 0 3
+0 0 0 0 9 1 0 0 0 
+2 0 8 0 0 6 0 0 1
+0 0 0 5 0 0 0 7 0
+
+ans = 2
+
+7 5 2 6 4 3 1 8 9
+8 1 3 2 7 9 6 5 4
+4 6 9 1 5 8 2 3 7
+1 3 7 9 8 5 4 2 6
+6 2 4 3 1 7 8 9 5
+9 8 5 4 6 2 7 1 3
+5 7 6 8 9 1 3 4 2
+2 9 8 7 3 6 5 4 1
+3 1 6 5 2 4 9 7 8
+
+7 5 2 6 4 3 1 8 9
+8 3 1 2 7 9 6 5 4
+4 6 9 1 5 8 2 3 7
+1 7 3 9 8 5 4 2 6
+6 2 4 3 1 7 8 9 5
+9 8 5 4 6 2 7 1 3
+5 4 7 8 9 1 3 6 2
+2 9 8 7 3 6 5 4 1
+3 1 6 5 2 4 9 7 8
+
+*/
+</code>
+<cases>
+<tl>
+700
+</tl>
+<i>
+030024000
+001050306
+090100080
+100000800
+240000053
+007000009
+050008010
+402090700
+000240060
+</i>
+<o>
+638724591
+721859346
+594163287
+165932874
+249687153
+387415629
+956378412
+412596738
+873241965
+</o>
+<p>
+10
+</p>
+<i>
+080095002
+030060007
+009000400
+004000060
+078901540
+090000700
+006000200
+200070010
+900640008
+</i>
+<o>
+481795632
+532864197
+769213485
+124357869
+678921543
+395486721
+856139274
+243578916
+917642358
+</o>
+<p>
+10
+</p>
+<i>
+001000050
+700900000
+280007000
+870006010
+430000025
+050800064
+000300098
+000009006
+020000100
+</i>
+<o>
+391248657
+765913482
+284567931
+872456319
+436791825
+159832764
+617324598
+543189276
+928675143
+</o>
+<p>
+10
+</p>
+<i>
+400030901
+006000302
+900045006
+005700030
+000203000
+070004200
+700450003
+509000800
+603080004
+</i>
+<o>
+487632951
+156879342
+932145786
+265718439
+894263175
+371594268
+728451693
+549326817
+613987524
+</o>
+<p>
+5
+</p>
+<i>
+000920007
+006030000
+400001903
+541002006
+800000002
+700800159
+602300001
+000070300
+300089000
+</i>
+<o>
+135928647
+296437518
+478651923
+541792836
+869513472
+723864159
+682345791
+914276385
+357189264
+</o>
+<p>
+10
+</p>
+<i>
+000000003
+003002408
+020900050
+065700000
+000409000
+000005160
+070008020
+804100300
+900000000
+</i>
+<o>
+546817293
+793652418
+128943756
+365781942
+217469835
+489235167
+671398524
+854126379
+932574681
+</o>
+<p>
+15
+</p>
+<i>
+300040008
+720000019
+008902600
+000607000
+840000073
+000409000
+001706500
+980000061
+600020007
+</i>
+<o>
+369541728
+725863419
+418972635
+593687142
+846215973
+172439856
+231796584
+987354261
+654128397
+</o>
+<p>
+10
+</p>
+<i>
+700002040
+002804900
+500060003
+001046030
+003000200
+050280400
+300020004
+008401600
+060500009
+</i>
+<o>
+786392145
+132854976
+549167823
+821946537
+493715268
+657283491
+315629784
+978431652
+264578319
+</o>
+<p>
+10
+</p>
+<i>
+240000071
+000503000
+800040006
+002060900
+006102800
+004030100
+700010005
+000208000
+520000083
+</i>
+<o>
+245689371
+617523498
+839741526
+182465937
+376192854
+954837162
+798316245
+463258719
+521974683
+</o>
+<p>
+10
+</p>
+<i>
+001000506
+800095240
+650000000
+090208000
+000000000
+000103060
+000000072
+063710004
+904000600
+</i>
+<o>
+421837596
+837695241
+659421387
+196248735
+345976128
+782153469
+518364972
+263719854
+974582613
+</o>
+<p>
+10
+</p>
+</cases>
+<examples>
+<tl>
+700
+</tl>
+<i>
+006300050
+700609320
+000070000
+300485000
+010000090
+000791008
+000040000
+043902001
+060003500
+</i>
+<o>
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+</o>
+<i>
+005904060
+040500001
+902000000
+009000008
+800305007
+100000500
+000000206
+300009070
+090807400
+</i>
+<o>
+785914362
+643572981
+912638754
+259741638
+864395127
+137286549
+478153296
+321469875
+596827413
+</o>
+</examples>
+<pname>
+800
+</pname>
+<ques>
+Problem Statement:
+
+	The goal of this problem is to write a program that solves a square jigsaw puzzle by fitting together the scattered puzzle pieces. You have to arrange these pieces, if possible, to form the original puzzle. 
+	The pieces cannot be rotated or flipped from their original orientation. There may be more than one possible solution for a set of pieces. 
+	The first line of the input is the number of pieces 'p' in the puzzle followed by the size 's' of the square puzzle. Each piece is then specified by listing a single line with two integers, the number of rows and columns in the piece, followed by one or more lines which specify the shape of the piece.
+	The shape specification consists of the characters `0' and `1'. A `1' indicates the solid shape of the puzzle and a `0' indicates empty space. The pieces should be numbered by the order they are encountered in the input. That is, the first piece in a puzzle is piece 1, the next is piece 2, etc. All pieces may be assumed to be valid.
+	If there is only one possible way of arranging the pieces to form the  square puzzle, then the completed puzzle must be displayed in the form of an 'n' row by 'n' column square by using all the 'p' pieces exactly once. In order to distinguish the pieces from one another, the solid portions of piece 1 should be replaced with the character `1', of piece 2 with character `2' and so on, etc. 
+	If there are more than one possible ways of arranging the pieces to form the square puzzle, then output only the no of such possible ways. 
+	For puzzles which have no possible solution, simply output "Impossible". 
+
+Constraints:
+
+1> No piece will be smaller than 1 row by 1 column and larger than 10 rows by 10 columns. 
+2> The size of the square puzzle will be atmost 10
+2> There will be at least 1 and at most 9 pieces. 
+
+Time Limit: 1000 ms.
+
+Examples:
+
+(1)
+
+Input:
+2
+3
+2 3
+111
+101
+2 3
+010
+111
+
+Output:
+111
+121
+222
+
+Explanation:
+There are two pieces:
+a) 111 (2 rows, 3 cols) 
+    101
+b) 010 (2 rows, 3 cols)
+    111		  	    
+Here, the 2nd piece can be fitted to bottom part of the 1st piece. In order to display the output, the 1s in the 2nd piece are replaced by 2.
+
+Therefore we get the above mentioned output.
+
+(2)
+
+Input:
+3
+5
+5 5
+11111
+11101
+10001
+11101
+11111
+1 2
+11
+3 1
+1
+1
+1
+
+Output:
+11111
+11131
+12231
+11131
+11111
+
+As you can see, pieces can have a hole (of any shape) inside in which other pieces can be fitted.
+
+(3)
+
+Input:
+4
+2
+1 1 
+1
+1 1
+1
+1 1
+1
+1 1
+1
+
+Output:
+24
+
+Explanation: Each 1 by 1 piece can occupy any of the 4 empty places.
+ .'. Number of possibilities = 4! = 24
+
+<Source: ACM >
+</ques>
+<code>
+#include <iostream>
+#include <vector>
+
+#define EMPTY '0'
+#define SOLID '1'
+
+using namespace std ;
+
+// a piece can be placed on a board in many possible ways(,i.e,horiz_possibs*vert_possibs)
+// in each way , corner represents (row,col) of top,left corner of piece
+// scoords => vector of all such corners. (when a piece is placed 
+//                                 in each of its possible positions one by one)
+typedef pair<int,int> corner ;
+typedef vector<corner> corners ; 
+
+typedef vector<string> piece ; //each row=string
+typedef vector<string> board ;
+
+vector < piece > pieces ;
+vector < corners > pieces_corners ;
+vector < board > solns ;
+
+int sqr_size;//size of square (to makes things tough 
+						//we can ask them to calc size of square through code)
+
+void GetPieces(const int& no_pieces)
+{
+	for(int i=0;i<no_pieces;i++)
+	{
+		int no_rows,no_cols ;
+		cin>>no_rows>>no_cols ;
+		piece p ;
+		for(int j=0;j<no_rows;j++)
+		{
+			string s;
+			cin>>s;
+			p.push_back(s);
+		}
+		pieces.push_back(p);
+	}
+}
+
+corners CalcPlacements(const int& pindex )//return corners of piece with index 'pindex'
+{
+	int horiz_possibs = sqr_size-pieces.at(pindex).size()+1;
+	int vert_possibs = sqr_size-pieces.at(pindex).at(0).size()+1;//.at(0,1,..any) is ok
+
+	corners starts ; 
+
+	for(int i=0;i<horiz_possibs;i++)
+	{
+		for(int j=0;j<vert_possibs;j++)
+		{
+			corner c;
+			c.first=i;
+			c.second=j;
+			starts.push_back(c);		
+		}
+	}
+	return starts ;
+}
+
+//returns false if piece at pindex cannot be placed on the board without overlapping.
+//return true if otherwise & also changes the board accordingly
+bool Place(board& b,const int& pindex,const corner& start)
+{
+	char piece_char = pindex+49 ;//1st board's char ='1',2nd board's char ='2',...
+	board tempb =b;//backup
+	piece p = pieces.at(pindex);
+	int prows = p.size();//no of rows occupied by piece
+	int pcols = p.at(0).length();//no of cols occupied by piece
+	for( int i=start.first;i<start.first+prows;i++)
+	{
+		for(int j=start.second;j<start.second+pcols;j++)
+		{
+			char c = p.at(i-start.first).at(j-start.second) ;
+			if(tempb.at(i).at(j)==SOLID && c ==SOLID)//if there is overlapping
+				return false;
+			else if(c == SOLID)//if ( no overlapping & if pos is SOLID )
+				tempb.at(i).at(j)= piece_char ;//as mentioned in problem
+											   //to distinguish between diff pieces in 
+											   // final soln.	
+		}
+	}
+	b=tempb;//apply changes if placement successfull
+	return true ;
+}
+void ShowBoard(const board& b)
+{
+	for(int i=0;i<sqr_size;i++)
+		cout << b.at(i) << endl ;
+	cout << endl ;
+}
+bool IsCompletelyFilledSquare(const board& b)//is Board completely solid
+{
+	for(int i=0;i<b.size();i++)
+		if(b.at(i).find(EMPTY)!=-1)
+			return false;
+	return true ;	
+}
+void Solve(board& b,const int& pindex )//backtracking solver(solves piece by piece0
+{
+	if(pindex==pieces.size())//if all pieces have been used
+	{
+		if(IsCompletelyFilledSquare(b))
+		{
+			//ShowBoard(b);
+			solns.push_back(b);
+		}	
+		return ;
+	}
+	board backup=b;
+	corners s = pieces_corners.at(pindex);
+	for(int i=0;i<s.size();i++)
+	{
+		if(Place(b,pindex,s.at(i)))//if placement was successful
+			Solve(b,pindex+1);
+		b=backup ;//always apply backup to find all solns
+	}
+}
+int main ()
+{
+	int no_pieces ;
+	cin>>no_pieces>>sqr_size ;
+	GetPieces(no_pieces);
+	pieces_corners.clear();
+	for(int i=0;i<no_pieces;i++)
+		pieces_corners.push_back(CalcPlacements(i));
+	board b;
+	string zeroes(sqr_size,'0');
+	
+	for(int i=0;i<sqr_size;i++)
+		b.push_back(zeroes);
+	solns.clear();
+	Solve(b,0);
+	if(solns.size()==0)
+	{	
+		cout << "Impossible";
+		return 0;
+	}
+	else if(solns.size() ==1)
+	{
+		ShowBoard(solns.at(0));
+		return 0;
+	}	
+	else if(solns.size() > 1 )
+	{
+		cout << solns.size();
+		return 0;
+	}	
+	return 0;
+}
+</code>
+<cases>
+<tl>
+1000
+</tl>
+<i>
+2 10
+10 10
+1111111111
+0000000001
+1111111101
+1000000101
+1011110101
+1010010101
+1010000101
+1011111101
+1000000001
+1111111111
+8 9
+111111111
+000000001
+011111101
+010000101
+010110101
+010111101
+010000001
+011111111
+</i>
+<o>
+1111111111
+2222222221
+1111111121
+1222222121
+1211112121
+1212212121
+1212222121
+1211111121
+1222222221
+1111111111
+</o>
+<p>
+16
+</p>
+<i>
+4 4
+2 2
+11
+10
+4 2
+11
+11
+01
+11
+1 1
+1
+3 3
+010
+111
+010
+</i>
+<o>
+1122
+1422
+4442
+3422
+</o>
+<p>
+16
+</p>
+<i>
+3 5
+5 5
+11111
+10001
+10001
+10001
+11111
+3 3
+111
+101
+111
+1 1
+1
+</i>
+<o>
+11111
+12221
+12321
+12221
+11111
+</o>
+<p>
+16
+</p>
+<i>
+3 3
+2 3
+111
+010
+2 2
+10
+11
+2 1
+1
+1
+</i>
+<o>
+111
+213
+223
+</o>
+<p>
+16
+</p>
+<i>
+5 5
+2 1
+1
+1
+2 3
+111
+010
+5 2
+01
+01
+01
+01
+11
+2 2
+10
+11
+4 4
+0101
+1111
+0111
+0010
+</i>
+<o>
+12223
+15253
+55553
+45553
+44533
+</o>
+<p>
+16
+</p>
+<i>
+5 7
+7 3
+110
+110
+110
+111
+110
+110
+110
+7 3
+011
+011
+011
+111
+011
+011
+011
+2 3
+111
+010
+2 3
+010
+111
+5 3
+101
+111
+010
+111
+101
+</i>
+<o>
+1133322
+1153522
+1155522
+1115222
+1155522
+1154522
+1144422
+</o>
+<p>
+20
+</p>
+</cases>
+<examples>
+<tl>
+1000
+</tl>
+<i>
+2
+3
+2 3
+111
+101
+2 3
+010
+111
+</i>
+<o>
+111
+121
+222
+</o>
+<i>
+3
+5
+5 5
+11111
+11101
+10001
+11101
+11111
+1 2
+11
+3 1
+1
+1
+1
+</i>
+<o>
+11111
+11131
+12231
+11131
+11111
+</o>
+<i>
+4
+2
+1 1 
+1
+1 1
+1
+1 1
+1
+1 1
+1
+</i>
+<o>
+24
+</o>
+</examples>
+</g>

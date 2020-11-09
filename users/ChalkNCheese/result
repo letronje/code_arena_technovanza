@@ -1,0 +1,909 @@
+
+Testing 300 Point Problem ......
+Submitted For : 184.176
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 29.4682
+TimeTaken : 31 msecs
+
+Test Case 2 : Correct :-)
+Score : 31.3099
+TimeTaken : 1 msecs
+
+Test Case 3 : Correct :-)
+Score : 31.3099
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 31.3099
+TimeTaken : 3 msecs
+
+Test Case 5 : Correct :-)
+Score : 31.3099
+TimeTaken : 1 msecs
+
+Test Case 6 : Correct :-)
+Score : 29.4682
+TimeTaken : 1 msecs
+
+Total Score For 300 Point Problem : 184.176
+
+------------------------------------------------------------
+
+Testing 400 Point Problem ......
+Submitted For : 111.773
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 13.4128
+TimeTaken : 8 msecs
+
+Test Case 2 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 3 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 5 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 6 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 7 : Correct :-)
+Score : 13.4128
+TimeTaken : 1 msecs
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+f6 f6
+
+Program Output : 
+
+To get from f6 to f6 takes 2 knight moves.
+
+Required Output : 
+
+To get from f6 to f6 takes 0 knight moves.
+
+Score : 0
+
+Output for a Test Case was WRONG !!!
+
+Total Score For 400 Point Problem : 30.5455 ( Instead Of 93.8893 )
+
+------------------------------------------------------------
+
+Testing 500 Point Problem ......
+Submitted For : 462.051
+TimeLimit: 200 msecs
+
+Test Case 1 : Incorrect :(
+
+Input : 
+
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+HI YOU SAY HI
+
+Score : 0
+
+Test Case 2 : Incorrect :(
+
+Input : 
+
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 3 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+4
+A B C D BADCAB
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+B A D C A B
+
+Score : 0
+
+Test Case 6 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 7 : Correct :-)
+Score : 13.8615
+TimeTaken : 20 msecs
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+4 A BA BAB AR ABABABABABABABABABABABABABABABABABABABABABABABAR
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 9 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+6 A BA BABA AR ABA ABAB ABABABABABABABABABABABABABABABABABABABABABABAR
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB ABAB AR
+
+Score : 0
+
+Test Case 11 : Incorrect :(
+
+Input : 
+
+6 TA PEA DOG CAT APE TAPE TAPEAPEAPE
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+TAPE APE APE
+
+Score : 0
+
+Test Case 12 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 13 : Incorrect :(
+
+Input : 
+
+5 AB BA AA BB BABAAB ABBAABBBABABBAABAAABAAAABABAAABABABAAABABABABAABAA
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 14 : Incorrect :(
+
+Input : 
+
+28 A B C BAB BAD E F G H I J K L EF M N O P Q R S T U V W X Y Z BAABAABBAAABAABAABAABBBBADEEABAAAABAAABAABBBBAFBAA
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+B A A B A A B B A A A B A A B A A B A A B B B BAD E E A B A A A A B A A A B A A B B B B A F B A A
+
+Score : 0
+
+Test Case 15 : Incorrect :(
+
+Input : 
+
+1 XYX XYXXYXXYXXYXXYXXYX
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+XYX XYX XYX XYX XYX XYX
+
+Score : 0
+
+Test Case 16 : Correct :-)
+Score : 13.8615
+TimeTaken : 5 msecs
+
+Test Case 17 : Correct :-)
+Score : 13.8615
+TimeTaken : 2 msecs
+
+Test Case 18 : Incorrect :(
+
+Input : 
+
+15 A B AB BA ABA BAB ABAB BABA ABABA BABAB ABABAB BABABA ABABABA BABABAB ABABABABABABABABABABABAC ABABABABABABABABABABABACABABABABABABABABABABABAC
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+ABABABABABABABABABABABAC ABABABABABABABABABABABAC
+
+Score : 0
+
+Test Case 19 : Incorrect :(
+
+Input : 
+
+50
+A
+AA
+AAA
+AAAA
+AAAAA
+AAAAAA
+AAAAAAA
+AAAAAAAA
+AAAAAAAAA
+AAAAAAAAAA
+AAAAAAAAAAA
+AAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Program Output : 
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 20 : Correct :-)
+Score : 13.8615
+TimeTaken : 13 msecs
+
+Test Case 21 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 22 : Incorrect :(
+
+Input : 
+
+3 AB CD ABCD ABCD
+
+Program Output : 
+
+ABCD
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 23 : Correct :-)
+Score : 13.8615
+TimeTaken : 5 msecs
+
+Test Case 24 : Incorrect :(
+
+Input : 
+
+5 A AA AAA AAAA AAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 25 : Correct :-)
+Score : 13.8615
+TimeTaken : 4 msecs
+
+Test Case 26 : Correct :-)
+Score : 13.8615
+TimeTaken : 1 msecs
+
+Test Case 27 : Incorrect :(
+
+Input : 
+
+4 AB CD EF ABC ABCDEF
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AB CD EF
+
+Score : 0
+
+Test Case 28 : Incorrect :(
+
+Input : 
+
+3 AB CDEF CD ABCDEF
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AB CDEF
+
+Score : 0
+
+Test Case 29 : Incorrect :(
+
+Input : 
+
+3 AB C ABC ABC
+
+Program Output : 
+
+ABC
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 30 : Incorrect :(
+
+Input : 
+
+6 A AA AAA AAAA AAAAA AAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Program Output : 
+
+IMPOSSIBLE!
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 31 : Incorrect :(
+
+Input : 
+
+3 HI H I HI
+
+Program Output : 
+
+HI
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Output for 18 Test Cases were WRONG !!!
+
+Total Score For 500 Point Problem : 14.1818 ( Instead Of 180.2 )
+
+------------------------------------------------------------
+
+Testing 800 Point Problem ......
+Submitted For : 656.411
+TimeLimit: 700 msecs
+
+Test Case 1 : Incorrect :(
+
+Input : 
+
+030024000
+001050306
+090100080
+100000800
+240000053
+007000009
+050008010
+402090700
+000240060
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+638724591
+721859346
+594163287
+165932874
+249687153
+387415629
+956378412
+412596738
+873241965
+
+Score : 0
+
+Test Case 2 : Incorrect :(
+
+Input : 
+
+080095002
+030060007
+009000400
+004000060
+078901540
+090000700
+006000200
+200070010
+900640008
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+481795632
+532864197
+769213485
+124357869
+678921543
+395486721
+856139274
+243578916
+917642358
+
+Score : 0
+
+Test Case 3 : Incorrect :(
+
+Input : 
+
+001000050
+700900000
+280007000
+870006010
+430000025
+050800064
+000300098
+000009006
+020000100
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+391248657
+765913482
+284567931
+872456319
+436791825
+159832764
+617324598
+543189276
+928675143
+
+Score : 0
+
+Test Case 4 : Incorrect :(
+
+Input : 
+
+400030901
+006000302
+900045006
+005700030
+000203000
+070004200
+700450003
+509000800
+603080004
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+487632951
+156879342
+932145786
+265718439
+894263175
+371594268
+728451693
+549326817
+613987524
+
+Score : 0
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+000920007
+006030000
+400001903
+541002006
+800000002
+700800159
+602300001
+000070300
+300089000
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+135928647
+296437518
+478651923
+541792836
+869513472
+723864159
+682345791
+914276385
+357189264
+
+Score : 0
+
+Test Case 6 : Incorrect :(
+
+Input : 
+
+000000003
+003002408
+020900050
+065700000
+000409000
+000005160
+070008020
+804100300
+900000000
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+546817293
+793652418
+128943756
+365781942
+217469835
+489235167
+671398524
+854126379
+932574681
+
+Score : 0
+
+Test Case 7 : Incorrect :(
+
+Input : 
+
+300040008
+720000019
+008902600
+000607000
+840000073
+000409000
+001706500
+980000061
+600020007
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+369541728
+725863419
+418972635
+593687142
+846215973
+172439856
+231796584
+987354261
+654128397
+
+Score : 0
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+700002040
+002804900
+500060003
+001046030
+003000200
+050280400
+300020004
+008401600
+060500009
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+786392145
+132854976
+549167823
+821946537
+493715268
+657283491
+315629784
+978431652
+264578319
+
+Score : 0
+
+Test Case 9 : Incorrect :(
+
+Input : 
+
+240000071
+000503000
+800040006
+002060900
+006102800
+004030100
+700010005
+000208000
+520000083
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+245689371
+617523498
+839741526
+182465937
+376192854
+954837162
+798316245
+463258719
+521974683
+
+Score : 0
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+001000506
+800095240
+650000000
+090208000
+000000000
+000103060
+000000072
+063710004
+904000600
+
+Program Output : 
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+Required Output : 
+
+421837596
+837695241
+659421387
+196248735
+345976128
+782153469
+518364972
+263719854
+974582613
+
+Score : 0
+
+Output for all the Test Cases were WRONG !!!
+
+Total Score For 800 Point Problem : 0
+
+......................................................................
+
+Total Score Of Team ChalkNCheese : 228.903

@@ -1,0 +1,503 @@
+<g>
+<pname>
+100
+</pname>
+<ques>
+Problem Statement
+
+	A teacher has just finished grading the test papers for his class. To get an idea of how difficult the test was, he would now like to determine the most common score on the test. In statistics, this is called the "mode" of a set of data points. For instance, if the scores were {65, 70, 88, 70}, then the mode would be 70, since it appears twice while all others appear once.
+Sometimes, in the case of a tie, the mode will be more than one number. For instance, if the scores were {88, 70, 65, 70, 88}, then the mode would be {70, 88}, since they both appear most frequently.
+	The first line of the input will be the size of the array 'n' followed by the 'n' scores.The output will be an integer array representing the mode of the set of scores. In the case of more than one number, they should be returned in increasing order.
+
+Constraints:
+
+- Input will contain between 1 and 50 elements, inclusive.
+- Each score will be between 0 and 100, inclusive.
+
+Time Limit: 200 ms
+
+Examples:
+
+(1) 
+
+Input : 4
+        65 70 88 70
+
+Output: 70
+
+(2)
+
+Input : 5
+	88 70 65 70 88
+
+Output: 70 88
+
+(3)
+
+Input : 9
+	92 56 14 73 22 38 93 45 55
+
+Output: 14 22 38 45 55 56 73 92 93
+
+With no duplicates, all of the elements are the most frequent (appearing once each).
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include<vector>
+#include<algorithm>
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	int no_scores, max_freq=0;;
+	cin>>no_scores;
+	vector<int> scores,freqs(101,0) ;
+	for( int i=0;i<no_scores;i++)
+	{
+		int temp;
+		cin>>temp;
+		freqs.at(temp)++;
+		if(freqs.at(temp) > max_freq)
+			max_freq =freqs.at(temp);
+		scores.push_back(temp);	
+	}
+	for( int i=0;i<101;i++)
+		if( freqs.at(i) == max_freq)
+			cout <<  i << " ";
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+50 
+0 2 4 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100
+</i>
+<o>
+0 2 4 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100
+</o>
+<p>
+25
+</p>
+<i>
+10
+70 70 70 70 60 60 60 50 50 40
+</i>
+<o>
+70
+</o>
+<p>
+25
+</p>
+<i>
+10 
+70 70 70 70 70 70 70 70 70 70
+</i>
+<o>
+70
+</o>
+<p>
+25
+</p>
+<i>
+36
+10 20 30 55 55 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 10 20 30 40 50 60 70 80 90 100 55 55 40 10
+</i>
+<o>
+10 40 55
+</o>
+<p>
+25
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+4
+65 70 88 70
+</i>
+<o>
+70
+</o>
+<i>
+5
+88 70 65 70 88
+</i>
+<o>
+70 88
+</o>
+<i>
+9
+92 56 14 73 22 38 93 45 55
+</i>
+<o>
+14 22 38 45 55 56 73 92 93
+</o>
+</examples>
+</g>
+<g>
+<pname>
+200
+</pname>
+<ques>
+Problem Statement: 
+
+	A simple, easy to remember system for encoding integer amounts can be very useful.
+	A good system is to use a substitution code, in which each digit is encoded by a letter. An easy to remember 10-letter word or phrase, the key, is chosen. Every '1' in the value is replaced by the first letter of the key, every '2' is replaced by the second letter of the key, and so on. Every '0' is replaced by the last letter of the key. Letters that do not appear in the key can be inserted anywhere without affecting the value represented by the code.. This helps to make the resulting code much harder to break (without knowing the key).
+	Your program will have the strings key and code as input and it should return the decoded value.
+
+Note:
+1) First line of the input will be the key and second line of input will be the code.
+
+Constraints:
+
+1) code contains between 1 and 9 characters inclusive, all uppercase letters 'A'-'Z'
+2) code contains at least one letter that is found in key
+3) key contains exactly 10 uppercase letters 'A'-'Z', all distinct from each other
+
+Time Limit: 200ms
+
+Examples:
+
+(1)
+
+ Input :
+TRADINGFEW
+LGXWEV
+
+Output: 709
+
+Explanation: The L,X, and V are ignored since they do not appear in the key. G is the seventh letter in the key, W is the 10th letter, and E is the 9th letter.
+
+(2)
+
+Input :
+ABCDEFGHIJ
+XJ
+
+Output: 0
+
+(3)
+
+Input :
+CRYSTALBUM
+MMA
+
+Output: 6
+
+<Source: www.topcoder.com>
+</ques>
+<code>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	string key,code;
+
+	cin>>key>>code;
+
+	int ans=0;
+	for(int i=0;i<code.length();i++)
+	{
+		int j = key.find(code.at(i),0)+1;
+		if(j==0) 
+			continue;
+		if(j==10)
+			 j=0;
+		ans = ans*10 + j;	
+	}
+	cout<<ans;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+TRADINGFEW
+LGXWEV
+</i>
+<o>
+709
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XJ
+</i>
+<o>
+0
+</o>
+<p>
+4
+</p>
+<i>
+CRYSTALBUM
+MMA
+</i>
+<o>
+6
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BLKVA
+</i>
+<o>
+21
+</o>
+<p>
+4
+</p>
+<i>
+KLMNOPQRST
+P
+</i>
+<o>
+6
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+JAJAJAJAX
+</i>
+<o>
+1010101
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+IXJYXIJAX
+</i>
+<o>
+90901
+</o>
+<p>
+4
+</p>
+<i>
+ACFHTBDEGQ
+QGEDBTHFC
+</i>
+<o>
+98765432
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+JJJJJJJJJ
+</i>
+<o>
+0
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XDJYXDJ
+</i>
+<o>
+4040
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGZYX
+YAZLDKSMN
+</i>
+<o>
+9184
+</o>
+<p>
+4
+</p>
+<i>
+FREAKYQUIP
+ZBFEK
+</i>
+<o>
+135
+</o>
+<p>
+4
+</p>
+<i>
+PLASTERWIG
+ASTERWIX
+</i>
+<o>
+3456789
+</o>
+<p>
+4
+</p>
+<i>
+FGHIJKLMNO
+ABKAOAK
+</i>
+<o>
+606
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+I
+</i>
+<o>
+9
+</o>
+<p>
+4
+</p>
+<i>
+THREWAKING
+DIJKLSIY
+</i>
+<o>
+878
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BCA
+</i>
+<o>
+231
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+C
+</i>
+<o>
+3
+</o>
+<p>
+4
+</p>
+<i>
+TRADINGFEW
+LGXWEVTA
+</i>
+<o>
+70913
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIW
+ABDRYHGOW
+</i>
+<o>
+124870
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+XJABJ
+</i>
+<o>
+120
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+BABA
+</i>
+<o>
+2121
+</o>
+<p>
+4
+</p>
+<i>
+ABCDEFGHIJ
+AAABCDEFG
+</i>
+<o>
+111234567
+</o>
+<p>
+4
+</p>
+<i>
+LRADINGFEW
+LGXWEV
+</i>
+<o>
+1709
+</o>
+<p>
+4
+</p>
+<i>
+TRADINGFEW
+LGXWEVFAF
+</i>
+<o>
+709838
+</o>
+<p>
+4
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+TRADINGFEW
+LGXWEV
+</i>
+<o>
+709
+</o>
+<i>
+ABCDEFGHIJ
+XJ
+</i>
+<o>
+0
+</o>
+<i>
+CRYSTALBUM
+MMA
+</i>
+<o>
+6
+</o>
+</examples>
+</g>

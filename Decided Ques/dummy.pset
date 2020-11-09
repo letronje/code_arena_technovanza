@@ -1,0 +1,96 @@
+<g>
+<pname>
+100
+</pname>
+<ques>
+write a program to add 2 numbers
+
+Input : a b 
+
+Constraints:
+
+a and b both between 1 and 1000
+
+TimeLimit: 200 msecs 
+
+Examples:
+
+Input:1 2
+
+Output:3
+</ques>
+<code>
+#include <iostream>
+
+using namespace std ;
+
+int main ()
+{
+	int a,b;
+	cin>>a>>b;
+	cout << a+b;
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+200 300
+</i>
+<o>
+500
+</o>
+<p>
+20
+</p>
+<i>
+6 7
+</i>
+<o>
+13
+</o>
+<p>
+20
+</p>
+<i>
+560 890
+</i>
+<o>
+1450
+</o>
+<p>
+20
+</p>
+<i>
+-100 2000
+</i>
+<o>
+1900
+</o>
+<p>
+20
+</p>
+<i>
+567 789
+</i>
+<o>
+1356
+</o>
+<p>
+20
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+1 2
+</i>
+<o>
+3
+</o>
+</examples>
+</g>

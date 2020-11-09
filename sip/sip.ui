@@ -1,0 +1,75 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>sip</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>sip</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>205</width>
+            <height>101</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Change Server IP</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <widget class="QLineEdit" row="0" column="1">
+            <property name="name">
+                <cstring>serverip</cstring>
+            </property>
+            <property name="text">
+                <string>127.0.0.1</string>
+            </property>
+            <property name="maxLength">
+                <number>15</number>
+            </property>
+        </widget>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>textLabel1</cstring>
+            </property>
+            <property name="text">
+                <string>Server IP : </string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="1" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>ok</cstring>
+            </property>
+            <property name="text">
+                <string>OK</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>ok</sender>
+        <signal>clicked()</signal>
+        <receiver>sip</receiver>
+        <slot>ok_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">sip.ui.h</include>
+</includes>
+<slots>
+    <slot>GetPath()</slot>
+    <slot>closeEvent( QCloseEvent * ce )</slot>
+    <slot>MsgBox( QString title, QString msg )</slot>
+    <slot>ok_clicked()</slot>
+</slots>
+<functions>
+    <function returnType="QString">ReadFile( QString fname )</function>
+    <function returnType="bool">WriteFile( QString fname, QString data )</function>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

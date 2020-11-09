@@ -1,0 +1,192 @@
+
+
+Started ( 12:46:1 ) Port : 1234
+Operation not supported
+Stopped ( 12:46:1 )
+Started ( 12:47:41 ) Port : 1234
+Stopped ( 12:48:14 )
+Started ( 12:52:12 ) Port : 1234
+Started ( 21:31:6 ) Port : 1234
+Stopped ( 21:35:26 )
+Started ( 21:36:25 ) Port : 1234
+Stopped ( 21:38:10 )
+Started ( 21:38:13 ) Port : 1234
+127.0.0.1
+127.0.0.1
+Started ( 21:56:4 ) Port : 1234
+127.0.0.1
+127.0.0.1
+127.0.0.1
+"manjo" Registered Successfully 
+127.0.0.1
+127.0.0.1
+Total Time => "manjo"
+127.0.0.1
+"manjo" Opened "100"
+127.0.0.1
+"manjo" => examples of "100"
+127.0.0.1
+127.0.0.1
+127.0.0.1
+Total Time => "manjo"
+127.0.0.1
+Stopped ( 21:58:20 )
+
+Started ( 21:59:26 ) Port : 1234
+"maniosh" Registered Successfully 
+Total Time => "maniosh"
+"maniosh" Opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Stopped ( 22:24:29 )
+Stopped ( 22:24:29 )
+Started ( 22:27:48 ) Port : 1234
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+"maniosh" Re-opened "100"
+"maniosh" => examples of "100"
+Total Time => "maniosh"
+Total Time => "maniosh"
+Stopped ( 19:37:55 )
+Started ( 19:37:55 ) Port : 1234
+"manoj" Registered Successfully 
+Total Time => "manoj"
+Stopped ( 19:38:44 )
+
+
+Started ( 22:52:34 ) Port : 1234
+"manoj" Registered Successfully 
+"manoj" Opened "100"
+<font color="darkRed">Error Reading File /home/manoj/.files/.100e</font>
+
+Started ( 10:16:24 ) Port : 1234
+Started ( 10:17:31 ) Port : 1234
+Started ( 10:27:38 ) Port : 1234
+Started ( 11:43:23 ) Port : 1234
+<font color="darkGreen">Started ( 12:39:42 ) Port : 1234</font><br>
+<font color="darkGreen">Started ( 12:43:31 ) Port : 1234</font><br>
+<font color="darkGreen">Started ( 12:58:35 ) Port : 1234</font><br><font color="darkGreen">"asdasdasd" Registered Successfully </font><br>Stopped ( 13:3:12 )
+Started ( 13:26:47 ) Port : 1234<br>
+Stopped ( 10:43:24 )
+<font color="darkRed">Error Reading File /root/.files/log.txt</font><br>Stopped ( 10:49:40 )
+Started ( 10:49:43 ) Port : 1234<br>"xaero" Registered Successfully <br>"xaero" Opened "100"<br>
+Stopped ( 15:41:27 )
+
+Started ( 15:49:36 ) Port : 1234<br>
+Started ( 15:39:8 ) Port : 1234<br>Rules Sent<br>"xaero" Registered Successfully <br>"xaero" Opened "100"<br>"xaero" Submitted "100" For "99.9977"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "89.9805"<br>"xaero" Opened "500"<br>"coriolis" Registered Successfully <br>"coriolis" Opened "100"<br>
+
+Started ( 9:53:24 ) Port : 1234<br>Rules Sent<br>"shilpa" Registered Successfully <br>"shilpa" Opened "100"<br>"shilpa" Submitted "100" For "99.9991"<br>"shilpa" Re-opened "100"<br>Rules Sent<br>"100" => "shilpa" (Refresh)<br>Rules Sent<br>"jonam" Registered Successfully <br>"jonam" Opened "100"<br>"jonam" Re-opened "100"<br>Rules Sent<br>"hutelangqwer" Registered Successfully <br>"hutelangqwer" Opened "100"<br>"hutelangqwer" Re-opened "100"<br>"hutelangqwer" Re-opened "100"<br>"jonam" Re-opened "100"<br>
+Stopped ( 14:40:46 )
+
+
+Started ( 15:3:25 ) Port : 1234<br>"Harshad" Registered Successfully <br>"Harshad" Opened "100"<br>"Harshad" Submitted "100" For "99.9998"<br>"Xaero" Registered Successfully <br>"Xaero" Opened "100"<br>"Xaero" Submitted "100" For "99.9951"<br>
+Started ( 15:11:29 ) Port : 1234<br>
+Started ( 15:14:35 ) Port : 1234<br>"xaero" Registered Successfully <br>"xaero" Opened "100"<br>"xaero" Submitted "100" For "99.9974"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "89.932"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "79.4206"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "68.1609"<br>"xaero" Re-opened "100"<br>
+Started ( 15:18:22 ) Port : 1234<br>"xaero" ReSubmitted "100" For "55.5111"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "41.5257"<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "25.5746"<br>
+Started ( 15:25:14 ) Port : 1234<br>
+Started ( 15:25:50 ) Port : 1234<br>"xaero" Re-opened "100"<br>"xaero" ReSubmitted "100" For "1.13983"<br>
+Stopped ( 15:31:5 )
+"madhav" Registered Successfully <br>"harshad" Registered Successfully <br>"shutup" Registered Successfully <br>"anup" Registered Successfully <br>"divin" Registered Successfully <br>"arun" Registered Successfully <br>"Priyanka" Registered Successfully <br>"sidh" Registered Successfully <br>"kavitha" Registered Successfully <br>Rules Sent<br>"madhav" Opened "100"<br>"divin" Opened "100"<br>"anup" Opened "100"<br>Rules Sent<br>"sidh" Opened "100"<br>"shutup" Opened "100"<br>"kavitha" Opened "100"<br>"arun" Opened "100"<br>"harshad" Opened "100"<br>"Priyanka" Opened "100"<br>"harshad" Submitted "100" For "99.9878"<br>"arun" Submitted "100" For "99.9714"<br>"100" => "divin" (Refresh)<br>"divin" Submitted "100" For "99.8679"<br>"divin" Re-opened "100"<br>"Priyanka" Submitted "100" For "99.8783"<br>"anup" Submitted "100" For "99.7055"<br>"Priyanka" Re-opened "100"<br>"sidh" Submitted "100" For "99.6645"<br>"kavitha" Submitted "100" For "99.7015"<br>"shutup" Submitted "100" For "99.6894"<br>"sidh" Re-opened "100"<br>Rules Sent<br>"shutup" Re-opened "100"<br>"madhav" Submitted "100" For "99.3699"<br>"madhav" Re-opened "100"<br>Result => "divin"<br>"anup" Re-opened "100"<br>Result => "anup"<br>"kavitha" Re-opened "100"<br>Result => "kavitha"<br>"sidh" Re-opened "100"<br>Result => "sidh"<br>"madhav" ReSubmitted "100" For "85.2833"<br>"madhav" Re-opened "100"<br>
+Started ( 16:32:58 ) Port : 1234<br>"madhav" Re-opened "100"<br>
+Started ( 16:35:41 ) Port : 1234<br>
+Started ( 16:38:25 ) Port : 1234<br>Result => "divin"<br>Result => "divin"<br>Stopped ( 16:41:44 )
+Started ( 16:41:44 ) Port : 1234<br>result available<br>Result => "divin"<br>result available<br>Result => "divin"<br>Stopped ( 16:43:10 )
+Started ( 16:43:10 ) Port : 1234<br><br>/root/users/divin/result<br>result available<br>Result => "divin"<br>
+Started ( 16:50:40 ) Port : 1234<br><1>   Priyanka(TE,VJ) 99.8783   
+<2>   divin(TE,vjti) 99.8679   
+<3>   anup(TE,vjti) 99.7055   
+<4>   kavitha(TE,vjti) 99.7015   
+<5>   shutup(TE,vjti) 99.6894   
+<6>   sidh(TE,vjti) 99.6645   
+<7>   madhav(TE,VJTI) 85.2833   
+<8>   harshad(TE,vjti) 0         
+<9>   arun(TE,MIT) 0         <br>/root/users/divin/result<br>result available<br>Result => "divin"<br><br>/root/users/divin/result<br>result available<br>Result => "divin"<br>
+Started ( 16:52:6 ) Port : 1234<br><br>/root/users/divin/result<br>result available<br>Result => "divin"<br><br>/root/users/divin/result<br>result available<br>Result => "divin"<br>
+Started ( 16:53:20 ) Port : 1234<br>
+Started ( 16:54:36 ) Port : 1234<br><font color="darkRed">Error Reading File /root/.files/result</font><br>Stopped ( 16:56:2 )
+Started ( 16:56:3 ) Port : 1234<br>"Priyanka" Re-opened "100"<br>unvailable<br>unvailable<br>Result => "Priyanka"<br>unvailable<br>Result => "Priyanka"<br>"anup" Re-opened "100"<br>Result => "anup"<br>"harshad" Re-opened "100"<br>Result => "harshad"<br>Result => "harshad"<br>unvailable<br>Result => "Priyanka"<br>unvailable<br>"Priyanka" ReSubmitted "100" For "52.4249"<br>"Priyanka" Re-opened "100"<br>Result => "Priyanka"<br>Result => "Priyanka"<br>"Priyanka" Opened "200"<br>"Priyanka" Submitted "200" For "199.952"<br>"Priyanka" Re-opened "100"<br>Result => "Priyanka"<br>"Priyanka" Re-opened "200"<br>Result => "Priyanka"<br>"Priyanka" ReSubmitted "200" For "179.538"<br>"Priyanka" Re-opened "200"<br>Result => "Priyanka"<br>"Priyanka" ReSubmitted "200" For "158.279"<br>"Priyanka" Re-opened "200"<br>Result => "Priyanka"<br>Result => "Priyanka"<br>"Priyanka" Re-opened "200"<br>Result => "Priyanka"<br>
+Started ( 17:9:4 ) Port : 1234<br>"asdh" Registered Successfully <br>"asdh" Opened "100"<br>"asdh" Submitted "100" For "99.8188"<br>"asdh" Re-opened "100"<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"anup" => Time Up<br>"sidh" => Time Up<br>"kavitha" => Time Up<br>"harshad" => Time Up<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>"100" => "asdh" (Refresh)<br>
+Started ( 20:6:32 ) Port : 1234<br>Rules Sent<br>"asdasd" Registered Successfully <br>"asdasd" Opened "100"<br>"asdasd" Opened "200"<br>"mandddffg" Registered Successfully <br>"mandddffg" Opened "400"<br>"mandddffg" Submitted "400" For "397.919"<br>Error Binding<br>Stopped ( 21:6:36 )
+"mandddffg" Opened "100"<br>"mandddffg" Re-opened "400"<br>Error Binding<br>Stopped ( 21:8:20 )
+Error Binding<br>Stopped ( 21:8:25 )
+Error Binding<br>Stopped ( 21:8:26 )
+Started ( 21:9:13 ) Port : 1234<br>"mandddffg" ReSubmitted "400" For "340.38"<br>"mandddffg" Re-opened "100"<br>Error Binding<br>Stopped ( 21:10:37 )
+Error Binding<br>Stopped ( 21:10:40 )
+Error Binding<br>Stopped ( 21:10:40 )
+"mandddffg" Re-opened "400"<br>Error Binding<br>Stopped ( 21:10:56 )
+Error Binding<br>Stopped ( 21:10:57 )
+Error Binding<br>Stopped ( 21:10:58 )
+Error Binding<br>Stopped ( 21:10:58 )
+Started ( 21:11:23 ) Port : 1234<br>"mandddffg" ReSubmitted "400" For "263.482"<br>
+Started ( 21:11:59 ) Port : 1234<br>"mandddffg" Re-opened "400"<br>"mandddffg" ReSubmitted "400" For "160.334"<br>"mandddffg" Re-opened "400"<br>
+Started ( 21:19:41 ) Port : 1234<br>"manoj" Registered Successfully <br>"manoj" Opened "400"<br>"manoj" Submitted "400" For "399.324"<br>
+Started ( 21:22:44 ) Port : 1234<br>"manoj" Re-opened "400"<br>"manoj" ReSubmitted "400" For "354.273"<br>"manoj" Opened "100"<br>
+Started ( 22:20:58 ) Port : 1234<br>Stopped ( 22:37:57 )
+Started ( 9:30:32 ) Port : 1234<br>
+Stopped ( 10:9:50 )
+Started ( 10:10:20 ) Port : 1234<br>"harshad" Registered Successfully <br>"harshad" Opened "100"<br>
+Started ( 10:20:7 ) Port : 1234<br>"harshad" Re-opened "100"<br>"harshad" => Time Up<br>"harshad" => X Submit X<br>"harshad" Re-opened "100"<br>Rules Sent<br>"ajonam" Registered Successfully <br>"ajonam" Opened "100"<br>"ajonam" => Time Up<br>"ajonam" => X Submit X<br>"ajonam" Re-opened "100"<br><font color="darkRed">Error Opening File For Sending Total Time To Team jonam</font><br>"jonam" => X Submit X<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>
+Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>
+Rules Sent<br>Rules Sent<br>"khanna" Registered Successfully <br>"khanna" Opened "100"<br>"Mahajit" Registered Successfully <br>"GreatOnes" Registered Successfully <br>"Chindi_Chors" Registered Successfully <br>"S_and_S" Registered Successfully <br><font color="darkRed">Error Writing To File /root/users/Akshay/Kiran/ttime</font><br><font color="darkRed">Error Opening File For Sending Total Time To Team Akshay/Kiran</font><br>"sid_vjtiit" Registered Successfully <br>"Mahajit" Opened "100"<br>"beit87" Registered Successfully <br>"sid_vjtiit" Opened "100"<br>"AMOLHITESH" Registered Successfully <br>"beit87" Opened "100"<br>"ADI" Registered Successfully <br>"S_and_S" Opened "100"<br>"AMOLHITESH" Opened "100"<br><font color="darkRed">Error Writing To File /root/users/Akshay/Kiran/100st</font><br>"GreatOnes" Opened "100"<br><font color="darkRed">Error Reading File /root/users/Akshay/Kiran/100at</font><br>"ADI" Opened "100"<br><font color="darkRed">Error Opening File For Sending Total Time To Team Akshay/Kiran</font><br>"Chindi_Chors" Opened "100"<br>"Akshay_Kiran" Registered Successfully <br>"Akshay_Kiran" Opened "100"<br>"beit87" Submitted "100" For "49.6237"<br>"beit87" Opened "200"<br>"GreatOnes" Submitted "100" For "45.5532"<br>"GreatOnes" Opened "200"<br>"sid_vjtiit" => examples of "100" (refresh)<br>"S_and_S" Submitted "100" For "41.5648"<br>"S_and_S" Opened "200"<br>"sid_vjtiit" Submitted "100" For "40.1777"<br>"sid_vjtiit" Opened "200"<br>"200" => "sid_vjtiit" (Refresh)<br>Rules Sent<br>"200" => "sid_vjtiit" (Refresh)<br>"AMOLHITESH" Submitted "100" For "37.667"<br>"AMOLHITESH" Opened "200"<br>"ADI" Submitted "100" For "37.325"<br>"Mahajit" Submitted "100" For "36.6319"<br>"khanna" => Time Up<br>"Mahajit" Re-opened "100"<br>"ADI" Opened "200"<br>"Akshay_Kiran" Submitted "100" For "37.2546"<br>"beit87" Submitted "200" For "103.521"<br>"Mahajit" => Time Up<br>"sid_vjtiit" => Time Up<br>"S_and_S" => Time Up<br>"AMOLHITESH" => Time Up<br>"Akshay_Kiran" Opened "200"<br>unvailable<br>"ADI" Submitted "200" For "196.585"<br>"GreatOnes" => Time Up<br>unvailable<br>"Chindi_Chors" => Time Up<br>"sid_vjtiit" => X Submit X<br>"sid_vjtiit" Re-opened "100"<br>"Akshay_Kiran" => Time Up<br>unvailable<br>"100" => "Mahajit" (Refresh)<br>"100" => "khanna" (Refresh)<br>unvailable<br>unvailable<br>Rules Sent<br>"Chindi_Chors" => X Submit X<br>"Chindi_Chors" Re-opened "100"<br>"Akshay_Kiran" => X Submit X<br>"khanna" => X Submit X<br>"ADI" Re-opened "200"<br>"ADI" => Time Up<br>unvailable<br>"AMOLHITESH" => X Submit X<br>"S_and_S" => X Submit X<br>Rules Sent<br>"ADI" => X Submit X<br>"GreatOnes" => X Submit X<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"swapnil" Registered Successfully <br>"glen_kunal" Registered Successfully <br>"glen_kunal" Opened "100"<br>"swapnil" Opened "100"<br>"mjvj" Registered Successfully <br>"mjvj" Opened "100"<br>"graymatter" Registered Successfully <br>"vjti_two" Registered Successfully <br>"graymatter" Opened "100"<br>"vjti_two" Opened "100"<br>"sanpan" Registered Successfully <br>"sanpan" Opened "100"<br>"balaji" Registered Successfully <br>"balaji" Opened "100"<br>Rules Sent<br>"hm_rulz" Registered Successfully <br>"hm_rulz" Opened "100"<br>Rules Sent<br>"graymatter" Submitted "100" For "62.1281"<br>"graymatter" Opened "200"<br>"chandan" Registered Successfully <br>Rules Sent<br>Rules Sent<br>"hm_rulz" => examples of "100" (refresh)<br>"vjti_two" Submitted "100" For "49.5773"<br>"vjti_two" Opened "200"<br>"chandan" Opened "100"<br>"balaji" Submitted "100" For "45.7595"<br>unvailable<br>Rules Sent<br>"balaji" Re-opened "100"<br>"100" => "chandan" (Refresh)<br>"balaji" Opened "200"<br>"sanpan" Submitted "100" For "40.4082"<br>"sanpan" Opened "200"<br>"swapnil" Submitted "100" For "37.2314"<br>"swapnil" Opened "200"<br>"glen_kunal" Submitted "100" For "36.6319"<br>"glen_kunal" Re-opened "100"<br>"glen_kunal" Re-opened "100"<br>"glen_kunal" => Time Up<br>"glen_kunal" => X Submit X<br>"swapnil" => Time Up<br>"chandan" => examples of "100" (refresh)<br>"glen_kunal" Re-opened "100"<br>Rules Sent<br>Rules Sent<br>"mjvj" => Time Up<br>unvailable<br>Rules Sent<br>Rules Sent<br>"glen_kunal" Re-opened "100"<br>"graymatter" => Time Up<br>"chandan" Opened "200"<br>"glen_kunal" Opened "200"<br>"vjti_two" => Time Up<br>"sanpan" => Time Up<br>unvailable<br>unvailable<br>"balaji" => Time Up<br>"glen_kunal" Re-opened "100"<br>unvailable<br>unvailable<br>unvailable<br>unvailable<br>"hm_rulz" Submitted "100" For "36.5107"<br>"hm_rulz" Re-opened "100"<br>unvailable<br>"hm_rulz" => Time Up<br>unvailable<br>"glen_kunal" => examples of "100" (refresh)<br>"sanpan" => X Submit X<br>Rules Sent<br>"sanpan" Re-opened "100"<br>"glen_kunal" Re-opened "100"<br>unvailable<br>"mjvj" => X Submit X<br>unvailable<br>unvailable<br>unvailable<br>unvailable<br>unvailable<br>unvailable<br>"graymatter" => X Submit X<br>Rules Sent<br>unvailable<br>unvailable<br>unvailable<br>"swapnil" => X Submit X<br>"vjti_two" => X Submit X<br>unvailable<br>unvailable<br>"hm_rulz" => X Submit X<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"chandan" => Time Up<br>"chandan" => X Submit X<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"champiq" Registered Successfully <br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"Synapse" Registered Successfully <br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"Adi_Rupesh" Registered Successfully <br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"shama,samita" Registered Successfully <br>"RAITian" Registered Successfully <br>"H2_WILD_ONES" Registered Successfully <br>"Mahesh" Registered Successfully <br>"Abhishek_Ash" Registered Successfully <br>"shama,samita" Opened "100"<br>"neeraj" Registered Successfully <br>"Abhishek_Ash" Opened "100"<br>"H2_WILD_ONES" Opened "200"<br>"RAITian" Opened "100"<br>"Mahesh" Opened "100"<br>"KayyumParvez" Registered Successfully <br>"suswa" Registered Successfully <br>"KayyumParvez" Opened "100"<br>"neeraj" Opened "100"<br>"suswa" Opened "100"<br>"jai_killa5l" Registered Successfully <br>"jai_killa5l" Opened "100"<br>"Ad_Ru" Registered Successfully <br>Rules Sent<br>"Ad_Ru" Opened "200"<br>"KayyumParvez" Submitted "100" For "45.0858"<br>"H2_WILD_ONES" Submitted "200" For "87.7621"<br>"KayyumParvez" Opened "200"<br>"H2_WILD_ONES" Opened "100"<br>"suswa" Submitted "100" For "42.8571"<br>"suswa" Opened "200"<br>"Ad_Ru" Submitted "200" For "91.939"<br>"Ad_Ru" Opened "100"<br>"Mahesh" Submitted "100" For "40.3113"<br>"Mahesh" Re-opened "100"<br>unvailable<br>"Mahesh" ReSubmitted "100" For "22.7857"<br>"Mahesh" Opened "200"<br>Rules Sent<br>"shama,samita" Submitted "100" For "36.5207"<br>"shama,samita" Re-opened "100"<br>"RAITian" Submitted "100" For "36.5407"<br>"shama,samita" => Time Up<br>"RAITian" Opened "200"<br>"Abhishek_Ash" => Time Up<br>"H2_WILD_ONES" => Time Up<br>"RAITian" => Time Up<br>"Mahesh" => Time Up<br>"KayyumParvez" Submitted "200" For "120.028"<br>"jai_killa5l" Opened "200"<br>"Mahesh" => X Submit X<br>"suswa" Submitted "200" For "137.455"<br>unvailable<br>"H2_WILD_ONES" => X Submit X<br>unvailable<br>"neeraj" => Time Up<br>unvailable<br>"RAITian" => X Submit X<br>"jai_killa5l" Re-opened "100"<br>unvailable<br>Rules Sent<br>"jai_killa5l" => Time Up<br>"jai_killa5l" => X Submit X<br>"Ad_Ru" Submitted "100" For "58.0549"<br>"suswa" Re-opened "100"<br>"suswa" => Time Up<br>"suswa" => X Submit X<br>unvailable<br>"suswa" Re-opened "200"<br>"shama,samita" => X Submit X<br>Rules Sent<br>"Abhishek_Ash" => X Submit X<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"ShravanSingh" Registered Successfully <br>"Grey_Matter" Registered Successfully <br>Rules Sent<br>"ShravanSingh" Opened "100"<br>"amsam" Registered Successfully <br>"blue" Registered Successfully <br>"manish" Registered Successfully <br>Rules Sent<br>Rules Sent<br>"Anup_R" Registered Successfully <br>"smrititrupti" Registered Successfully <br>"yamen_n_rink" Registered Successfully <br>"amsam" Opened "100"<br>"blue" Opened "100"<br>"smrititrupti" Opened "100"<br>"yamen_n_rink" Opened "100"<br>"Anup_R" Opened "100"<br>"nikhilharsh" Registered Successfully <br>"nikhilharsh" Opened "100"<br>"pappu" Registered Successfully <br>"pappu" Opened "100"<br>Rules Sent<br>"Grey_Matter" Opened "100"<br>"ShravanSingh" Submitted "100" For "41.6559"<br>"ShravanSingh" Opened "200"<br>"yamen_n_rink" Submitted "100" For "38.0324"<br>"yamen_n_rink" Re-opened "100"<br>"pappu" Re-opened "100"<br>"ShravanSingh" Submitted "200" For "137.252"<br>"ShravanSingh" Re-opened "200"<br>"ShravanSingh" => Time Up<br>unvailable<br>"ShravanSingh" => X Submit X<br>Rules Sent<br>"smrititrupti" Submitted "100" For "36.6217"<br>"smrititrupti" Re-opened "100"<br>"amsam" => Time Up<br>"blue" => Time Up<br>"smrititrupti" => Time Up<br>"yamen_n_rink" => Time Up<br>"Anup_R" => Time Up<br>unvailable<br>"nikhilharsh" => Time Up<br>"nikhilharsh" => X Submit X<br>"nikhilharsh" Opened "200"<br>"Grey_Matter" => Time Up<br>"Grey_Matter" => X Submit X<br>"Grey_Matter" Opened "200"<br>"blue" => examples of "100" (refresh)<br>"Grey_Matter" Re-opened "100"<br>unvailable<br>"200" => "nikhilharsh" (Refresh)<br>"smrititrupti" => X Submit X<br>"yamen_n_rink" => X Submit X<br>"amsam" => X Submit X<br>"blue" => X Submit X<br>"amsam" Opened "200"<br>"Anup_R" => X Submit X<br>"blue" Re-opened "100"<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"Avengers" Registered Successfully <br>"dummy" Registered Successfully <br>"dummy" Opened "100"<br>Rules Sent<br>"Baburao" Registered Successfully <br>"Avengers" Opened "100"<br>Rules Sent<br>"Baburao" Opened "100"<br>"harsh" Registered Successfully <br>Rules Sent<br>"hbk" Registered Successfully <br>"VSM" Registered Successfully <br>Rules Sent<br>"harsh" Opened "100"<br>"harsh" => X Submit X<br>"VSM" Opened "100"<br>"ketan_rathod" Registered Successfully <br>"chilkuri" Registered Successfully <br>"ketan_rathod" Opened "100"<br>"ChalkNCheese" Registered Successfully <br>"ChalkNCheese" Opened "100"<br>"chilkuri" Opened "100"<br>"hbk" Opened "100"<br>"asdasd" Registered Successfully <br>Rules Sent<br>"rohpri" Registered Successfully <br>Rules Sent<br>"siddh_piyu" Registered Successfully <br>"Baburao" Submitted "100" For "54.6319"<br>"Baburao" Opened "200"<br>"siddh_piyu" Opened "100"<br>"rohpri" Opened "100"<br>"sidharsh" Registered Successfully <br>"sidharsh" Opened "200"<br>"siddh_piyu" Opened "200"<br>"sidharsh" Opened "100"<br>"VSM" Submitted "100" For "45.0532"<br>"VSM" Opened "200"<br>"ChalkNCheese" Submitted "100" For "48.506"<br>"ChalkNCheese" Re-opened "100"<br>unvailable<br>"ChalkNCheese" Opened "200"<br>"100" => "chilkuri" (Refresh)<br>"100" => "chilkuri" (Refresh)<br>"chilkuri" Re-opened "100"<br>"100" => "ketan_rathod" (Refresh)<br>"Avengers" => Time Up<br>unvailable<br>Rules Sent<br>Rules Sent<br>"Avengers" => X Submit X<br>"100" => "chilkuri" (Refresh)<br>"100" => "chilkuri" (Refresh)<br>"rohpri" Opened "200"<br>Rules Sent<br>"VSM" => Time Up<br>"ferrari" Registered Successfully <br>"ferrari" Opened "100"<br>Rules Sent<br>Rules Sent<br>"siddh_piyu" Re-opened "200"<br>"rohpri" Re-opened "100"<br>"VSM" => X Submit X<br>"siddh_piyu" Submitted "200" For "92.2948"<br>"ChalkNCheese" Submitted "200" For "113.297"<br>Rules Sent<br>"ChalkNCheese" Re-opened "100"<br>unvailable<br>unvailable<br>"rohpri" Re-opened "200"<br>"Baburao" Re-opened "100"<br>"Baburao" => Time Up<br>"Baburao" => X Submit X<br>unvailable<br>"chilkuri" => Time Up<br>"hbk" => Time Up<br>"chilkuri" => X Submit X<br>"ChalkNCheese" Re-opened "100"<br>"ChalkNCheese" => Time Up<br>"chilkuri" Re-opened "100"<br>"VSM" Re-opened "100"<br>"ChalkNCheese" => X Submit X<br>"hbk" => X Submit X<br>Rules Sent<br>"sidharsh" => Time Up<br>"sidharsh" => X Submit X<br>"anan" Registered Successfully <br>"anan" Opened "100"<br>Rules Sent<br>Rules Sent<br>"ferrari" => Time Up<br>Rules Sent<br>"ferrari" => X Submit X<br>Rules Sent<br>"shail" Registered Successfully <br>"shail" Opened "100"<br>"anan" Submitted "100" For "40.4474"<br>"anan" Re-opened "100"<br>"anan" => Time Up<br>"anan" => X Submit X<br>Rules Sent<br>
+Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>Rules Sent<br>"ChalkNCheese" Registered Successfully <br>Rules Sent<br>"Coriolis" Registered Successfully <br>"VSM" Registered Successfully <br>"ChalkNCheese" Opened "300"<br>"VSM" Opened "100"<br>"Coriolis" Opened "300"<br>"tomek" Registered Successfully <br>"tomek" Opened "300"<br>"ShravanSingh" Registered Successfully <br>"ShravanSingh" Opened "500"<br>"crashers" Registered Successfully <br>"beit87" Registered Successfully <br>"KayyumParvez" Registered Successfully <br>"crashers" Opened "300"<br>"beit87" Opened "300"<br>"SameerAshish" Registered Successfully <br>"KayyumParvez" Opened "300"<br>"SameerAshish" Opened "600"<br>Rules Sent<br>"SameerPrasha" Registered Successfully <br>"SameerPrasha" Opened "300"<br>"crashers" Opened "400"<br>"crashers" Re-opened "300"<br>"VSM" Submitted "100" For "86.6946"<br>"VSM" Opened "200"<br>"tomek" Submitted "300" For "238.217"<br>"tomek" Opened "400"<br>"Coriolis" Submitted "300" For "232.619"<br>"Coriolis" Opened "400"<br>"VSM" Submitted "200" For "179.834"<br>"VSM" Opened "500"<br>"KayyumParvez" Submitted "300" For "208.33"<br>"KayyumParvez" Opened "200"<br>"ChalkNCheese" Submitted "300" For "184.176"<br>"ChalkNCheese" Opened "400"<br>"tomek" Submitted "400" For "350.354"<br>"crashers" Submitted "300" For "185.086"<br>"crashers" Re-opened "400"<br>"tomek" Opened "500"<br>"ChalkNCheese" Re-opened "400"<br>"SameerAshish" Opened "300"<br>"beit87" Submitted "300" For "176.858"<br>"beit87" Opened "200"<br>"SameerPrasha" Submitted "300" For "183.766"<br>"SameerPrasha" Opened "200"<br>"Coriolis" Submitted "400" For "331.001"<br>"Coriolis" Opened "800"<br>"KayyumParvez" Submitted "200" For "176.599"<br>"KayyumParvez" Opened "500"<br>"Coriolis" Opened "600"<br>"ShravanSingh" Submitted "500" For "269.309"<br>"ShravanSingh" Opened "400"<br>"ShravanSingh" Opened "800"<br>"KayyumParvez" Opened "800"<br>"ShravanSingh" Re-opened "400"<br>"ShravanSingh" Opened "300"<br>"crashers" Opened "500"<br>"crashers" Re-opened "400"<br>"SameerPrasha" Submitted "200" For "172.92"<br>"SameerPrasha" Opened "500"<br>"crashers" Submitted "400" For "191.611"<br>"crashers" Re-opened "500"<br>"crashers" Opened "800"<br>"crashers" Re-opened "500"<br>"Coriolis" Submitted "600" For "458.144"<br>"Coriolis" Re-opened "800"<br>"ChalkNCheese" Submitted "400" For "256.11"<br>"ChalkNCheese" Opened "500"<br>"crashers" Re-opened "300"<br>"crashers" Re-opened "500"<br>"Coriolis" Re-opened "600"<br>"ChalkNCheese" Opened "800"<br>"beit87" Submitted "200" For "124.736"<br>"beit87" Opened "500"<br>"ChalkNCheese" Re-opened "500"<br>"VSM" Submitted "500" For "256.878"<br>"VSM" Opened "800"<br>"ChalkNCheese" Submitted "500" For "462.051"<br>"ChalkNCheese" Re-opened "800"<br>"SameerAshish" Re-opened "300"<br>"SameerAshish" Opened "200"<br>"Coriolis" Re-opened "800"<br>"ChalkNCheese" Submitted "800" For "656.411"<br>"ChalkNCheese" Re-opened "500"<br>"ChalkNCheese" Re-opened "400"<br>"tomek" Submitted "500" For "239.961"<br>"tomek" Opened "800"<br>"ChalkNCheese" ReSubmitted "400" For "111.773"<br>"ChalkNCheese" Re-opened "500"<br>"ChalkNCheese" Re-opened "400"<br>"ChalkNCheese" Re-opened "400"<br>"ChalkNCheese" Re-opened "400"<br>Rules Sent<br>"ChalkNCheese" Re-opened "500"<br>"crashers" Re-opened "300"<br>"Coriolis" Submitted "800" For "376.988"<br>"Coriolis" Re-opened "600"<br>"Coriolis" ReSubmitted "600" For "179.635"<br>"SameerAshish" Submitted "200" For "161.351"<br>"SameerAshish" Re-opened "600"<br>"VSM" => Time Up<br>"ShravanSingh" Submitted "300" For "148.964"<br>"tomek" => Time Up<br>"ShravanSingh" Re-opened "300"<br>"ShravanSingh" => Time Up<br>"ShravanSingh" => X Submit X<br>unvailable<br>"beit87" Submitted "500" For "348.682"<br>"crashers" => Time Up<br>"KayyumParvez" => Time Up<br>"SameerAshish" Re-opened "600"<br>"SameerAshish" => X Submit X<br>"SameerAshish" => Time Up<br>"ChalkNCheese" Re-opened "400"<br>"ChalkNCheese" => Time Up<br>"ChalkNCheese" => X Submit X<br>"ChalkNCheese" Re-opened "300"<br>unvailable<br>"crashers" => X Submit X<br>unvailable<br>unvailable<br>"crashers" Re-opened "300"<br>unvailable<br>Result => "crashers"<br>Result => "VSM"<br>Result => "crashers"<br>"SameerAshish" Re-opened "300"<br>Result => "SameerAshish"<br>Result => "tomek"<br>Result => "crashers"<br>Result => "ChalkNCheese"<br>unvailable<br>"ShravanSingh" Re-opened "300"<br>unvailable<br>"SameerPrasha" Submitted "500" For "253.158"<br>"ShravanSingh" Re-opened "500"<br>unvailable<br>"SameerPrasha" Re-opened "500"<br>"SameerPrasha" => Time Up<br>"SameerPrasha" => X Submit X<br>Result => "SameerPrasha"<br>Result => "ShravanSingh"<br>Result => "KayyumParvez"<br>"tomek" => X Submit X<br>"ShravanSingh" Re-opened "500"<br>Result => "ShravanSingh"<br>"KayyumParvez" => X Submit X<br>"ShravanSingh" Re-opened "300"<br>Result => "ShravanSingh"<br>"Coriolis" => Time Up<br>"Coriolis" => X Submit X<br>"Coriolis" Re-opened "600"<br>Result => "Coriolis"<br>"VSM" => X Submit X<br>"beit87" Re-opened "300"<br>"beit87" => X Submit X<br>"beit87" => Time Up<br>"beit87" Opened "800"<br>"Coriolis" Re-opened "800"<br>

@@ -1,0 +1,167 @@
+<!DOCTYPE UI><UI version="3.1" stdsetdef="1">
+<class>add</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>add</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>788</width>
+            <height>444</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>Add New Problem</string>
+    </property>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>10</y>
+                <width>99</width>
+                <height>16</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Enter Problem : </string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel3</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>400</x>
+                <y>10</y>
+                <width>77</width>
+                <height>16</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Enter Code :</string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>Load1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>400</y>
+                <width>177</width>
+                <height>29</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Load Problem From File</string>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>Load2</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>600</x>
+                <y>400</y>
+                <width>177</width>
+                <height>29</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Load Code From File</string>
+        </property>
+    </widget>
+    <widget class="QTextEdit">
+        <property name="name">
+            <cstring>ProbText</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>10</x>
+                <y>40</y>
+                <width>380</width>
+                <height>350</height>
+            </rect>
+        </property>
+        <property name="readOnly">
+            <bool>false</bool>
+        </property>
+    </widget>
+    <widget class="QTextEdit">
+        <property name="name">
+            <cstring>Code</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>394</x>
+                <y>40</y>
+                <width>380</width>
+                <height>350</height>
+            </rect>
+        </property>
+        <property name="readOnly">
+            <bool>false</bool>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>Done</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>320</x>
+                <y>400</y>
+                <width>151</width>
+                <height>31</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>&amp;Done</string>
+        </property>
+    </widget>
+</widget>
+<connections>
+    <connection>
+        <sender>Load1</sender>
+        <signal>clicked()</signal>
+        <receiver>add</receiver>
+        <slot>Load1_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>Load2</sender>
+        <signal>clicked()</signal>
+        <receiver>add</receiver>
+        <slot>Load2_clicked()</slot>
+    </connection>
+    <connection>
+        <sender>Done</sender>
+        <signal>clicked()</signal>
+        <receiver>add</receiver>
+        <slot>Done_clicked()</slot>
+    </connection>
+</connections>
+<includes>
+    <include location="local" impldecl="in implementation">add.ui.h</include>
+</includes>
+<slots>
+    <slot>GetPath()</slot>
+    <slot>MsgBox( QString title, QString msg )</slot>
+    <slot>Load1_clicked()</slot>
+    <slot>Load2_clicked()</slot>
+    <slot>Done_clicked()</slot>
+</slots>
+<functions>
+    <function returnType="QString">ReadFile( QString fname )</function>
+    <function access="private" specifier="non virtual">init()</function>
+</functions>
+<pixmapinproject/>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>

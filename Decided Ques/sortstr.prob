@@ -1,0 +1,245 @@
+<ques>
+Problem Statement :
+
+	Your program should sort an array of strings of elements by the length of the elements, longest to shortest.  If multiple Strings have the same length, their relative order in the output should be the same as their relative order in the input.
+	The first input will be the number of strings 'n' followed by n strings.
+Your output should be the n strings in the order mentioned above.
+ 
+Constraints: 
+
+1) n will be between 1 and 50 elements, inclusive.
+2) Each string will between 1 and 50 characters in length, inclusive. 
+3) Strings contain only letters(small and Capital) and numbers.
+
+TimeLimit: 200 ms
+ 
+Examples: 
+ 
+1)
+
+Input: 
+
+6
+Top
+Coder
+comp
+Wedn
+at
+midnight
+ 
+Output:
+
+midnight
+Coder
+comp
+Wedn
+Top
+at 
+ 
+(2)
+
+Input:
+
+3
+one
+three
+five
+ 
+Output:
+
+three
+five
+one 
+ 
+<Source www.topcoder.com>
+</ques>
+<code>
+#include <iostream> 
+
+using namespace std; 
+ 
+void Sort(int* len,char** s,int size) 
+{ 
+    for(int i=0;i<size-1;i++) 
+    { 
+        for(int j=0;j<size-i-1;j++) 
+        { 
+                if(len[j+1]>len[j]) 
+                { 
+                    int temp = len[j]; 
+                    len[j]=len[j+1]; 
+                    len[j+1]=temp; 
+                    char* t = s[j]; 
+                    s[j] = s[j+1]; 
+                    s[j+1] = t; 
+                } 
+        } 
+    } 
+} 
+int main() 
+{ 
+    int n; 
+    cin>>n; 
+    char** s = new (char*)[n]; 
+    int* len = new int[n]; 
+    for(int i=0;i<n;i++) 
+    { 
+        char* temp= new char[51]; 
+        cin>>temp; 
+        s[i]=temp; 
+        len[i] = strlen(s[i]); 
+    } 
+    Sort(len,s,n); 
+     
+    for(int i=0;i<n;i++) 
+    { 
+        cout<<s[i]<<endl; 
+    } 
+       return 0; 
+ 
+} 
+/* 
+ 
+I:{7,"all", "is", "beyond", "the", "edge", "of", "time"} 
+O:{"beyond", "edge", "time", "all", "the", "is", "of"}  	 	Passed  	 
+ 
+I:{7,"space", "is", "a", "legend", "of", "final", "import"} 
+O:{"legend", "import", "space", "final", "is", "of", "a"} 		Passed 	 
+ 
+I:{1,"x"} 
+O:{"x"} 		Passed 	 
+ 
+I:{4,"j", "j", "j", "jj"} 
+O:{"jj", "j", "j", "j"} 		Passed 	 
+ 
+I:{5,"and", "now", "our", "feature", "presentation"} 
+O:{"presentation", "feature", "and", "now", "our"} 		Passed 	 
+ 
+*/
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+7
+all
+is
+beyond
+the
+edge
+of
+time
+</i>
+<o>
+beyond
+edge
+time
+all
+the
+is
+of
+</o>
+<p>
+20
+</p>
+<i>
+7
+space
+is
+a
+legend
+of
+final
+import
+</i>
+<o>
+legend
+import
+space
+final
+is
+of
+a
+</o>
+<p>
+20
+</p>
+<i>
+1
+x
+</i>
+<o>
+x
+</o>
+<p>
+20
+</p>
+<i>
+4
+j
+j
+j
+jj
+</i>
+<o>
+jj
+j
+j
+j
+</o>
+<p>
+20
+</p>
+<i>
+5
+and
+now
+our
+feature
+presentation
+</i>
+<o>
+presentation
+feature
+and
+now
+our
+</o>
+<p>
+20
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+6
+Top
+Coder
+comp
+Wedn
+at
+midnight
+</i>
+<o>
+midnight
+Coder
+comp
+Wedn
+Top
+at
+</o>
+<i>
+3
+one
+two
+three
+</i>
+<o>
+three
+one
+two
+</o>
+</examples>

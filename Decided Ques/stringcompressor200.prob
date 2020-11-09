@@ -1,0 +1,176 @@
+<ques>
+Problem Statement:
+
+	You have been assigned a task to design a compressed file system. Inorder to reduce the overhead of compressing a file, a simple and fast string compresser is needed.Though the following algorithm doesn't provide higher levels of compression , it is quick and simple.
+	The algorithm simply replaces all successively duplicated letters in a string with a number that is the number of duplications followed by the repeated character.
+	Write a program to implement this simple algorithm.The input will be a string 's'.The output must be the compressed string.
+
+Note:
+
+1>	your  compressor must be case sensative,i.e,  'A' is a different character than 'a'.
+2>	Single letters (whose neighbors are not duplicates of itself) are left alone.
+3> 	The max number of repetitions of a character is 9.
+
+Constraints:
+
+1>	The input string can contain upto 100 letters.
+2> 	Each character is a lowercase or capital letter ('a' - 'z' or 'A' - 'Z').
+
+Time Limit: 200 ms
+
+Examples:
+
+(1)
+Input:AAAABBBBCDDDDDD
+Output:4A4BC6D
+
+(2)
+Input:SDFJaAAAAaaaass
+Output:SDFJa4A4a2s
+
+(3)
+Input:AAAAAAAAAf
+Output:9Af
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <strstream.h>
+#include <string>
+
+using namespace std ;
+
+int main ()
+{
+    string s;
+    cin>>s;
+   string op;
+    int i=0;
+    while(1)
+    {
+        char c=s.at(i);
+        int count =1;
+        while(i+1 <s.length() && s.at(i+1)==c)
+        {
+             count ++;
+             i++;
+        }     
+        if(count >1)
+        {
+                strstream ss;
+                ss<<count ;
+                string strcount ;
+                ss>>strcount ;
+                op +=strcount+c;
+        }
+        else
+                op += c;
+        i++;        
+        if(i==s.length())
+                break;
+ 	}   
+    cout << op;
+    return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</i>
+<o>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</o>
+<p>
+12
+</p>
+<i>
+A
+</i>
+<o>
+A
+</o>
+<p>
+12
+</p>
+<i>
+AaBbCcDdEe
+</i>
+<o>
+AaBbCcDdEe
+</o>
+<p>
+12
+</p>
+<i>
+
+</i>
+<o>
+
+</o>
+<p>
+12
+</p>
+<i>
+abcAbc
+</i>
+<o>
+abcAbc
+</o>
+<p>
+12
+</p>
+<i>
+aaAAdaddd
+</i>
+<o>
+2a2Ada3d
+</o>
+<p>
+12
+</p>
+<i>
+abcdaacccc
+</i>
+<o>
+abcd2a4c
+</o>
+<p>
+12
+</p>
+<i>
+zxxxxxxxxxzz
+</i>
+<o>
+z9x2z
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+AAAABBBBCDDDDDD
+</i>
+<o>
+4A4BC6D
+</o>
+<i>
+SDFJaAAAAaaaass
+</i>
+<o>
+SDFJa4A4a2s
+</o>
+<i>
+AAAAAAAAAf
+</i>
+<o>
+9Af
+</o>
+</examples>

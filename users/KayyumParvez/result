@@ -1,0 +1,482 @@
+
+Testing 300 Point Problem ......
+Submitted For : 208.33
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 33.3328
+TimeTaken : 7 msecs
+
+Test Case 2 : Correct :-)
+Score : 35.4161
+TimeTaken : 0 msecs
+
+Test Case 3 : Correct :-)
+Score : 35.4161
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 35.4161
+TimeTaken : 2 msecs
+
+Test Case 5 : Correct :-)
+Score : 35.4161
+TimeTaken : 1 msecs
+
+Test Case 6 : Correct :-)
+Score : 33.3328
+TimeTaken : 1 msecs
+
+Total Score For 300 Point Problem : 208.33
+
+------------------------------------------------------------
+
+Testing 200 Point Problem ......
+Submitted For : 176.599
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 7.06396
+TimeTaken : 5 msecs
+
+Test Case 2 : Correct :-)
+Score : 7.06396
+TimeTaken : 1 msecs
+
+Test Case 3 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 4 : Correct :-)
+Score : 7.06396
+TimeTaken : 2 msecs
+
+Test Case 5 : Incorrect :(
+
+Input : 
+
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Program Output : 
+
+IHOSIOTCHEDMYKEYCAPSAROUND
+
+Required Output : 
+
+WHOSWITCHEDMYKEYCAPSAROUND
+
+Score : 0
+
+Test Case 6 : Incorrect :(
+
+Input : 
+
+WHUTSWETHTHATYPIS
+4
+A:E
+A:I
+A:O
+A:U
+
+Program Output : 
+
+WHUTSWETHTHETYPIS
+
+Required Output : 
+
+WHATSWITHTHETYPOS
+
+Score : 0
+
+Test Case 7 : Incorrect :(
+
+Input : 
+
+AGAMEMNON
+2
+A:B
+M:N
+
+Program Output : 
+
+BGBNENNON
+
+Required Output : 
+
+BGBNENMOM
+
+Score : 0
+
+Test Case 8 : Incorrect :(
+
+Input : 
+
+AGKKSLEKAMMSNEOWPPDOSIMED
+7
+A:K
+S:K
+A:E
+P:D
+D:M
+L:E
+N:W
+
+Program Output : 
+
+KGKKKEEKKMMKWEOWMMMOKIMEM
+
+Required Output : 
+
+SGLLKEALSDDKWAONMMPOKIDAP
+
+Score : 0
+
+Test Case 9 : Incorrect :(
+
+Input : 
+
+LRUNPSTFDJOGY
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+LPPMPLPLLLPLP
+
+Required Output : 
+
+KEYBOARDSHIFT
+
+Score : 0
+
+Test Case 10 : Incorrect :(
+
+Input : 
+
+ERJSBRNRRMDJOGYRFYPYJRTOHJYDOFR
+23
+K:L
+J:L
+H:L
+G:L
+F:L
+D:L
+S:L
+A:L
+O:P
+I:P
+U:P
+Y:P
+T:P
+R:P
+E:P
+W:P
+Q:P
+N:M
+B:M
+V:M
+C:M
+X:M
+Z:M
+
+Program Output : 
+
+PPLLMPMPPMLLPLPPLPPPLPPPLLPLPLP
+
+Required Output : 
+
+WEHAVEBEENSHIFTEDTOTHERIGHTSIDE
+
+Score : 0
+
+Test Case 11 : Incorrect :(
+
+Input : 
+
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+25
+A:B
+B:C
+C:D
+D:E
+E:F
+F:G
+G:H
+H:I
+I:J
+J:K
+K:L
+L:M
+M:N
+N:O
+O:P
+P:Q
+Q:R
+R:S
+S:T
+T:U
+U:V
+V:W
+W:X
+X:Y
+Y:Z
+
+Program Output : 
+
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+
+Required Output : 
+
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+
+Score : 0
+
+Test Case 12 : Incorrect :(
+
+Input : 
+
+DUDQXSGHMFRGNTKCADSGDOQDUHNTRKDSSDQ
+25
+Z:Y
+Y:X
+X:W
+W:V
+V:U
+U:T
+T:S
+S:R
+R:Q
+Q:P
+P:O
+O:N
+N:M
+M:L
+L:K
+K:J
+J:I
+I:H
+H:G
+G:F
+F:E
+E:D
+D:C
+C:B
+B:A
+
+Program Output : 
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Required Output : 
+
+EVERYTHINGSHOULDBETHEPREVIOUSLETTER
+
+Score : 0
+
+Test Case 13 : Incorrect :(
+
+Input : 
+
+AGSGEMMZMZMXPOVQJEWYTMZ
+1
+A:E
+
+Program Output : 
+
+EGSGEMMZMZMXPOVQJEWYTMZ
+
+Required Output : 
+
+EGSGAMMZMZMXPOVQJAWYTMZ
+
+Score : 0
+
+Test Case 14 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 15 : Correct :-)
+Score : 7.06396
+TimeTaken : 1 msecs
+
+Test Case 16 : Incorrect :(
+
+Input : 
+
+ABC
+2
+A:B
+B:C
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+CAB
+
+Score : 0
+
+Test Case 17 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 18 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+A:B
+B:C
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+ACB
+
+Score : 0
+
+Test Case 19 : Incorrect :(
+
+Input : 
+
+ABC
+3
+A:B
+B:C
+A:B
+
+Program Output : 
+
+CCC
+
+Required Output : 
+
+CBA
+
+Score : 0
+
+Test Case 20 : Incorrect :(
+
+Input : 
+
+TESTESTEST
+3
+E:S
+E:S
+T:E
+
+Program Output : 
+
+SSSSSSSSSS
+
+Required Output : 
+
+ETSETSETSE
+
+Score : 0
+
+Test Case 21 : Incorrect :(
+
+Input : 
+
+IHWSIOTCHEDMYKEYCAPSARWUND
+2
+W:O
+W:I
+
+Program Output : 
+
+IHOSIOTCHEDMYKEYCAPSAROUND
+
+Required Output : 
+
+WHOSWITCHEDMYKEYCAPSAROUND
+
+Score : 0
+
+Test Case 22 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 23 : Incorrect :(
+
+Input : 
+
+AC
+1
+A:C
+
+Program Output : 
+
+CC
+
+Required Output : 
+
+CA
+
+Score : 0
+
+Test Case 24 : Incorrect :(
+
+Input : 
+
+QQQ
+4
+A:B
+B:Q
+A:R
+B:R
+
+Program Output : 
+
+QQQ
+
+Required Output : 
+
+RRR
+
+Score : 0
+
+Test Case 25 : Correct :-)
+Score : 7.06396
+TimeTaken : 2 msecs
+
+Output for 20 Test Cases were WRONG !!!
+
+Total Score For 200 Point Problem : 7.27273 ( Instead Of 35.3198 )
+
+......................................................................
+
+Total Score Of Team KayyumParvez : 215.603

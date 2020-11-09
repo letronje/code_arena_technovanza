@@ -1,0 +1,42 @@
+Problem Statement:
+
+	A river houses two breeds of frogs on either side of its banks. The black frogs live on the left bank while the white frogs live in the right bank. The frogs have decided to migrate to the other bank. Since the water current is very strong, the only way of crossing the river is to use a bridge which is in the form of a sequence of equally spaced stones.
+ 	There are m black, m white frogs and 2m+1 stones. The black frogs are sitting on m stones to the left while the white ones are sitting on m stones to the right , leaving the centre stone unoccupied. The black frogs always jump towards right and white frogs towards left. A frog can only jump to the adjacent stone (if it is empty) or the stone after that (provided the adjacent stone is occupied by a frog of the opposite color). A frog will never jump over a frog of its own color. Finally, after migrating, the black frogs occupy the m right stones and white frogs occupy m left stones, leaving the centre stone empty once again.
+	A white frog is represented by 'W' and a black frog is represented by 'B'. An empty stone is represented by '_' (underscore). 
+	The input to your program will be value m. Assuming that the black frog to the left of the center stone jumped to the center stone first, your program must output the position of the frogs after each jump. Each step is to be output on a new line.(See Examples)
+	For example if m=2, then, the output must start with the step: BB_WW ( Initial Position ) followed by B_BWW on the next line and so on. The final step must be WW_BB ( Final Position after migration). 
+
+Constraints:
+
+1> 'm' will be between 1 and 15, both inclusive
+
+Time Limit: 700 ms.
+
+Examples:
+
+(1)
+
+Input:
+1
+
+Output:
+B_W
+_BW
+WB_
+W_B
+
+(2)
+
+Input:
+2
+
+Output:
+BB_WW
+B_BWW
+BWB_W
+BWBW_
+BW_WB
+_WBWB
+W_BWB
+WWB_B
+WW_BB

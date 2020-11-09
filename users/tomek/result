@@ -1,0 +1,307 @@
+
+Testing 300 Point Problem ......
+Submitted For : 238.217
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 38.1147
+TimeTaken : 8 msecs
+
+Test Case 2 : Correct :-)
+Score : 40.4969
+TimeTaken : 1 msecs
+
+Test Case 3 : Correct :-)
+Score : 40.4969
+TimeTaken : 2 msecs
+
+Test Case 4 : Correct :-)
+Score : 40.4969
+TimeTaken : 2 msecs
+
+Test Case 5 : Correct :-)
+Score : 40.4969
+TimeTaken : 1 msecs
+
+Test Case 6 : Correct :-)
+Score : 38.1147
+TimeTaken : 1 msecs
+
+Total Score For 300 Point Problem : 238.217
+
+------------------------------------------------------------
+
+Testing 400 Point Problem ......
+Submitted For : 350.354
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 42.0425
+TimeTaken : 6 msecs
+
+Test Case 2 : Correct :-)
+Score : 42.0425
+TimeTaken : 1 msecs
+
+Test Case 3 : Correct :-)
+Score : 42.0425
+TimeTaken : 1 msecs
+
+Test Case 4 : Correct :-)
+Score : 42.0425
+TimeTaken : 1 msecs
+
+Test Case 5 : Correct :-)
+Score : 42.0425
+TimeTaken : 1 msecs
+
+Test Case 6 : Correct :-)
+Score : 42.0425
+TimeTaken : 2 msecs
+
+Test Case 7 : Correct :-)
+Score : 42.0425
+TimeTaken : 1 msecs
+
+Test Case 8 : Correct :-)
+Score : 56.0566
+TimeTaken : 1 msecs
+
+Total Score For 400 Point Problem : 350.354
+
+------------------------------------------------------------
+
+Testing 500 Point Problem ......
+Submitted For : 239.961
+TimeLimit: 200 msecs
+
+Test Case 1 : Correct :-)
+Score : 7.19883
+TimeTaken : 5 msecs
+
+Test Case 2 : Correct :-)
+Score : 7.19883
+TimeTaken : 2 msecs
+
+Test Case 3 : Correct :-)
+Score : 7.19883
+TimeTaken : 16 msecs
+
+Test Case 4 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 5 : Correct :-)
+Score : 7.19883
+TimeTaken : 2 msecs
+
+Test Case 6 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 7 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 8 : Correct :-)
+Score : 7.19883
+TimeTaken : 3 msecs
+
+Test Case 9 : Correct :-)
+Score : 7.19883
+TimeTaken : 73 msecs
+
+Test Case 10 : Correct :-)
+Score : 7.19883
+TimeTaken : 75 msecs
+
+Test Case 11 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 12 : Correct :-)
+Score : 7.19883
+TimeTaken : 2 msecs
+
+Test Case 13 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 14 : Correct :-)
+Score : 7.19883
+TimeTaken : 2 msecs
+
+Test Case 15 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 16 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 17 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 18 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 19 : Incorrect :(
+
+Input : 
+
+50
+A
+AA
+AAA
+AAAA
+AAAAA
+AAAAAA
+AAAAAAA
+AAAAAAAA
+AAAAAAAAA
+AAAAAAAAAA
+AAAAAAAAAAA
+AAAAAAAAAAAA
+AAAAAAAAAAAAA
+AAAAAAAAAAAAAA 
+AAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Program Output : 
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 20 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 21 : Correct :-)
+Score : 7.19883
+TimeTaken : 3 msecs
+
+Test Case 22 : Incorrect :(
+
+Input : 
+
+3 AB CD ABCD ABCD
+
+Program Output : 
+
+ABCD
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 23 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 24 : Correct :-)
+Score : 7.19883
+TimeTaken : 3 msecs
+
+Test Case 25 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 26 : 
+Process Timed Out , .'. Killed :-(
+Score : 0
+
+Test Case 27 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 28 : Correct :-)
+Score : 7.19883
+TimeTaken : 1 msecs
+
+Test Case 29 : Incorrect :(
+
+Input : 
+
+3 AB C ABC ABC
+
+Program Output : 
+
+ABC
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Test Case 30 : Correct :-)
+Score : 7.19883
+TimeTaken : 2 msecs
+
+Test Case 31 : Incorrect :(
+
+Input : 
+
+3 HI H I HI
+
+Program Output : 
+
+HI
+
+Required Output : 
+
+AMBIGUOUS!
+
+Score : 0
+
+Output for 9 Test Cases were WRONG !!!
+
+Total Score For 500 Point Problem : 24 ( Instead Of 158.374 )
+
+......................................................................
+
+Total Score Of Team tomek : 612.571

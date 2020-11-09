@@ -1,0 +1,73 @@
+Problem Statement
+    It is a common practice in cryptography to remove the spaces from a message before encoding it to help to disguise its structure. Even after it is then decoded, we are left with the problem of putting the spaces back in the message.
+
+	The program will take as input , an array of string( dictionary of possible words ) and a string message. It returns the message with single spaces inserted to divide the message into words from the dictionary. If there is more than one way to insert spaces, it returns "AMBIGUOUS!" If there is no way to insert spaces, it returns "IMPOSSIBLE!" The return should never have any leading or trailing spaces.
+	The first line of the input will be 'n',the size of the array followed by n strings.
+
+Notes
+- Don't forget the '!' at the end of the two special returns
+- A proper message may require 0 spaces to be inserted
+
+Constraints:
+
+- dictionary will contain between 1 and 50 elements inclusive
+- the elements of dictionary will be distinct
+- each element of dictionary will contain between 1 and 50 characters
+- message will contain between 1 and 50 characters
+- every character in message and in each element of dictionary will be an uppercase letter 'A'-'Z'
+
+Time Limit: 200 ms
+
+Examples:
+
+1)
+Input:
+3
+HI
+YOU
+SAY
+HIYOUSAYHI
+
+Output: HI YOU SAY HI
+
+A word from dictionary may appear multiple times in the message.
+
+2)
+Input:
+4
+ABC
+BCD
+CD
+ABCB
+ABCBCD
+
+Output: AMBIGUOUS!
+
+"ABC BCD" and "ABCB CD" are both possible interpretations of message.
+
+3)
+Input:   
+3
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+
+Output: IMPOSSIBLE!
+
+There is no way to concatenate words from this dictionary to form "IMPOSSIBLE"
+
+4)
+Input:
+4
+IMPOSS
+SIBLE
+S
+IMPOSSIBLE
+IMPOSSIBLE
+
+Output: IMPOSSIBLE
+
+This message can be decoded without ambiguity. This requires the insertion of no spaces since the entire message appears as a word in the dictionary.
+
+<Source: www.topcoder.com >

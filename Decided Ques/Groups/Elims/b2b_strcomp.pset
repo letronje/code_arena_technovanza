@@ -1,0 +1,378 @@
+<g>
+<pname>
+100
+</pname>
+<ques>
+Problem Statement:
+
+	In 2029, Discovery landed on Mars. The leader of the mission, Dr.Neil Armstrong IIJunior stepped out and set his foot on the red martian surface. But instead of repeating his father's famous remark, he gave a cry of surprise and fear. For he had been confronted by three green, ugly looking dwarf-like creatures !!! The friendly Martians took the astronauts to their city. During their stay on Mars, they found out that the Martians were quite eager to communicate with them. Though their language was quite different,the astronauts realised that their number system was quite similar to ours.The only difference was that they used a  different base (base is the number of unique digits in a number system for eg. decimal number system has a base of 10 ) because they had only 3 fingers.
+	Now, the NASA scientists have establised a radio communication with the Martians. But in order to send data to Mars, they have to convert numbers from decimal system to their system.
+	 Your task is to write a program which can convert a number from decimal system to any other base.
+	
+Note:
+
+1) The input will consist of the number 'n' and the base 'b' to which n is to be converted.
+
+Constraints:
+
+1) n will be between 0 and 1023 both inclusive.
+2) n will an integer.
+3) b will be between 2 and 9 both inclusive.
+
+Time Limit: 200 msecs
+
+Examples:
+
+1) 
+
+Input : 32 2
+	
+Output: 100000
+
+Explanation: 32 is represented as 100000 in binary system ( base 2 )
+
+2)
+
+Input : 54 5
+   
+Output: 204
+
+Explanation: 54 in decimal is equivalent to 204 in base 5. 
+
+<< Source : Our imagination :) >>
+</ques>
+<code>
+# include <iostream>
+# include <string>
+
+using namespace std;
+
+int main()
+{
+  	int n,b;
+   	cin>>n>>b;
+    	
+	int ans=0;
+	int i=0;
+    
+    while(n !=0)
+    {
+        ans+= (n%b)*(int)pow(10.0,i++);
+        n/=b;
+    }
+    cout<<ans;
+    return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+1023 2
+</i>
+<o>
+1111111111
+</o>
+<p>
+8
+</p>
+<i>
+1023 3
+</i>
+<o>
+1101220
+</o>
+<p>
+8
+</p>
+<i>
+1023 4
+</i>
+<o>
+33333
+</o>
+<p>
+8
+</p>
+<i>
+1023 5
+</i>
+<o>
+13043
+</o>
+<p>
+8
+</p>
+<i>
+1023 6
+</i>
+<o>
+4423
+</o>
+<p>
+8
+</p>
+<i>
+1023 7
+</i>
+<o>
+2661
+</o>
+<p>
+8
+</p>
+<i>
+1023 8
+</i>
+<o>
+1777
+</o>
+<p>
+8
+</p>
+<i>
+1023 9
+</i>
+<o>
+1356
+</o>
+<p>
+8
+</p>
+<i>
+9 2
+</i>
+<o>
+1001
+</o>
+<p>
+8
+</p>
+<i>
+9 9
+</i>
+<o>
+10
+</o>
+<p>
+8
+</p>
+<i>
+0 3
+</i>
+<o>
+0
+</o>
+<p>
+8
+</p>
+<i>
+200 7
+</i>
+<o>
+404
+</o>
+<p>
+12
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+32 2
+</i>
+<o>
+100000
+</o>
+<i>
+54 5
+</i>
+<o>
+204
+</o>
+</examples>
+</g>
+<g>
+<pname>
+200
+</pname>
+<ques>
+Problem Statement:
+
+	You have been assigned a task to design a compressed file system. Inorder to reduce the overhead of compressing a file, a simple and fast string compresser is needed.Though the following algorithm doesn't provide higher levels of compression , it is quick and simple.
+	The algorithm simply replaces all successively duplicated letters in a string with a number that is the number of duplications followed by the repeated character.
+	Write a program to implement this simple algorithm.The input will be a string 's'.The output must be the compressed string.
+
+Note:
+
+1>	your  compressor must be case sensative,i.e,  'A' is a different character than 'a'.
+2>	Single letters (whose neighbors are not duplicates of itself) are left alone.
+3> 	The max number of repetitions of a character is 9.
+
+Constraints:
+
+1>	The input string can contain upto 100 letters.
+2> 	Each character is a lowercase or capital letter ('a' - 'z' or 'A' - 'Z').
+
+Time Limit: 200 ms
+
+Examples:
+
+(1)
+Input:AAAABBBBCDDDDDD
+Output:4A4BC6D
+
+(2)
+Input:SDFJaAAAAaaaass
+Output:SDFJa4A4a2s
+
+(3)
+Input:AAAAAAAAAf
+Output:9Af
+
+<Source: www.topcoder.com >
+</ques>
+<code>
+#include <iostream>
+#include <strstream.h>
+#include <string>
+
+using namespace std ;
+
+int main ()
+{
+    string s;
+    cin>>s;
+   string op;
+    int i=0;
+    while(1)
+    {
+        char c=s.at(i);
+        int count =1;
+        while(i+1 <s.length() && s.at(i+1)==c)
+        {
+             count ++;
+             i++;
+        }     
+        if(count >1)
+        {
+                strstream ss;
+                ss<<count ;
+                string strcount ;
+                ss>>strcount ;
+                op +=strcount+c;
+        }
+        else
+                op += c;
+        i++;        
+        if(i==s.length())
+                break;
+ 	}   
+    cout << op;
+    return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</i>
+<o>
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+</o>
+<p>
+12
+</p>
+<i>
+A
+</i>
+<o>
+A
+</o>
+<p>
+12
+</p>
+<i>
+AaBbCcDdEe
+</i>
+<o>
+AaBbCcDdEe
+</o>
+<p>
+12
+</p>
+<i>
+
+</i>
+<o>
+
+</o>
+<p>
+12
+</p>
+<i>
+abcAbc
+</i>
+<o>
+abcAbc
+</o>
+<p>
+12
+</p>
+<i>
+aaAAdaddd
+</i>
+<o>
+2a2Ada3d
+</o>
+<p>
+12
+</p>
+<i>
+abcdaacccc
+</i>
+<o>
+abcd2a4c
+</o>
+<p>
+12
+</p>
+<i>
+zxxxxxxxxxzz
+</i>
+<o>
+z9x2z
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+AAAABBBBCDDDDDD
+</i>
+<o>
+4A4BC6D
+</o>
+<i>
+SDFJaAAAAaaaass
+</i>
+<o>
+SDFJa4A4a2s
+</o>
+<i>
+AAAAAAAAAf
+</i>
+<o>
+9Af
+</o>
+</examples>
+</g>

@@ -1,0 +1,63 @@
+Problem Statement:
+
+	Millions of people around the world are finding that a day isn't complete without tackling the latest edition of a simple puzzle called Sudoku. Sudoku means "single number" in Japanese.
+	The puzzle typically consists of a nine-by-nine grid . Some of the spaces contain numbers; most of the spaces are blank. Your goal is to fill in the blanks with digits from 1 to 9 so that each row, each column, and each of the nine three-by-three blocks making up the grid contains exactly one of each of the nine digits.You have to write a program which can solve such a puzzle .
+	The input to your program will the incomplete 9 by 9 grid in the from of 9 strings on 9 lines , with each string representing a row . A zero '0' indicates an empty space, which is to be filled with an appropriate digit.Your program must output the solved puzzle in the form of 9 string on 9 lines without any underscores.
+
+TimeLimit: 700 msecs
+
+Examples:
+
+1)
+
+Input:
+
+006300050
+700609320
+000070000
+300485000
+010000090
+000791008
+000040000
+043902001
+060003500
+
+Output:
+
+496328157
+781659324
+235174689
+379485216
+814236795
+652791438
+128547963
+543962871
+967813542
+
+2)
+
+Input:
+
+005904060
+040500001
+902000000
+009000008
+800305007
+100000500
+000000206
+300009070
+090807400
+
+Output:
+
+785914362
+643572981
+912638754
+259741638
+864395127
+137286549
+478153296
+321469875
+596827413
+
+<Source : All the Newspapers >

@@ -1,0 +1,177 @@
+<ques>
+Problem Statement:
+
+	Heard of the Kaprekar's constant ? Here's how you can calculate it.
+Take any four digit number (whose digits are not all identical),say, 3141.Then do the following:
+
+(1)	Rearrange the digits to form the largest and smallest 4-digit numbers possible.
+(2) Take these two numbers and subtract the smaller number from the larger.
+(3) Use the number you obtain and repeat the above process.   
+
+,i.e, 4311-1134=3177 , 7731-1377=6354 ...... and so on 
+
+	After some steps, you will get a number X . If you apply the above procedure on X , you will get back X . This number is called the Kaprekar's constant.
+	The input to your program will be a 4 digit number 'n' . You program must output the no of steps taken to reach X.
+
+Constraints:
+
+(1) n will be between 1000 and 9998, both  inclusive
+
+Time Limit: 200 msecs
+
+Examples:
+
+(1) 
+Input : 1004
+
+Output	 : 7
+
+Explanation : 1004 => 4086 => 8172 => 7443 ...  X
+	
+(2) 
+Input : 1000
+
+Output	 : 5
+
+Explanation : 1000 => 0999 => 8991 ... X
+</ques>
+<code>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <strstream.h>
+
+using namespace std ;
+
+string Asc(string s)
+{
+	sort(s.begin(),s.end());
+	return s;
+}
+string Desc(string s)
+{
+	sort(s.begin(),s.end());
+	reverse(s.begin(),s.end());
+	return s;
+}
+
+int ToInt(string s)
+{
+	strstream ss;
+	ss<<s;
+	int si;
+	ss>>si;
+	return si;	
+}
+int main ()
+{
+	string s;
+	cin>>s;
+	int i,ctr=0;
+ 	while( ( i = ToInt(Desc(s)) - ToInt(Asc(s)) ) != ToInt(s) )  
+	{
+		strstream ss;
+		ss<<i;
+		ss>>s;
+		if(s.length() !=4)
+			s=string(4-s.length(),'0')+s;
+		ctr++;
+	}
+	cout << ctr ;
+	return 0;
+}
+</code>
+<cases>
+<tl>
+200
+</tl>
+<i>
+9998
+</i>
+<o>
+5
+</o>
+<p>
+16
+</p>
+<i>
+1004
+</i>
+<o>
+7
+</o>
+<p>
+12
+</p>
+<i>
+1000
+</i>
+<o>
+5
+</o>
+<p>
+12
+</p>
+<i>
+1674
+</i>
+<o>
+1
+</o>
+<p>
+14
+</p>
+<i>
+6174
+</i>
+<o>
+0
+</o>
+<p>
+14
+</p>
+<i>
+9997
+</i>
+<o>
+4
+</o>
+<p>
+12
+</p>
+<i>
+1234
+</i>
+<o>
+3
+</o>
+<p>
+4
+</p>
+<i>
+9990
+</i>
+<o>
+4
+</o>
+<p>
+16
+</p>
+</cases>
+<examples>
+<tl>
+200
+</tl>
+<i>
+1004
+</i>
+<o>
+7
+</o>
+<i>
+1000
+</i>
+<o>
+5
+</o>
+</examples>
